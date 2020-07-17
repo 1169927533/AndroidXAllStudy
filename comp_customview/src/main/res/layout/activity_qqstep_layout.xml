@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.example.a11699.comp_customview.stepview.QQStepView
+        android:id="@+id/qqstepview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:outColor="#dfffee11"
+        app:innerColor="#000000"
+        app:borderWidth="20dp"
+        app:stepTextColor="#dfffee11"
+        app:stepTextSize="40dp"
+        />
+</LinearLayout>

@@ -1,0 +1,36 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="Transparent" parent="AppTheme.TransStatus">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="AppTheme.TransStatus">
+        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>
+        <item name="android:windowTranslucentNavigation" tools:targetApi="kitkat">true</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/transparent</item>
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="lollipop">false</item>
+    </style>
+    <!--底部导航栏-->
+    <declare-styleable name="NavigationVieww">
+        <attr name="image_height" format="dimension" />
+        <attr name="image_width" format="dimension" />
+        <attr name="text_size" format="dimension" />
+        <attr name="text_selectcolor" format="color" />
+        <attr name="text_noneselectcolor" format="color" />
+        <attr name="text_image_margintop" format="dimension" />
+        <attr name="image_center_height" format="dimension" />
+        <attr name="image_center_width" format="dimension" />
+        <attr name="img_item_height" format="dimension"></attr>
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/btn_startanimal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pair_img_bg"
+    tools:context=".cunstombarrage.BarrageActivity">
+    <ImageView
+        android:id="@+id/img_animal"
+        android:layout_width="168dp"
+        android:layout_height="168dp"
+        android:background="@drawable/circle_radiue_translate"
+        app:layout_constraintBottom_toBottomOf="@+id/img"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/img" />
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="118dp"
+        android:layout_height="118dp"
+        android:layout_marginTop="85dp"
+        android:background="@drawable/pair_img_searching"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:layout_width="152dp"
+        android:layout_height="36dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginBottom="34dp"
+        android:background="@drawable/button_bg"
+        android:text="话题选择"
+        android:textColor="#ffb54cca"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/vv" />
+
+    <View
+        android:id="@+id/vv"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"></View>
+
+    <Button
+        android:layout_width="152dp"
+
+        android:layout_height="36dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginBottom="34dp"
+        android:background="@drawable/button_bg"
+        android:text="随便聊聊"
+        android:textColor="#ffb54cca"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/vv" />
+
+    <TextView
+        android:layout_width="96dp"
+        android:layout_height="14dp"
+        android:layout_marginBottom="10dp"
+        android:text="今天还有3次匹配机会"
+        android:textColor="#ffffffff"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

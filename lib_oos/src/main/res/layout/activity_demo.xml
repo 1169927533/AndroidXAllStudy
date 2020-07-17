@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.a11699.activity.DemoActivity">
+
+
+    <Button
+        android:id="@+id/btn_initOss"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Oss初始化配置"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/btn_putimg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="上传照片"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_initOss" />
+    <Button
+        android:id="@+id/btn_getimg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="获取文件信息"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_putimg" />
+</androidx.constraintlayout.widget.ConstraintLayout>

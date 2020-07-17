@@ -1,0 +1,20 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation files('libs/lib/commons-codec-1.9.jar')
+    implementation files('libs/lib/commons-logging-1.2.jar')
+    implementation files('libs/lib/hamcrest-core-1.1.jar')
+    implementation files('libs/lib/httpclient-4.4.1.jar')
+    implementation files('libs/lib/httpcore-4.4.1.jar')
+    implementation files('libs/lib/jdom-1.1.jar')
+    implementation files('libs/aliyun-sdk-oss-3.8.0.jar')
+
+
+
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"

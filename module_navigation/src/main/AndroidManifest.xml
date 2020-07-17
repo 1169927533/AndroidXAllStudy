@@ -1,0 +1,6 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.a11699.module_navigation" >
+    <application>
+        <activity android:name="com.example.a11699.activity.NavigationActivity"/>
+    </application>
+</manifest>

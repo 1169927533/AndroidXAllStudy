@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="20dp"
+    android:orientation="vertical">
+
+
+
+
+
+    <View
+        android:id="@+id/viewSecondColor"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/shape_beauty_seek_bgcolor" />
+
+
+
+    <View
+        android:id="@+id/viewFirstColor"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/shape_beauty_seek_firstcolor" />
+
+
+    <TextView
+        android:id="@+id/isb_progress"
+        android:layout_width="34dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/shape_beauty_seek_thumb"
+        android:text="0"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="12sp" />
+</FrameLayout>
