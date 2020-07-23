@@ -1,18 +1,18 @@
 package com.example.a11699.comp_viewmodel.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-
-import androidx.lifecycle.ViewModel
+import android.util.Log
+import androidx.lifecycle.*
 
 /**
  *Create time 2020/7/14
  *Create Yu
  *description:
  */
-class MyViewModel(args: Int) : ViewModel() {
+class MyViewModel(args: Int) : ViewModel()  {
     var args = args
-
+    val numLiveData by lazy {
+        MutableLiveData<Int>()
+    }
 
     private val users: MutableLiveData<List<String>> by lazy {
         loadUsers()
@@ -25,6 +25,8 @@ class MyViewModel(args: Int) : ViewModel() {
     private fun loadUsers(): MutableLiveData<List<String>> {
         return MutableLiveData()
     }
+
+
 }
 
 

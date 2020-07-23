@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 
@@ -19,13 +20,20 @@ import kotlinx.coroutines.GlobalScope
  *description:
  */
 class ViewModelStudyActivity : AppCompatActivity() {
+    lateinit var viewmodel: MyViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_viewmodelstudy)
+        viewmodel = ViewModelProvider(this, MyViewModelFactory(10)).get(MyViewModel::class.java)
         btn_myviewmodel.setOnClickListener {
-            var viewmodel = ViewModelProvider(this, MyViewModelFactory(10)).get(MyViewModel::class.java)
-            textView.setText("自定义构造函数里的值"+viewmodel.args)
-
+            textView.setText("自定义构造函数里的值" + viewmodel.args)
         }
+        initData()
+    }
+
+    private fun initData() {
+        viewmodel.numLiveData.observe(this, Observer {
+
+        })
     }
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.example.a11699.androidxallstudy.sendgift.view.CoutDownView
+        android:id="@+id/countdownview"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:paintColor="#ff0022"
+        app:paintWidth="5dp"
+        app:testIn="Combo"
+        app:testTimeSize="20dp"
+        app:testSize="20dp"
+        app:radius="49dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

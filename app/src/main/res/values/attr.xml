@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="countdownview">
+        <attr name="radius" format="dimension" />
+        <attr name="paintWidth" format="dimension" />
+        <attr name="paintColor" format="color" />
+
+        <attr name="testIn" format="string" />
+        <attr name="testTimeSize" format="dimension" />
+        <attr name="testSize" format="dimension" />
+        <attr name="paintInColor" format="color" />
+        <attr name="testInColor" format="color" />
+    </declare-styleable>
+</resources>

@@ -1,8 +1,7 @@
 package com.example.a11699.androidxallstudy
 
 import android.os.Bundle
-import android.util.Log
-import android.view.MotionEvent
+
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.a11699.activity.NavigationActivity
@@ -10,11 +9,13 @@ import com.example.a11699.androidxallstudy.botomtab.BottomTabActivity
 import com.example.a11699.androidxallstudy.cunstombarrage.BarrageActivity
 import com.example.a11699.androidxallstudy.ossstudy.OssStudyActivity
 import com.example.a11699.androidxallstudy.permissionstudy.PermissionStudyActivity
+import com.example.a11699.androidxallstudy.sendgift.SendGiftActivity
 import com.example.a11699.androidxallstudy.util.startActivity
 import com.example.a11699.androidxallstudy.viewdraghelper.ViewDragerStudyActivity
 import com.example.a11699.androidxallstudy.webview.WebViewStudy
 import com.example.a11699.comp_customview.QQStepViewActivity
 import com.example.a11699.comp_imgpicker.ImgPickerActivity
+import com.example.a11699.comp_netstudyt.NetStudy
 import com.example.a11699.comp_viewmodel.ViewModelStudyActivity
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -44,9 +45,10 @@ class MainActivity : AppCompatActivity() {
         }
         beauty_item_seekbar.setOnSeekBarChangeListener { progress ->
         }
-        btn_myviewmodel.setOnClickListener { startActivity<ViewModelStudyActivity>(this)}
-        btn_navigation.setOnClickListener { startActivity<NavigationActivity>(this)}
-
+        btn_myviewmodel.setOnClickListener { startActivity<ViewModelStudyActivity>(this) }
+        btn_navigation.setOnClickListener { startActivity<NavigationActivity>(this) }
+        btn_network.setOnClickListener { startActivity<NetStudy>(this) }
+        btn_sendgift.setOnClickListener { startActivity<SendGiftActivity>(this) }
     }
 
 

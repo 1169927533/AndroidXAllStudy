@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.a11699.comp_netstudyt">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application>
+        <activity android:name=".NetStudy" />
+    </application>
+</manifest>

@@ -25,9 +25,8 @@
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/beauty_item_seekbar">
-
+           <!-- android:layoutAnimation="@anim/layoutanimal_me"-->
             <LinearLayout
-                android:layoutAnimation="@anim/layoutanimal_me"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -102,6 +101,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="JepPAck_Navigation学习"
+                    />
+                <Button
+                    android:id="@+id/btn_network"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="网络请求"
+                    />
+                <Button
+                    android:id="@+id/btn_sendgift"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="送礼联机控件"
                     />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>

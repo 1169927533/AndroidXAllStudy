@@ -13,7 +13,9 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/comp_base" />
             <option value="$PROJECT_DIR$/comp_customview" />
+            <option value="$PROJECT_DIR$/comp_im" />
             <option value="$PROJECT_DIR$/comp_imgpicker" />
+            <option value="$PROJECT_DIR$/comp_netstudyt" />
             <option value="$PROJECT_DIR$/comp_viewmodel" />
             <option value="$PROJECT_DIR$/lib_greendao" />
             <option value="$PROJECT_DIR$/lib_javatest" />

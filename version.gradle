@@ -19,6 +19,7 @@ versions.atsl_rules = "1.2.0"
 versions.atsl_runner = "1.2.0"
 versions.espresso = "3.2.0"
 versions.kotlin = "1.3.72"
+versions.lifecycle_version = "2.2.0"
 ext.versions = versions
 
 def deps = [:]
@@ -29,7 +30,7 @@ deps.activity = activity
 deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
 deps.annotations = "androidx.annotation:annotation:$versions.annotations"
 deps.app_compat = "androidx.appcompat:appcompat:$versions.appcompat"
-deps.constraintlayout =  "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
+deps.constraintlayout = "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
 deps.junit = "junit:junit:$versions.junit"
 
 def atsl = [:]
@@ -52,6 +53,17 @@ kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
 kotlin.test = "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin"
 kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
 kotlin.allopen = "org.jetbrains.kotlin:kotlin-allopen:$versions.kotlin"
+//kotlin协程
+kotlin.core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7"
+kotlin.kandroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.7"
+kotlin.kcm = "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:1.3.4"
+kotlin.multidex = "com.android.support:multidex:1.0.3"
 deps.kotlin = kotlin
 
+
+deps.lifecycle_version = "androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifecycle_version"
+// ViewModel
+deps.viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle_version"
+// LiveData
+deps.liveData = "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle_version"
 ext.deps = deps
