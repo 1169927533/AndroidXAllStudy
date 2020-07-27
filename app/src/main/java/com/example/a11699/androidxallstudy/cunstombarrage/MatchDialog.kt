@@ -5,6 +5,7 @@ import android.view.*
 import androidx.annotation.Nullable
 import androidx.fragment.app.DialogFragment
 import com.example.a11699.androidxallstudy.R
+import com.example.a11699.androidxallstudy.cunstombarrage.me.BarrageViewGroup
 import com.example.a11699.androidxallstudy.cunstombarrage.me.MyBarrageRelayout
 import kotlinx.android.synthetic.main.activity_barrage.*
 import kotlinx.android.synthetic.main.my_barrage_layout.*
@@ -21,16 +22,23 @@ class MatchDialog : DialogFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-      var view = inflater.inflate(R.layout.my_barrage_layout, container, false)
+        var view = inflater.inflate(R.layout.my_barrage_layout, container, false)
         var listContent = ArrayList<String>()
-        listContent.add("你ewd？")
-        listContent.add("你ewd？")
-        listContent.add("你ewddd？")
-        listContent.add("你ewd？")
-        listContent.add("你ewd？")
-        listContent.add("你ewddd？")
 
-        view.findViewById<MyBarrageRelayout>(R.id.myvarr).addBarrageView(listContent)
+        listContent.add("你fdsfdsfdsfewd？")
+        listContent.add("你dfdsfdsfdsfdsfdsewd？")
+        listContent.add("你efdsfdsffsdwddd？")
+        listContent.add("你dsfdsfdsfsdewd？")
+        listContent.add("你dfdsfefdsfdsfsdwd？")
+        listContent.add("你fdsfdsfewddd？")
+        listContent.add("你dfdsfdsfdsfdsfewd？")
+        listContent.add("你ewfdsfdsfd？")
+        listContent.add("你ewddfsfsddd？")
+        listContent.add("你edfdsfdsfdsfdsfwd？")
+        listContent.add("你ewddfsfdsfdsfdsf？")
+        listContent.add("你ewdfdsfdsfdsfdsfdsdd？")
+
+        view.findViewById<BarrageViewGroup>(R.id.myvarr).addBarrageView(listContent)
         return view
     }
 

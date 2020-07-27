@@ -33,4 +33,20 @@
         <attr name="img_item_height" format="dimension"></attr>
     </declare-styleable>
 
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <!-- 有无边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!--无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!--透明背景-->
+        <item name="android:background">@android:color/white</item>
+        <!--窗口背景透明-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--弹窗背景是否变暗-->
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
 </resources>

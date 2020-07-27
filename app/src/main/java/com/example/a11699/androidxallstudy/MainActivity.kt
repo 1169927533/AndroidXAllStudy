@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.a11699.activity.NavigationActivity
 import com.example.a11699.androidxallstudy.botomtab.BottomTabActivity
 import com.example.a11699.androidxallstudy.cunstombarrage.BarrageActivity
+import com.example.a11699.androidxallstudy.customdropdown.DropDownActivity
 import com.example.a11699.androidxallstudy.ossstudy.OssStudyActivity
 import com.example.a11699.androidxallstudy.permissionstudy.PermissionStudyActivity
 import com.example.a11699.androidxallstudy.sendgift.SendGiftActivity
@@ -49,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         btn_navigation.setOnClickListener { startActivity<NavigationActivity>(this) }
         btn_network.setOnClickListener { startActivity<NetStudy>(this) }
         btn_sendgift.setOnClickListener { startActivity<SendGiftActivity>(this) }
+        btn_dropdown.setOnClickListener { startActivity<DropDownActivity>(this) }
     }
 
 

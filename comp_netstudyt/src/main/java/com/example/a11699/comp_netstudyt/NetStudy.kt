@@ -3,10 +3,9 @@ package com.example.a11699.comp_netstudyt
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import com.example.a11699.comp_netstudyt.dialog.TestDialog
 import com.example.a11699.comp_netstudyt.util.DialogUtils
 import com.example.a11699.comp_netstudyt.util.lazyVm
-import com.example.a11699.comp_netstudyt.util.lazyVmT
 import com.example.a11699.comp_netstudyt.viewmodel.MyViewModel
 import kotlinx.android.synthetic.main.activity_netstudy.*
 import pub.devrel.easypermissions.EasyPermissions
@@ -28,18 +27,33 @@ class NetStudy : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_netstudy)
+        tv_test.setOnClickListener {
+            viewModel.changLiveDataValue("nestStudy里面设置的值")
+        }
+        tv_data.setOnClickListener {
+            viewModel.getStudentInferMarion("201602020124")
+        }
+        btn_click.setOnClickListener {
+            var test = TestDialog()
+            test.show(supportFragmentManager, "test")
+        }
         getPermission()
+        observableData()
+    }
 
+    private fun observableData() {
+        viewModel.studentLiveData.observe(this, Observer {
+            tv_data.text = it.college
+        })
+        viewModel.testLiveData.observe(this, Observer {
+            tv_test.text = it.toString()
+        })
     }
 
 
     private fun getPermission() {
         if (EasyPermissions.hasPermissions(this, *permisions)) {
             viewModel.getStudentInferMarion("201602020124")
-            viewModel.studentLiveData.observe(this, Observer {
-                tv_data.text = it.college
-            })
-
         } else {
             //进行申请
             DialogUtils.tips(this, whyAsk) {

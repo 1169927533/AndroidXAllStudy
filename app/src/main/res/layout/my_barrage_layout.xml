@@ -14,7 +14,7 @@
         android:layout_gravity="center"
         android:background="@drawable/barrage_bg">
 
-        <com.example.a11699.androidxallstudy.cunstombarrage.me.MyBarrageRelayout
+        <com.example.a11699.androidxallstudy.cunstombarrage.me.BarrageViewGroup
             android:id="@+id/myvarr"
             android:layout_width="245dp"
             android:layout_height="100dp"

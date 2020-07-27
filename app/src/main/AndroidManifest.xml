@@ -27,6 +27,7 @@
         <activity android:name=".permissionstudy.PermissionStudyActivity" />
         <activity android:name=".viewdraghelper.ViewDragerStudyActivity" />
         <activity android:name=".sendgift.SendGiftActivity" />
+        <activity android:name=".customdropdown.DropDownActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

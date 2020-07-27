@@ -15,8 +15,14 @@ import kotlinx.coroutines.launch
  *description:
  */
 class MyViewModel(application: Application) : BaseViewModel(application) {
+    //获取学生信息
     val studentLiveData by lazy {
         MutableLiveData<StudentBean>()
+    }
+
+    //一个无关痛痒的东西 职位了测测试livedata的属性
+    val testLiveData by lazy {
+        MutableLiveData<String>()
     }
 
     fun getStudentInferMarion(uid: String) {
@@ -24,5 +30,9 @@ class MyViewModel(application: Application) : BaseViewModel(application) {
             var userService = getRepo(UserService::class.java)
             studentLiveData.value = userService.getStudentInforMation(uid)
         }
+    }
+
+    fun changLiveDataValue(data: String) {
+        testLiveData.postValue(data)
     }
 }

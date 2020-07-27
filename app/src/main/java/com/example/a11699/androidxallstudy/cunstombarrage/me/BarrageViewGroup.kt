@@ -3,18 +3,20 @@ package com.example.a11699.androidxallstudy.cunstombarrage.me
 import android.animation.ObjectAnimator
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import android.view.Gravity
 import android.view.animation.LinearInterpolator
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.a11699.androidxallstudy.R
+
+import java.util.*
 import kotlin.math.abs
 import kotlin.math.roundToInt
 
+
 /**
- *Create time 2020/6/20 9:30
+ *Create time 2020/6/22
  *Create Yu
  *description:
  * 实现思路：
@@ -26,9 +28,8 @@ import kotlin.math.roundToInt
  *  目的：如果某个view的距离比其他短 那么 他执行一组动画的时间要比其他短 这样会出现超车的情况出现view的重合
  *
  * 3.下一组动画执行条件：第一个view出屏幕 最后一个view刚进入屏幕
- *
  */
-class MyBarrageRelayout : ConstraintLayout {
+class BarrageViewGroup : ConstraintLayout {
     lateinit var mContext: Context
     lateinit var layoutParams: ConstraintLayout.LayoutParams
     private var textViewList = ArrayList<ItemViewBean>()    //Textview 1数组
@@ -52,7 +53,7 @@ class MyBarrageRelayout : ConstraintLayout {
     }
 
     //这个方法外部调用 只需要传入要显示的内容就好
-    fun addBarrageView(contentList: List<String>) {
+    fun addBarrageView(contentList: ArrayList<String>) {
         textViewList.clear()
         textViewList_two.clear()
         for ((index, value) in contentList.withIndex()) {

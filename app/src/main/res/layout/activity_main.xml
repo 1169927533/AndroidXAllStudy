@@ -82,6 +82,7 @@
 
                 <com.example.a11699.androidxallstudy.customview.FollowFingerView
                     android:layout_width="match_parent"
+                    android:visibility="gone"
                     android:layout_height="match_parent" />
 
                 <com.example.a11699.androidxallstudy.customview.JellyTextView
@@ -113,6 +114,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="送礼联机控件"
+                    />
+                <Button
+                    android:id="@+id/btn_dropdown"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="自定义下拉"
                     />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>

@@ -5,7 +5,7 @@ package com.example.a11699.androidxallstudy.cunstombarrage.me
  *Create Yu
  *description:
  */
-enum class Location  {
+enum class BarrageLocation  {
     TOP ,
     CENTER ,
     BOTTOM
