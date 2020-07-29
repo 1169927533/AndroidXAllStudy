@@ -1,8 +1,10 @@
 package com.example.a11699.androidxallstudy
 
+import android.os.Build
 import android.os.Bundle
 
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.a11699.activity.NavigationActivity
 import com.example.a11699.androidxallstudy.botomtab.BottomTabActivity
@@ -11,6 +13,7 @@ import com.example.a11699.androidxallstudy.customdropdown.DropDownActivity
 import com.example.a11699.androidxallstudy.ossstudy.OssStudyActivity
 import com.example.a11699.androidxallstudy.permissionstudy.PermissionStudyActivity
 import com.example.a11699.androidxallstudy.sendgift.SendGiftActivity
+import com.example.a11699.androidxallstudy.soul.activity.SoulActivity
 import com.example.a11699.androidxallstudy.util.startActivity
 import com.example.a11699.androidxallstudy.viewdraghelper.ViewDragerStudyActivity
 import com.example.a11699.androidxallstudy.webview.WebViewStudy
@@ -28,6 +31,7 @@ import kotlinx.android.synthetic.main.activity_main.*
  */
 class MainActivity : AppCompatActivity() {
 
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -51,6 +55,7 @@ class MainActivity : AppCompatActivity() {
         btn_network.setOnClickListener { startActivity<NetStudy>(this) }
         btn_sendgift.setOnClickListener { startActivity<SendGiftActivity>(this) }
         btn_dropdown.setOnClickListener { startActivity<DropDownActivity>(this) }
+        btn_soul.setOnClickListener { startActivity<SoulActivity>(this) }
     }
 
 

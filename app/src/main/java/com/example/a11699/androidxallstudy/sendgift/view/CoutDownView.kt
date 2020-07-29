@@ -101,6 +101,7 @@ class CoutDownView : View {
 
     }
 
+    var radiussss = 0f
     private fun drawTest(canvas: Canvas?) {
         //获取字体宽度
         var rect = Rect()
@@ -110,7 +111,7 @@ class CoutDownView : View {
         var fontMetrice = paintTest.fontMetricsInt
         var dy = (fontMetrice.bottom - fontMetrice.top) / 2 - fontMetrice.bottom
         var baseLine = height / 2 + dy
-        canvas?.drawText(testIn, x.toFloat(), baseLine.toFloat() - (width / 2 - paintWidth * 2) / 2, paintTest)
+        canvas?.drawText(testIn, x.toFloat() - radiussss, baseLine.toFloat() - (width / 2 - paintWidth * 2) / 2, paintTest)
     }
 
     private fun drawTimeTest(canvas: Canvas?) {
@@ -133,6 +134,7 @@ class CoutDownView : View {
 
             override fun onTick(millisUntilFinished: Long) {
                 haveRunRadius = (360f * millisUntilFinished / 3000).toInt()
+                radiussss = haveRunRadius.toFloat()
                 testTime = "${((millisUntilFinished / 1000f).toString().substring(0, 3))}s"
                 postInvalidate()
             }

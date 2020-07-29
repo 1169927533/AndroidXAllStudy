@@ -39,6 +39,11 @@ class NetStudy : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
         }
         getPermission()
         observableData()
+
+
+
+
+
     }
 
     private fun observableData() {

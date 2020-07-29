@@ -30,7 +30,7 @@ class TestDialog : DialogFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        var viewModel =   ViewModelProvider(this).get(MyViewModel::class.java)
+        var viewModel = activity?.let { ViewModelProvider(it).get(MyViewModel::class.java) }
         btn_click.setOnClickListener {
             viewModel?.testLiveData?.value = "哈哈哈"
         }
