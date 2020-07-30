@@ -12,9 +12,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.example.a11699.androidxallstudy.soul.view.SoulView
-        app:layout_constraintTop_toBottomOf="@+id/soulviewGroup"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <com.example.a11699.androidxallstudy.soul.view.SS
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.example.a11699.androidxallstudy.soul.view.SS>
 </androidx.constraintlayout.widget.ConstraintLayout>

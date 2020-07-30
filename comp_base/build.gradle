@@ -37,6 +37,7 @@ dependencies {
     api deps.kotlin.stdlib
     //权限请求
     api 'pub.devrel:easypermissions:3.0.0'
+    api "androidx.recyclerview:recyclerview:${versions.appcompat}"
 
     //kotlin协程
     api deps.kotlin.core
@@ -45,4 +46,7 @@ dependencies {
     api deps.kotlin.multidex
     api 'com.squareup.retrofit2:adapter-rxjava2:2.7.2'//RxJava2CallAdapterFactory
     api 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
+
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50'
 }

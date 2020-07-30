@@ -19,6 +19,7 @@ import com.example.a11699.androidxallstudy.viewdraghelper.ViewDragerStudyActivit
 import com.example.a11699.androidxallstudy.webview.WebViewStudy
 import com.example.a11699.comp_customview.QQStepViewActivity
 import com.example.a11699.comp_imgpicker.ImgPickerActivity
+import com.example.a11699.comp_live.MainLiveActivity
 import com.example.a11699.comp_netstudyt.NetStudy
 import com.example.a11699.comp_viewmodel.ViewModelStudyActivity
 
@@ -56,6 +57,7 @@ class MainActivity : AppCompatActivity() {
         btn_sendgift.setOnClickListener { startActivity<SendGiftActivity>(this) }
         btn_dropdown.setOnClickListener { startActivity<DropDownActivity>(this) }
         btn_soul.setOnClickListener { startActivity<SoulActivity>(this) }
+        btn_live.setOnClickListener { startActivity<MainLiveActivity>(this) }
     }
 
 

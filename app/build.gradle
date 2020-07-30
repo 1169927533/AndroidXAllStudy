@@ -45,6 +45,7 @@ dependencies {
     implementation(project(':module_navigation'))
     implementation(project(':comp_netstudyt'))
     implementation(project(':comp_base'))
+    implementation(project(':comp_live'))
 
 
 
