@@ -133,6 +133,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="直播间" />
+                <Button
+                    android:id="@+id/btn_danmu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="票屏弹幕" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 

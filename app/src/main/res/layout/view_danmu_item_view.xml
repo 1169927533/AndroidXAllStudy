@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:translationX="1000dp">
+
+    <TextView
+        android:id="@+id/tvDanmukContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="11dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/shape_danmuk_bg"
+        android:minWidth="120dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="10dp"
+        android:text="aaaaaaaaaaaaaaaaaaaa"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivDanmukAvatar"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/default_circle_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+    <TextView
+        android:id="@+id/tvDanmukSenderName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="Lucky_Kin"
+        android:textColor="#ffffffff"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@id/ivDanmukAvatar"
+        app:layout_constraintTop_toTopOf="@+id/ivDanmukAvatar"
+
+
+        />
+
+    <TextView
+        android:id="@+id/tvDanmukSenderLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:text="dsadsadasda"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDanmukSenderName"
+        app:layout_constraintStart_toEndOf="@+id/tvDanmukSenderName"
+        app:layout_constraintTop_toTopOf="@+id/tvDanmukSenderName" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

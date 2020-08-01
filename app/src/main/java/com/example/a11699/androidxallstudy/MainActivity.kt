@@ -12,6 +12,7 @@ import com.example.a11699.androidxallstudy.cunstombarrage.BarrageActivity
 import com.example.a11699.androidxallstudy.customdropdown.DropDownActivity
 import com.example.a11699.androidxallstudy.ossstudy.OssStudyActivity
 import com.example.a11699.androidxallstudy.permissionstudy.PermissionStudyActivity
+import com.example.a11699.androidxallstudy.piaodanmu.DanMuActivity
 import com.example.a11699.androidxallstudy.sendgift.SendGiftActivity
 import com.example.a11699.androidxallstudy.soul.activity.SoulActivity
 import com.example.a11699.androidxallstudy.util.startActivity
@@ -58,6 +59,7 @@ class MainActivity : AppCompatActivity() {
         btn_dropdown.setOnClickListener { startActivity<DropDownActivity>(this) }
         btn_soul.setOnClickListener { startActivity<SoulActivity>(this) }
         btn_live.setOnClickListener { startActivity<MainLiveActivity>(this) }
+        btn_danmu.setOnClickListener { startActivity<DanMuActivity>(this) }
     }
 
 
