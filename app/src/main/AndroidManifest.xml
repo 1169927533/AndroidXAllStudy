@@ -30,6 +30,8 @@
         <activity android:name=".customdropdown.DropDownActivity" />
         <activity android:name=".soul.activity.SoulActivity" />
         <activity android:name=".piaodanmu.DanMuActivity" />
+        <activity android:name=".customtab.TabActivity"/>
+        <activity android:name=".loadingactivity.WuBaActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

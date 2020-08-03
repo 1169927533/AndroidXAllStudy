@@ -4,8 +4,8 @@ import android.view.ViewStub
 class DanmukViewStub(val viewStub: ViewStub) : IDanmukView<Danmuke> {
 
 
-    private val giftShowView: DanMuView by lazy {
-        (viewStub.inflate() as DanMuView)
+    private val giftShowView: DanmukView by lazy {
+        (viewStub.inflate() as DanmukView)
     }
 
     override fun onNewModel(mode: Danmuke) {

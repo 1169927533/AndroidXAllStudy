@@ -13,11 +13,10 @@
 
 
     <ViewStub
-
         android:id="@+id/stubDanmuk1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout="@layout/live_danmuview"
+        android:layout="@layout/live_stub_danmuk"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -31,7 +30,7 @@
         android:id="@+id/stubDanmuk2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout="@layout/live_danmuview"
+        android:layout="@layout/live_stub_danmuk"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

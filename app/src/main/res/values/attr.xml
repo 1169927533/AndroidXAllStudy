@@ -11,4 +11,17 @@
         <attr name="paintInColor" format="color" />
         <attr name="testInColor" format="color" />
     </declare-styleable>
+
+
+
+
+    <!--底部导航栏-->
+    <declare-styleable name="ColorTrackTextView">
+        <attr name="originColor" format="color" />
+        <attr name="changeColor" format="color" />
+    </declare-styleable>
+    <!--顶部菜单栏-->
+    <declare-styleable name="customTab">
+        <attr name="hasBottomLine" format="boolean" />
+    </declare-styleable>
 </resources>

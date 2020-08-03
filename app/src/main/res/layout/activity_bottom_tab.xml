@@ -6,4 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".botomtab.BottomTabActivity">
 
+    <com.example.a11699.androidxallstudy.botomtab.BottomTabLayoutView
+        android:id="@+id/bottomTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        app:image_center_height="42dp"
+        app:image_center_width="42dp"
+        app:image_height="35dp"
+        app:image_width="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:text_image_margintop="2dp"
+        app:text_noneselectcolor="#ffbcbcbc"
+        app:text_selectcolor="#B27FDC"
+        app:text_size="10dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

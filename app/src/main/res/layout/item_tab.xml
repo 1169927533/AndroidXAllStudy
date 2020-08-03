@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.a11699.androidxallstudy.customtab.custonview.ColorTrackTextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/customView"
+    android:layout_width="80dp"
+    android:layout_height="28dp"
+    android:background="@drawable/tab_bg"
+    android:textSize="14dp"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
