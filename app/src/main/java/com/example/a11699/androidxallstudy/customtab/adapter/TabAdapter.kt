@@ -24,7 +24,7 @@ class TabAdapter(list: List<String>) : BaseAdapter {
     override fun getCount(): Int {
         return mList.size
     }
-
+//
     override fun getView(context: Context, position: Int): View {
         var itemTabLayout = LayoutInflater.from(context).inflate(R.layout.item_tab, null)
         var colorTrackTextView = itemTabLayout.customView as ColorTrackTextView
