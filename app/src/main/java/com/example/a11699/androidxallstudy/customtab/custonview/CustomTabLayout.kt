@@ -2,24 +2,18 @@ package com.example.a11699.androidxallstudy.customtab.custonview
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Color
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewParent
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.example.a11699.androidxallstudy.R
 import com.example.a11699.androidxallstudy.customtab.adapter.BaseAdapter
-import com.example.a11699.androidxallstudy.customtab.fragment.ItemFragmetn
 import com.example.a11699.androidxallstudy.myseekbar.ScreenUtil
 import com.example.a11699.androidxallstudy.myseekbar.ViewUtil
 import com.example.a11699.comp_base.Util
-import kotlinx.android.synthetic.main.activity_tab.*
 
 /**
  *Create time 2020/8/3
@@ -29,40 +23,68 @@ import kotlinx.android.synthetic.main.activity_tab.*
 class CustomTabLayout : RelativeLayout {
 
     var navWidth = 0
+    var widthSpace: Int = 0
     lateinit var navLineView: View
     lateinit var mAdapter: BaseAdapter
     var hasBottomLine = false //时候有底部条
+    var average = false //是否平均每个item
+    var itemMarginRight = 0f//每个item距离右边的距离
+    var bottomlinewidth = 0f//底部线的宽度
+    var bottomlineheight = 0f//底部线的高度
+    var bottomlinecolor = 0//底部线的高度
 
     constructor(context: Context, attributeSet: AttributeSet) : super(context, attributeSet) {
         var typeArray = context.obtainStyledAttributes(attributeSet, R.styleable.customTab)
         hasBottomLine = typeArray.getBoolean(R.styleable.customTab_hasBottomLine, true)
+        average = typeArray.getBoolean(R.styleable.customTab_average, true)
+        itemMarginRight = typeArray.getDimension(R.styleable.customTab_itemmarginright, 0f)
+        bottomlinewidth = typeArray.getDimension(R.styleable.customTab_bottomlinewidth, 0f)
+        bottomlineheight = typeArray.getDimension(R.styleable.customTab_bottomlineheight, 0f)
+        bottomlinecolor = typeArray.getResourceId(R.styleable.customTab_bottomlinecolor, R.drawable.item_tab_select)
+
         typeArray.recycle()
     }
 
     fun setAdapter(adapter: BaseAdapter, viewPager: ViewPager) {
+        mAdapter = adapter
         initViewPager(viewPager)
         removeAllViews()
         var titleLayout = LinearLayout(context)
-        var layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        var layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
         titleLayout.orientation = LinearLayout.HORIZONTAL
+        layoutParams.gravity = Gravity.CENTER
         titleLayout.layoutParams = layoutParams
+
         for (index in 0 until adapter.getCount()) {
             Util.printLog(index.toString())
             var view = adapter.getView(context, index)
-
-            var layoutParams2 = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT)
-            layoutParams2.weight = 1f
-            layoutParams2.gravity = Gravity.CENTER
-
-            view.layoutParams = layoutParams2
-
+            if (index <= adapter.getCount() - 2) {
+                view.layoutParams?.let {
+                    var params = it as LinearLayout.LayoutParams
+                    params.rightMargin = itemMarginRight.toInt()
+                    view.layoutParams = params
+                }
+            }
             titleLayout.addView(view)
         }
-        mAdapter = adapter
-        var lll = LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        lll.addRule(CENTER_VERTICAL, TRUE)
-    //    mAdapter.changItemState(0)
-        addView(titleLayout, lll)
+
+        widthSpace = if (average) {
+            ViewGroup.LayoutParams.MATCH_PARENT
+        } else {
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        }
+
+        val lp1 = LayoutParams(widthSpace, ViewGroup.LayoutParams.WRAP_CONTENT)
+        lp1.addRule(CENTER_VERTICAL, TRUE)//是每个view垂直居中
+        mAdapter.onPageSelected(0)
+        initBottomView()
+        addView(titleLayout, lp1)
+    }
+
+    private fun initBottomView() {
+        if (hasBottomLine) {
+            setNavLine(bottomlinewidth, bottomlineheight, bottomlinecolor, 0)
+        }
     }
 
     /**
@@ -74,11 +96,11 @@ class CustomTabLayout : RelativeLayout {
     @SuppressLint("ResourceType")
     fun setNavLine(linWidth: Float, lineHeight: Float, color: Int, currentPosition: Int) {
         navWidth = if (linWidth == 0f) {
-            ScreenUtil.getScreenWidth() / mAdapter.getCount()
+            width / mAdapter.getCount()
         } else {
-            ViewUtil.dip2px(linWidth)
+            linWidth.toInt()
         }
-        var navHeight = ViewUtil.dip2px(lineHeight)
+        var navHeight = lineHeight.toInt()
         var layoutParams = RelativeLayout.LayoutParams(navWidth, navHeight)
         navLineView = View(context)
         navLineView.layoutParams = layoutParams
@@ -98,60 +120,25 @@ class CustomTabLayout : RelativeLayout {
      * percent  偏移量
      */
     fun moveBar(line: View, navWidth: Int, percent: Float, position: Int) {
-
-        var width1 = width / mAdapter.getCount()
         val lp = line.layoutParams as LayoutParams
-        val marginleft = position * width1 + (width1 * percent).toInt() + (width1 - navWidth) / 2
+        var widthh = (width - itemMarginRight * (mAdapter.getCount() - 1)) / mAdapter.getCount()
+        var wioiii = (widthh + itemMarginRight )
+        var marginleftt = position * wioiii + (wioiii * percent).toInt() + (widthh - navWidth) / 2
+
         lp.width = (navWidth - percent * 2).toInt()
-        lp.setMargins((marginleft + percent).toInt(), 0, percent.toInt(), 0)
+        lp.setMargins((marginleftt + percent).toInt(), 0, percent.toInt(), 0)
+        Util.printLog((marginleftt + percent).toString())
         line.requestLayout()
 
     }
 
     private fun initViewPager(mViewPager: ViewPager) {
-        mViewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageScrollStateChanged(state: Int) {
-            }
-
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+        mAdapter.addPagerScrollListener(viewPager = mViewPager) {
+            onPagerScrolled = { position, positionOffset, _ ->
                 if (hasBottomLine) {
                     moveBar(navLineView, navWidth, positionOffset, position)
                 }
-
-                if (mAdapter.getAllTargetView()[position] is ColorTrackTextView) {
-                    var mLeft = mAdapter.getAllTargetView()[position] as ColorTrackTextView
-
-                    mLeft.setDirection(ColorTrackTextView.Direction.RIGHT_TO_LEFT)
-                    if (1.28f - positionOffset <= 1) {
-                        mLeft.scaleX = ((1f).toFloat())
-                        mLeft.scaleY = ((1f).toFloat())
-                    } else {
-                        mLeft.scaleX = ((1.28f - positionOffset).toFloat())
-                        mLeft.scaleY = ((1.28f - positionOffset).toFloat())
-                    }
-
-                    mLeft.setCurrentProcess((1 - positionOffset).toFloat())
-                    try {
-                        var mRight = mAdapter.getAllTargetView()[position + 1] as ColorTrackTextView
-                        mRight.setDirection(ColorTrackTextView.Direction.LEFT_TO_RIGHT)
-                        if (1f + positionOffset > 1.28f) {
-                            mRight.scaleX = ((1.28f).toFloat())
-                            mRight.scaleY = ((1.28f).toFloat())
-                        } else {
-                            mRight.scaleX = ((1f + positionOffset).toFloat())
-                            mRight.scaleY = ((1f + positionOffset).toFloat())
-                        }
-
-                        mRight.setCurrentProcess((positionOffset).toFloat())
-                    } catch (e: Exception) {
-                    }
-                }
             }
-
-            override fun onPageSelected(position: Int) {
-                mAdapter.changItemState(position)
-            }
-        })
+        }
     }
-
 }

@@ -15,6 +15,7 @@ import androidx.viewpager.widget.ViewPager
 import com.example.a11699.androidxallstudy.R
 import com.example.a11699.androidxallstudy.customtab.adapter.TabAdapter
 import com.example.a11699.androidxallstudy.customtab.adapter.TabAdapter2
+import com.example.a11699.androidxallstudy.customtab.adapter.TabAdapter3
 import com.example.a11699.androidxallstudy.customtab.custonview.ColorTrackTextView
 import com.example.a11699.androidxallstudy.customtab.fragment.ItemFragmetn
 import com.example.a11699.androidxallstudy.myseekbar.ViewUtil
@@ -128,14 +129,19 @@ class TabActivity : AppCompatActivity() {
         }
     }
 
-
     private fun initCustomTab() {
-        var adapter = TabAdapter(items)
+        var adapter = TabAdapter(items,viewPager)
         customTabLayout.setAdapter(adapter, viewPager)
-        customTabLayout.setNavLine(20f, 3f, R.drawable.bottom_line, 0)
 
-        var adapter2 = TabAdapter2(items)
+
+
+        var adapter2 = TabAdapter2(items,viewPager)
         customTabLayout1.setAdapter(adapter2, viewPager)
+
+
+        var adapter3 = TabAdapter3(items,viewPager)
+        customTabLayout2.setAdapter(adapter3, viewPager)
+
 
     }
 }

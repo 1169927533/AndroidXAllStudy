@@ -13,8 +13,6 @@
     </declare-styleable>
 
 
-
-
     <!--底部导航栏-->
     <declare-styleable name="ColorTrackTextView">
         <attr name="originColor" format="color" />
@@ -23,5 +21,11 @@
     <!--顶部菜单栏-->
     <declare-styleable name="customTab">
         <attr name="hasBottomLine" format="boolean" />
+        <attr name="average" format="boolean" />
+        <attr name="itemmarginright" format="dimension" />
+
+        <attr name="bottomlinewidth" format="dimension" />
+        <attr name="bottomlineheight" format="dimension" />
+        <attr name="bottomlinecolor" format="reference" />
     </declare-styleable>
 </resources>

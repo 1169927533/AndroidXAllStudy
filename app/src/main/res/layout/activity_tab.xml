@@ -34,6 +34,9 @@
         android:id="@+id/customTabLayout"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        app:bottomlinecolor="@drawable/bottom_line"
+        app:bottomlineheight="4dp"
+        app:bottomlinewidth="20dp"
         app:hasBottomLine="true"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_parent" />
@@ -48,9 +51,26 @@
 
     <com.example.a11699.androidxallstudy.customtab.custonview.CustomTabLayout
         android:id="@+id/customTabLayout1"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="55dp"
+        android:layout_marginLeft="10dp"
+        app:average="false"
         app:hasBottomLine="false"
+        app:itemmarginright="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewPager" />
+
+    <com.example.a11699.androidxallstudy.customtab.custonview.CustomTabLayout
+        android:id="@+id/customTabLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        app:average="false"
+        app:bottomlinecolor="@drawable/bottom_line"
+        app:bottomlineheight="4dp"
+        app:bottomlinewidth="20dp"
+        app:hasBottomLine="true"
+        app:itemmarginright="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/customTabLayout1" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
