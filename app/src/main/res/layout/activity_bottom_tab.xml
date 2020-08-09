@@ -15,6 +15,7 @@
         app:image_center_width="42dp"
         app:image_height="35dp"
         app:image_width="35dp"
+        app:img_item_height="35dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

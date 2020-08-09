@@ -2,6 +2,7 @@ package com.example.a11699.androidxallstudy.customtab.custonview
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.View
@@ -54,9 +55,9 @@ class CustomTabLayout : RelativeLayout {
         titleLayout.orientation = LinearLayout.HORIZONTAL
         layoutParams.gravity = Gravity.CENTER
         titleLayout.layoutParams = layoutParams
+        titleLayout.setBackgroundColor(Color.GRAY)
 
         for (index in 0 until adapter.getCount()) {
-            Util.printLog(index.toString())
             var view = adapter.getView(context, index)
             if (index <= adapter.getCount() - 2) {
                 view.layoutParams?.let {
@@ -127,7 +128,6 @@ class CustomTabLayout : RelativeLayout {
 
         lp.width = (navWidth - percent * 2).toInt()
         lp.setMargins((marginleftt + percent).toInt(), 0, percent.toInt(), 0)
-        Util.printLog((marginleftt + percent).toString())
         line.requestLayout()
 
     }

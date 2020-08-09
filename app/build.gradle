@@ -31,6 +31,10 @@ android {
         exclude 'META-INF/NOTICE.txt'
     }
 
+    dataBinding {
+        enabled = true
+    }
+
 }
 
 dependencies {
@@ -46,7 +50,6 @@ dependencies {
     implementation(project(':comp_netstudyt'))
     implementation(project(':comp_base'))
     implementation(project(':comp_live'))
-
 
 
 }
