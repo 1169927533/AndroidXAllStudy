@@ -133,21 +133,36 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="直播间" />
+
                 <Button
                     android:id="@+id/btn_danmu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="票屏弹幕" />
+
                 <Button
                     android:id="@+id/btn_tab"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="自定义Tab" />
+
                 <Button
                     android:id="@+id/btn_wubaloading"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="自定义五八同城加载动画" />
+
+                <Button
+                    android:id="@+id/btn_smartrecycleview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="下拉刷新" />
+
+                <Button
+                    android:id="@+id/btn_custompassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="自定义密码输入框" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 

@@ -1,0 +1,6 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.a11699.module_smartrecycleview">
+ <application >
+     <activity android:name=".SmartRecycleViewStudyActivity"/>
+ </application>
+</manifest>

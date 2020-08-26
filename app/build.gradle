@@ -53,6 +53,8 @@ dependencies {
     implementation(project(':comp_netstudyt'))
     implementation(project(':comp_base'))
     implementation(project(':comp_live'))
+    implementation(project(':module_smartrecycleview'))
+    implementation(project(':library'))
 
 
 }

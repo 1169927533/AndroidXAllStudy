@@ -1,3 +1,5 @@
+include ':library'
+include ':module_smartrecycleview'
 rootProject.name='AndroidXAllStudy'
 include ':app'
 include ':lib_oos'

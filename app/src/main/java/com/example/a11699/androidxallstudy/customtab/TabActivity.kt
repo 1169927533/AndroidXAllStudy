@@ -6,7 +6,10 @@ import android.graphics.drawable.DrawableContainer
 import android.os.Bundle
 import android.util.Log
 import android.view.ViewGroup
+import android.widget.HorizontalScrollView
+import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
@@ -17,6 +20,7 @@ import com.example.a11699.androidxallstudy.customtab.adapter.TabAdapter
 import com.example.a11699.androidxallstudy.customtab.adapter.TabAdapter2
 import com.example.a11699.androidxallstudy.customtab.adapter.TabAdapter3
 import com.example.a11699.androidxallstudy.customtab.custonview.ColorTrackTextView
+import com.example.a11699.androidxallstudy.customtab.custonview.CustomTabLayout
 import com.example.a11699.androidxallstudy.customtab.fragment.ItemFragmetn
 import com.example.a11699.androidxallstudy.myseekbar.ViewUtil
 import kotlinx.android.synthetic.main.activity_tab.*
@@ -130,16 +134,28 @@ class TabActivity : AppCompatActivity() {
     }
 
     private fun initCustomTab() {
-        var adapter = TabAdapter(items,viewPager)
+        var adapter = TabAdapter(items, viewPager)
+        var imgView2 = ImageView(this)
+        imgView2.setBackgroundResource(R.drawable.shape_btn)
+        var layoutParams2 = RelativeLayout.LayoutParams(ViewUtil.dip2px(16f), ViewUtil.dip2px(3f))
+        imgView2.layoutParams = layoutParams2
+        customTabLayout.initBottomView(imgView2)
+
+
         customTabLayout.setAdapter(adapter, viewPager)
 
 
-
-        var adapter2 = TabAdapter2(items,viewPager)
+        var adapter2 = TabAdapter2(items, viewPager)
         customTabLayout1.setAdapter(adapter2, viewPager)
 
 
-        var adapter3 = TabAdapter3(items,viewPager)
+        var adapter3 = TabAdapter3(items, viewPager)
+        //初始化底部view
+        var imgView = ImageView(this)
+        imgView.setBackgroundResource(R.drawable.shape_btn)
+        var layoutParams = RelativeLayout.LayoutParams(ViewUtil.dip2px(16f), ViewUtil.dip2px(3f))
+        imgView.layoutParams = layoutParams
+        customTabLayout2.initBottomView(imgView)
         customTabLayout2.setAdapter(adapter3, viewPager)
 
 

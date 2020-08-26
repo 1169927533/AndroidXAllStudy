@@ -29,7 +29,7 @@ class TabAdapter(list: List<String>, val viewPager: ViewPager) : BaseAdapter(lis
         colorTrackTextView.initOriginPaint(ViewUtil.dip2px(14f).toFloat(), Color.BLUE, Color.GRAY) //设置字体大小和宽度
         colorTrackTextView.text = mList[position]
 
-        var layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT)
+        var layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         layoutParams.weight = 1f
         colorTrackTextView.layoutParams = layoutParams
 

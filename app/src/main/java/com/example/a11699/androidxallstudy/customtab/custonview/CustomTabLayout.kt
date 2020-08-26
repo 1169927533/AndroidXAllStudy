@@ -59,14 +59,18 @@ class CustomTabLayout : RelativeLayout {
         initViewPager(viewPager)
 
         removeAllViews()
+
         var titleLayout = LinearLayout(context)
-        var layoutParams = LinearLayout.LayoutParams(
+        var layoutParams2222 = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
         )
         titleLayout.orientation = LinearLayout.HORIZONTAL
-        layoutParams.gravity = Gravity.CENTER
-        titleLayout.layoutParams = layoutParams
+        layoutParams2222.gravity = Gravity.CENTER
+        titleLayout.layoutParams = layoutParams2222
+        titleLayout!!.setBackgroundResource(R.color.colorFFFFFF)
+
+
 
         for (index in 0 until adapter.getCount()) {
             var view = adapter.getView(context, index)
@@ -96,6 +100,7 @@ class CustomTabLayout : RelativeLayout {
 
         horizontalScrollView = CusHorizontalScrollView(context)
         val layoutParams2 = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+        horizontalScrollView!!.isFillViewport = true
         horizontalScrollView!!.addView(titleLayout, layoutParams2)
         horizontalScrollView!!.isHorizontalScrollBarEnabled = false
         addView(horizontalScrollView, lp1)
@@ -195,7 +200,7 @@ class CustomTabLayout : RelativeLayout {
                             ((currentPosition * itemViewWidth) + itemViewWidth / 2) + itemMarginRight - it.width * (0.5f)
 
                     val nextScrollTo: Float =
-                            ((nextPosition * itemViewWidth) + itemViewWidth / 2) + itemMarginRight - it.width* (0.5f)
+                            ((nextPosition * itemViewWidth) + itemViewWidth / 2) + itemMarginRight - it.width * (0.5f)
 
 
                     it.scrollTo(
