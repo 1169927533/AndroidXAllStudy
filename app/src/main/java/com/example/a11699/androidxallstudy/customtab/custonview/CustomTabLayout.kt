@@ -68,7 +68,6 @@ class CustomTabLayout : RelativeLayout {
         titleLayout.orientation = LinearLayout.HORIZONTAL
         layoutParams2222.gravity = Gravity.CENTER
         titleLayout.layoutParams = layoutParams2222
-        titleLayout!!.setBackgroundResource(R.color.colorFFFFFF)
 
 
 

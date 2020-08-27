@@ -1,4 +1,4 @@
-package com.example.a11699.comp_netstudyt.bean;
+package com.example.a11699.comp_base.bean;
 
 /**
  * Create time 2020/4/6

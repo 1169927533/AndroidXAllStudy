@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.example.a11699.comp_netstudyt.dialog.TestDialog
 import com.example.a11699.comp_netstudyt.util.DialogUtils
-import com.example.a11699.comp_netstudyt.util.lazyVm
+import com.example.a11699.lib_network.vm.lazyVm
 import com.example.a11699.comp_netstudyt.viewmodel.MyViewModel
 import kotlinx.android.synthetic.main.activity_netstudy.*
 import pub.devrel.easypermissions.EasyPermissions

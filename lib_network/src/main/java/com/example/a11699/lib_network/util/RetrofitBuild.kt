@@ -1,8 +1,7 @@
-package com.example.a11699.comp_netstudyt.Api
+package com.example.a11699.lib_network.util
 
 import android.util.Log
-import com.example.a11699.comp_netstudyt.CoroutineCallAdapterFactory
-import com.example.a11699.comp_netstudyt.service.UserService
+
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

@@ -1,40 +1,45 @@
 package com.example.a11699.module_smartrecycleview
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.scwang.smartrefresh.layout.header.ClassicsHeader
-import kotlinx.android.synthetic.main.activity_smart.*
+import androidx.lifecycle.Observer
+import com.chad.library.adapter.base.BaseQuickAdapter
+import com.chad.library.adapter.base.BaseViewHolder
+import com.example.a11699.comp_base.bean.DailyStudentBean
+import com.example.a11699.comp_base.bean.SearchStudentBean
+import com.example.a11699.lib_network.vm.lazyVm
+import com.example.a11699.module_smartrecycleview.adapter.SearchAdapter
+import com.example.a11699.module_smartrecycleview.base.BaseRecycleViewActivity
+import com.example.a11699.module_smartrecycleview.viewmodel.SearchViewModel
 
 /**
  *Create time 2020/8/14
  *Create Yu
  *description:给recycleview增加下拉刷新
  */
-class SmartRecycleViewStudyActivity : AppCompatActivity() {
-    private var isRefresh = true
-    private var load = 3
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_smart)
-        initSmartRefreshLayout()//初始化SmartRefreshLayoutd的属性 和 下拉刷新功能
+class SmartRecycleViewStudyActivity : BaseRecycleViewActivity<DailyStudentBean>() {
+    val viewModel by lazyVm<SearchViewModel>()
+
+
+    override val baseAdapter: BaseQuickAdapter<DailyStudentBean, BaseViewHolder> by lazy { SearchAdapter() }
+    override val onFetchListener: (page: Int) -> Unit = {
+        //这里去做网络请求
+        viewModel.getStudentInferMarion("03764")
     }
 
-    private fun initSmartRefreshLayout() {
-        //设置阻尼效果（0-1） 越小阻尼越大默认0.5
-        smart_refresh.setDragRate(0.6f)
-        smart_refresh.setRefreshHeader(ClassicsHeader(this))//下拉刷新的经典样式
-
-        smart_refresh.setEnableRefresh(true)//开启下拉刷新功能
-        smart_refresh.setEnableLoadMore(false)//关闭上拉加载更多功能
-        //监听下拉
-        smart_refresh.setOnRefreshListener {
-            if (isRefresh) {
-                if(load==3){
-                    it.finishRefreshWithNoMoreData()//完成刷新并标记没有更多数据 不用触发加载更多事件
+    override fun observeLiveData() {
+        viewModel.searchLiveData.observe(this, Observer {
+            if (it != null) {
+                if (it.result.size == 0 && baseAdapter.data.size == 0) {
+                    finishGetDataError()
+                } else {
+                    finishGetDataSuccess()
                 }
-            }else{
-                it.finishRefresh(false)
+                smartRefreshUtil.onFetchFinish(it.result, true)
+                baseAdapter.setEnableLoadMore(false)
+            } else {
+                finishGetDataError()
             }
-        }
+        })
+
     }
+
 }

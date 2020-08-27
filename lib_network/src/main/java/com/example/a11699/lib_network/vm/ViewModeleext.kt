@@ -1,16 +1,10 @@
-package com.example.a11699.comp_netstudyt.util
+package com.example.a11699.lib_network.vm
 
 import android.app.Application
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.*
-import androidx.lifecycle.ViewModelLazy
-import com.example.a11699.comp_netstudyt.viewmodel.BaseViewModel
-import com.example.a11699.comp_netstudyt.viewmodel.MyViewModel
 import java.lang.reflect.InvocationTargetException
-import kotlin.contracts.InvocationKind
-import kotlin.contracts.contract
 import kotlin.reflect.KClass
 
 /**
@@ -23,11 +17,6 @@ inline fun <reified VM : BaseViewModel> FragmentActivity.lazyVm(noinline factory
         ActivityVmFac(application, intent.extras, this);
     }
     val vm = ViewModelLazy(VM::class, { viewModelStore }, factoryPromise)
-    return vm
-}
-
-inline fun <reified VM : BaseViewModel> FragmentActivity.lazyVmT(noinline factoryProducer: (() -> ViewModelProvider.Factory)? = null): com.example.a11699.comp_netstudyt.util.ViewModelLazy<MyViewModel> {
-    val vm = ViewModelLazy(MyViewModel::class, this)
     return vm
 }
 
@@ -86,8 +75,5 @@ class ActivityVmFac(private val application: Application, private val bundle: Bu
 
     }
 
-    fun das(c: Dsa.() -> Unit) {
-        c.invoke(Dsa("SD"))
-    }
 }
 

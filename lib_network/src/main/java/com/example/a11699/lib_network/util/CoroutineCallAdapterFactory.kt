@@ -1,4 +1,4 @@
-package com.example.a11699.comp_netstudyt
+package com.example.a11699.lib_network.util
 
 /**
  *Create time 2020/7/20

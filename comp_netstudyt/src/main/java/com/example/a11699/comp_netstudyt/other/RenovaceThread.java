@@ -1,4 +1,4 @@
-package com.example.a11699.comp_netstudyt;
+package com.example.a11699.comp_netstudyt.other;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

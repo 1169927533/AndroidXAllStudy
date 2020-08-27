@@ -1,3 +1,4 @@
+include ':lib_network'
 include ':library'
 include ':module_smartrecycleview'
 rootProject.name='AndroidXAllStudy'

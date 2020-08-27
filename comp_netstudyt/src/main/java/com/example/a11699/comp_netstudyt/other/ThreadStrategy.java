@@ -1,4 +1,4 @@
-package com.example.a11699.comp_netstudyt;
+package com.example.a11699.comp_netstudyt.other;
 
 import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;

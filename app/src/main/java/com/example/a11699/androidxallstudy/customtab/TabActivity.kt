@@ -19,6 +19,7 @@ import com.example.a11699.androidxallstudy.R
 import com.example.a11699.androidxallstudy.customtab.adapter.TabAdapter
 import com.example.a11699.androidxallstudy.customtab.adapter.TabAdapter2
 import com.example.a11699.androidxallstudy.customtab.adapter.TabAdapter3
+import com.example.a11699.androidxallstudy.customtab.adapter.TabAdapter_Splash
 import com.example.a11699.androidxallstudy.customtab.custonview.ColorTrackTextView
 import com.example.a11699.androidxallstudy.customtab.custonview.CustomTabLayout
 import com.example.a11699.androidxallstudy.customtab.fragment.ItemFragmetn
@@ -158,6 +159,9 @@ class TabActivity : AppCompatActivity() {
         customTabLayout2.initBottomView(imgView)
         customTabLayout2.setAdapter(adapter3, viewPager)
 
+
+        var tab_splash_adapter = TabAdapter_Splash(items, view_parent)
+        customTabLayout_splash.setAdapter(tab_splash_adapter, view_parent)
 
     }
 }
