@@ -3,6 +3,7 @@ package com.example.a11699.comp_im.adapter
 import android.content.Context
 import android.text.Html
 import android.text.TextUtils
+import android.view.View
 import com.bumptech.glide.request.RequestOptions
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
@@ -42,8 +43,12 @@ class ConversationListAdapter(context: Context) : BaseQuickAdapter<ConversationI
         if (item.isTop) {
             //可以对item进行特殊绘制
         }
-
-
+        if (item.unRead > 0) {
+            helper.itemView.tv_unread_item_num.visibility = View.VISIBLE
+            helper.itemView.tv_unread_item_num.text = item.unRead.toString()
+        } else {
+            helper.itemView.tv_unread_item_num.visibility = View.GONE
+        }
         if (lastMsg != null) {
             if (lastMsg.extra != null) {
                 helper.itemView.tv_content.text = (Html.fromHtml(lastMsg.extra.toString()))

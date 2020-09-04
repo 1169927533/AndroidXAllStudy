@@ -9,7 +9,9 @@ buildscript {
         maven {
             url "https://jitpack.io"
         }
-        
+        maven { url 'http://nexus.shengshow.com/nexus/content/groups/public/' }
+
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.6.3'
@@ -30,6 +32,8 @@ allprojects {
         maven {
             url "https://jitpack.io"
         }
+        maven { url 'http://nexus.shengshow.com/nexus/content/groups/public/' }
+
     }
 }
 

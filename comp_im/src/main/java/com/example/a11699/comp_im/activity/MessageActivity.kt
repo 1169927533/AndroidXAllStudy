@@ -1,28 +1,33 @@
 package com.example.a11699.comp_im.activity
 
+import android.view.View
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
+import com.example.a11699.comp_im.R
 import com.example.a11699.comp_im.adapter.ConversationListAdapter
 import com.example.a11699.lib_im.bean.ConversationInfo
 import com.example.a11699.lib_im.messageutil.ConversationManager
 import com.example.a11699.lib_im.messageutil.IUIKitCallBack
+
 import com.example.a11699.module_smartrecycleview.base.activity.BaseRecycleViewActivity
+import kotlinx.android.synthetic.main.activity_messagee.*
 
 /**
  *Create time 2020/9/2
  *Create Yu
  *description:接通im 展示消息列表
  */
-class MessageActivity : BaseRecycleViewActivity<ConversationInfo>(), ConversationManager.RefreshConversationListener {
+class MessageActivity : BaseRecycleViewActivity<ConversationInfo>(), ConversationManager.RefreshConversationListener, ConversationManager.UpdateUnReadMessageNumListener {
+    var startNum = 0L //分页查询的下一页id
+
     override val baseAdapter: BaseQuickAdapter<ConversationInfo, BaseViewHolder> by lazy {
         ConversationListAdapter(this)
     }
 
-    override fun initViewData() {
-        super.initViewData()
+    override fun getLayoutId(): Int {
+        return R.layout.activity_messagee
     }
 
-    var startNum = 0L
     override val onFetchListener: (page: Int) -> Unit = {
         if (it == 0) {
             startNum = 0L
@@ -51,6 +56,8 @@ class MessageActivity : BaseRecycleViewActivity<ConversationInfo>(), Conversatio
 
         //添加消息更新的监听
         ConversationManager.getInstance().addRefreshConversationListener(this)
+        //添加未读消息数量监听
+        ConversationManager.getInstance().addRefreshNoReadNumListener(this)
 
 
     }
@@ -65,8 +72,17 @@ class MessageActivity : BaseRecycleViewActivity<ConversationInfo>(), Conversatio
     }
 
 
-    override fun callBackRefreshListener(infos: ArrayList<ConversationInfo> , dataSource: (list: ArrayList<ConversationInfo>) -> Unit) {
+    override fun callBackRefreshListener(infos: ArrayList<ConversationInfo>, dataSource: (list: ArrayList<ConversationInfo>) -> Unit) {
         dataSource.invoke(baseAdapter.data as ArrayList<ConversationInfo>)
         baseAdapter.notifyDataSetChanged()
+    }
+
+    override fun updateUnReadMessageNum(count: Int) {
+        if (count > 0) {
+            tv_unread_num.visibility = View.VISIBLE
+            tv_unread_num.text = count.toString()
+        } else {
+            tv_unread_num.visibility = View.GONE
+        }
     }
 }

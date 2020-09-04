@@ -19,7 +19,6 @@ import kotlin.collections.ArrayList
 class ConversationManager {
     var mUnreadTotal: Int = 0//未读消息总数
     private val mTopLinkedList = LinkedList<ConversationInfo>()//被选中置顶的消息列表
-    var unReadMessageNum: ((unReadNum: Int) -> Unit)? = null //未读消息数 回调到外部进行通知
 
     private var conversationManagerListListener: ArrayList<RefreshConversationListener> = ArrayList() //所有注册接收消息更新回调
     private var updateUnReadMessageNumListListener: ArrayList<UpdateUnReadMessageNumListener> = ArrayList() //所有注册未读消息数量的监听器
@@ -48,6 +47,7 @@ class ConversationManager {
      * 获取会话列表
      */
     fun getConversationList(startNum: Long, iuiKitCallBack: IUIKitCallBack, getConversationList: ((startNum: Long) -> Unit)) {
+        mUnreadTotal = 0
         V2TIMManager.getConversationManager().getConversationList(startNum, 100, object : V2TIMValueCallback<V2TIMConversationResult> {
             override fun onSuccess(p0: V2TIMConversationResult?) {
                 var infos: ArrayList<ConversationInfo> = ArrayList()
@@ -61,9 +61,7 @@ class ConversationManager {
                     }
                 }
                 var dataList = sortConversations(infos)//对数据进行排序 将标记置顶的数据抽离出来放到顶部
-                unReadMessageNum?.let {
-                    it.invoke(mUnreadTotal)
-                }
+                updateUnreadTotal(mUnreadTotal)
                 iuiKitCallBack.onSuccess(dataList)
                 getConversationList.invoke(p0.nextSeq)
             }
@@ -81,7 +79,6 @@ class ConversationManager {
      * 更新数据 收到新的消息
      */
     fun onRefreshConversationList(v2TIMConversationList: MutableList<V2TIMConversation>?) {
-
         var infos = ArrayList<ConversationInfo>()
         for (i in v2TIMConversationList!!.indices) {
             val v2TIMConversation: V2TIMConversation = v2TIMConversationList[i]
@@ -106,7 +103,7 @@ class ConversationManager {
                     for (i in newDataList.indices) {
                         val cacheInfo: ConversationInfo = newDataList.get(i)
                         //单个会话刷新时找到老的会话数据，替换，这里需要增加群组类型的判断，防止好友id与群组id相同
-                        if (cacheInfo.id == (update.id) && cacheInfo.isGroup === update.isGroup) {
+                        if (cacheInfo.id == (update.id) && cacheInfo.isGroup == update.isGroup) {
                             newDataList.removeAt(i)
                             newDataList.add(i, update)
                             exists.add(update)
@@ -219,9 +216,9 @@ class ConversationManager {
      * @param unreadTotal
      */
     private fun updateUnreadTotal(unreadTotal: Int) {
-        mUnreadTotal = unreadTotal
+
         for (update in updateUnReadMessageNumListListener) {
-            update.updateUnReadMessageNum(mUnreadTotal)
+            update.updateUnReadMessageNum(unreadTotal)
         }
     }
 
