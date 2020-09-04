@@ -13,6 +13,7 @@ import kotlin.math.sqrt
  */
 class PlanetCalculator {
     var radius = 0
+
     var planetModelCloud: ArrayList<PointModel> = ArrayList()
     private var sinAngleX = 0f
     private var cosAngleX: kotlin.Float = 0f

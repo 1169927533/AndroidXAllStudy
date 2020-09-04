@@ -2,12 +2,15 @@ package com.example.a11699.androidxallstudy.cunstombarrage
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.Animation
 import android.view.animation.DecelerateInterpolator
 import com.example.a11699.androidxallstudy.R
+import com.example.a11699.comp_chat.ChatActivity
+import com.example.a11699.comp_chat.MessageActivity
 import kotlinx.android.synthetic.main.activity_barrage.*
 
 /**
@@ -36,6 +39,18 @@ class BarrageActivity : AppCompatActivity() {
         btn_startanimal.setOnClickListener {
             var d = MatchDialog()
             d.show(supportFragmentManager, "match")
+        }
+        btn_clickliao.setOnClickListener {
+            var intent = Intent(this, ChatActivity::class.java)
+            intent.putExtra("receiveImg", "www.baidu.com")
+            intent.putExtra("receiveid", "123")
+            intent.putExtra("receiveName", "余强")
+            intent.putExtra("topic", "默认发送一条消息")
+            startActivity(intent)
+        }
+        btn_message.setOnClickListener {
+            var intent = Intent(this, MessageActivity::class.java)
+            startActivity(intent)
         }
     }
 

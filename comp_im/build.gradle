@@ -26,6 +26,7 @@ android {
 dependencies {
 
     implementation(project(':comp_base'))
+    implementation(project(':module_smartrecycleview'))
+    implementation(project(':lib_im'))
 
-    implementation 'com.tencent.imsdk:imsdk:4.8.10'
 }

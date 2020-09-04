@@ -7,11 +7,14 @@
         <option name="testRunner" value="PLATFORM" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="D:/Software/Gradle/gradle-5.6.4-all/gradle-5.6.4" />
+        <option name="gradleJvm" value="1.8 (2)" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/comp_base" />
+            <option value="$PROJECT_DIR$/comp_chat" />
             <option value="$PROJECT_DIR$/comp_customview" />
             <option value="$PROJECT_DIR$/comp_im" />
             <option value="$PROJECT_DIR$/comp_imgpicker" />
@@ -19,9 +22,11 @@
             <option value="$PROJECT_DIR$/comp_netstudyt" />
             <option value="$PROJECT_DIR$/comp_viewmodel" />
             <option value="$PROJECT_DIR$/lib_greendao" />
+            <option value="$PROJECT_DIR$/lib_im" />
             <option value="$PROJECT_DIR$/lib_javatest" />
             <option value="$PROJECT_DIR$/lib_network" />
             <option value="$PROJECT_DIR$/lib_oos" />
+            <option value="$PROJECT_DIR$/lib_save" />
             <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/module_navigation" />
             <option value="$PROJECT_DIR$/module_smartrecycleview" />

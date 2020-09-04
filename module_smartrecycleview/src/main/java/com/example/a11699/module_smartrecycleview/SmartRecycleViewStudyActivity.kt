@@ -4,10 +4,9 @@ import androidx.lifecycle.Observer
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.example.a11699.comp_base.bean.DailyStudentBean
-import com.example.a11699.comp_base.bean.SearchStudentBean
 import com.example.a11699.lib_network.vm.lazyVm
 import com.example.a11699.module_smartrecycleview.adapter.SearchAdapter
-import com.example.a11699.module_smartrecycleview.base.BaseRecycleViewActivity
+import com.example.a11699.module_smartrecycleview.base.activity.BaseRecycleViewActivity
 import com.example.a11699.module_smartrecycleview.viewmodel.SearchViewModel
 
 /**

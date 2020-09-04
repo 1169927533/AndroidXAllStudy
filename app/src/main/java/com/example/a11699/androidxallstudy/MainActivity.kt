@@ -2,6 +2,7 @@ package com.example.a11699.androidxallstudy
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -22,10 +23,15 @@ import com.example.a11699.androidxallstudy.util.startActivity
 import com.example.a11699.androidxallstudy.viewdraghelper.ViewDragerStudyActivity
 import com.example.a11699.androidxallstudy.webview.WebViewStudy
 import com.example.a11699.comp_customview.QQStepViewActivity
+import com.example.a11699.comp_im.activity.ImActivity
+import com.example.a11699.comp_im.activity.MessageActivity
 import com.example.a11699.comp_imgpicker.ImgPickerActivity
 import com.example.a11699.comp_live.MainLiveActivity
 import com.example.a11699.comp_netstudyt.NetStudy
 import com.example.a11699.comp_viewmodel.ViewModelStudyActivity
+import com.example.a11699.lib_im.bean.ConversationInfo
+import com.example.a11699.lib_im.messageutil.ConversationManager
+import com.example.a11699.lib_im.messageutil.IUIKitCallBack
 import com.example.a11699.module_smartrecycleview.SmartRecycleViewStudyActivity
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -68,7 +74,7 @@ class MainActivity : AppCompatActivity() {
         btn_wubaloading.setOnClickListener { startActivity<WuBaActivity>(this) }
         btn_smartrecycleview.setOnClickListener { startActivity<SmartRecycleViewStudyActivity>(this) }
         btn_custompassword.setOnClickListener { startActivity<CustomPasswordActivity>(this) }
-
+        btn_im.setOnClickListener { startActivity<MessageActivity>(this) }
     }
 
 

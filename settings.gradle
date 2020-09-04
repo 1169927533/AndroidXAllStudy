@@ -1,3 +1,6 @@
+include ':lib_save'
+include ':comp_chat'
+include ':lib_im'
 include ':lib_network'
 include ':library'
 include ':module_smartrecycleview'

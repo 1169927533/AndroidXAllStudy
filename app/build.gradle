@@ -15,6 +15,15 @@ android {
         versionName "1.0"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath = true
+            }
+        }
     }
 
     buildTypes {
@@ -55,6 +64,10 @@ dependencies {
     implementation(project(':comp_live'))
     implementation(project(':module_smartrecycleview'))
     implementation(project(':library'))
+    implementation(project(':comp_im'))
+    implementation(project(':comp_chat'))
+    implementation(project(':lib_im'))
+    implementation(project(':lib_save'))
 
 
 }

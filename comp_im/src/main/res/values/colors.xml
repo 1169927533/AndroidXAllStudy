@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="navigation_bar_color">#F7F7F7</color>
+    <color name="input_title_line_color">#D2D2D2</color>
+    // 聊天发送/光标色值
+    <color name="green">#70C160</color>
+    <color name="voice_pressed">#DEDEDE</color>
+    <color name="voice_normal">#ffffff</color>
+    <color name="text_color_gray">#696969</color>
+
+</resources>

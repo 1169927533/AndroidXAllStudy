@@ -1,5 +1,6 @@
 package com.example.a11699.module_smartrecycleview.util
 
+import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
@@ -63,7 +64,7 @@ class SmartRefreshUtil<T>(private val adapter: BaseQuickAdapter<T, BaseViewHolde
         onFetchListener(currentPage + 1)
     }
 
-     fun startRefresh() {
+    fun startRefresh() {
         onRefresh()
     }
 
@@ -84,25 +85,29 @@ class SmartRefreshUtil<T>(private val adapter: BaseQuickAdapter<T, BaseViewHolde
     }
 
     fun onFetchFinish(data: List<T>?, goneIfNoData: Boolean) {
+        Log.i("Zjccsssc", data!!.size.toString())
         smartRefreshLayout.finishRefresh(true)
         data?.let { listData ->
             if (currentPage == 0 && isRefreshIng) {
-                eachPageSize = data.size
+                eachPageSize = listData.size
             }
             if (isOnLoadMoreIng) {
                 currentPage++
-                adapter.addData(data)
+                adapter.addData(listData)
             } else {
-                adapter.setNewData(data)
+                Log.i("qqqq", "我进来添加数据")
+
+                adapter.setNewData(listData)
             }
-            if(data.size<eachPageSize){
+            if (listData.size < eachPageSize) {
                 adapter.loadMoreEnd(goneIfNoData)//会在底部提示 没有更多数据了
-            }else{
+            } else {
                 adapter.loadMoreComplete()//表示此次上拉结束了 下一页还有数据
             }
         }
         isOnLoadMoreIng = false
         isRefreshIng = false
     }
+
 
 }
