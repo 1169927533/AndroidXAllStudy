@@ -1,10 +1,14 @@
 package com.example.a11699.comp_im.activity
 
+import android.content.Intent
+import android.util.Log
 import android.view.View
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.example.a11699.comp_im.R
 import com.example.a11699.comp_im.adapter.ConversationListAdapter
+import com.example.a11699.lib_im.Constants
+import com.example.a11699.lib_im.bean.ChatInfo
 import com.example.a11699.lib_im.bean.ConversationInfo
 import com.example.a11699.lib_im.messageutil.ConversationManager
 import com.example.a11699.lib_im.messageutil.IUIKitCallBack
@@ -21,7 +25,19 @@ class MessageActivity : BaseRecycleViewActivity<ConversationInfo>(), Conversatio
     var startNum = 0L //分页查询的下一页id
 
     override val baseAdapter: BaseQuickAdapter<ConversationInfo, BaseViewHolder> by lazy {
-        ConversationListAdapter(this)
+        ConversationListAdapter(this).apply {
+            setOnItemChildClickListener { _, _, position ->
+                var chatInfo = ChatInfo()
+                chatInfo.chatName = data[position].title
+                chatInfo.id = data[position].id // c2c为对方id group为群组id
+                chatInfo.messageType = data[position].type //聊天类型
+
+                var intent = Intent(this@MessageActivity,ImActivity::class.java)
+                intent.putExtra(Constants.CHAT_INFO, chatInfo)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+            }
+        }
     }
 
     override fun getLayoutId(): Int {
@@ -58,8 +74,6 @@ class MessageActivity : BaseRecycleViewActivity<ConversationInfo>(), Conversatio
         ConversationManager.getInstance().addRefreshConversationListener(this)
         //添加未读消息数量监听
         ConversationManager.getInstance().addRefreshNoReadNumListener(this)
-
-
     }
 
     override fun observeLiveData() {
@@ -71,7 +85,9 @@ class MessageActivity : BaseRecycleViewActivity<ConversationInfo>(), Conversatio
         ConversationManager.getInstance().deleteRefreshConversationListener(this)
     }
 
-
+    /**
+     * 第一个
+     */
     override fun callBackRefreshListener(infos: ArrayList<ConversationInfo>, dataSource: (list: ArrayList<ConversationInfo>) -> Unit) {
         dataSource.invoke(baseAdapter.data as ArrayList<ConversationInfo>)
         baseAdapter.notifyDataSetChanged()

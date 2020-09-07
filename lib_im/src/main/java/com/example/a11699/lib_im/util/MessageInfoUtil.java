@@ -1,4 +1,4 @@
-package com.example.a11699.lib_im.message;
+package com.example.a11699.lib_im.util;
 
 import android.net.Uri;
 import android.text.TextUtils;
@@ -6,10 +6,8 @@ import android.text.TextUtils;
 import com.example.a11699.comp_base.Util;
 import com.example.a11699.lib_im.bean.CallModel;
 import com.example.a11699.lib_im.bean.MessageInfo;
-import com.example.a11699.lib_im.util.DateTimeUtil;
-import com.example.a11699.lib_im.util.FileUtil;
-import com.example.a11699.lib_im.util.ImageUtil;
-import com.example.a11699.lib_im.util.TUIKitConstants;
+import com.example.a11699.lib_im.message.MessageCustom;
+import com.example.a11699.lib_im.message.MessageTyping;
 import com.google.gson.Gson;
 import com.tencent.imsdk.v2.V2TIMCustomElem;
 import com.tencent.imsdk.v2.V2TIMDownloadCallback;

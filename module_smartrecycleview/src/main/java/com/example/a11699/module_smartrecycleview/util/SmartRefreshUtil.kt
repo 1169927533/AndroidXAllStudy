@@ -18,7 +18,8 @@ class SmartRefreshUtil<T>(private val adapter: BaseQuickAdapter<T, BaseViewHolde
                           isNeedLoadMore: Boolean,
                           isNeedRefresh: Boolean,
                           needNormalNum: Int,//静默加载数量
-                          private val onFetchListener: ((page: Int) -> Unit)
+                          private val onFetchListener: ((page: Int) -> Unit),
+                          var dropDownFunction: Boolean = true//给下拉赋予功能 true下拉刷新，false下拉加载更多
 
 ) {
     init {
@@ -40,10 +41,20 @@ class SmartRefreshUtil<T>(private val adapter: BaseQuickAdapter<T, BaseViewHolde
         smartRefreshLayout.setEnableLoadMore(false)
         if (isNeedRefresh) {
             smartRefreshLayout.setEnableRefresh(isNeedRefresh)
-            smartRefreshLayout.setOnRefreshListener { onRefresh() }
+            smartRefreshLayout.setOnRefreshListener {
+                if (dropDownFunction) {
+                    onRefresh()
+                } else {
+                    onLoadMore()
+                }
+            }
         }
     }
 
+    //设置是否可以上拉刷新
+    fun setSmartRefreshLayoutCanRefresh(canRefresh: Boolean) {
+        smartRefreshLayout.setEnableRefresh(canRefresh)
+    }
 
     var isRefreshIng: Boolean = false //是否正在刷新
     var isOnLoadMoreIng: Boolean = false//是否正在加载更多
@@ -85,7 +96,6 @@ class SmartRefreshUtil<T>(private val adapter: BaseQuickAdapter<T, BaseViewHolde
     }
 
     fun onFetchFinish(data: List<T>?, goneIfNoData: Boolean) {
-        Log.i("Zjccsssc", data!!.size.toString())
         smartRefreshLayout.finishRefresh(true)
         data?.let { listData ->
             if (currentPage == 0 && isRefreshIng) {
@@ -93,10 +103,12 @@ class SmartRefreshUtil<T>(private val adapter: BaseQuickAdapter<T, BaseViewHolde
             }
             if (isOnLoadMoreIng) {
                 currentPage++
-                adapter.addData(listData)
+                if (dropDownFunction) {
+                    adapter.addData(listData)
+                } else {
+                    adapter.addData(0, listData)
+                }
             } else {
-                Log.i("qqqq", "我进来添加数据")
-
                 adapter.setNewData(listData)
             }
             if (listData.size < eachPageSize) {

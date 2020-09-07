@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class ChatInfo implements Serializable {
 
     private String chatName;
-    private int type = V2TIMConversation.V2TIM_C2C;
+    private int messageType = V2TIMConversation.V2TIM_C2C;
     private String id;
     private boolean isTopChat;
 
@@ -41,17 +41,17 @@ public class ChatInfo implements Serializable {
      *
      * @return
      */
-    public int getType() {
-        return type;
+    public int getMessageType() {
+        return messageType;
     }
 
     /**
      * 设置聊天类型，C2C为单聊，Group为群聊
      *
-     * @param type
+     * @param messageType
      */
-    public void setType(int type) {
-        this.type = type;
+    public void setMessageType(int messageType) {
+        this.messageType = messageType;
     }
 
     /**

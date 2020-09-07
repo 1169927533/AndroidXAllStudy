@@ -1,10 +1,11 @@
 package com.example.a11699.lib_im.messageutil
 
 import android.text.TextUtils
+import android.util.Log
 import com.example.a11699.comp_base.Util
 import com.example.a11699.lib_im.R
 import com.example.a11699.lib_im.bean.ConversationInfo
-import com.example.a11699.lib_im.message.MessageInfoUtil
+import com.example.a11699.lib_im.util.MessageInfoUtil
 import com.tencent.imsdk.v2.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -24,7 +25,7 @@ class ConversationManager {
     private var updateUnReadMessageNumListListener: ArrayList<UpdateUnReadMessageNumListener> = ArrayList() //所有注册未读消息数量的监听器
 
     companion object {
-        var conversationManager: ConversationManager = ConversationManager()
+        private var conversationManager: ConversationManager = ConversationManager()
         fun getInstance(): ConversationManager {
             return conversationManager
         }
@@ -101,7 +102,7 @@ class ConversationManager {
                     val update: ConversationInfo = infos[j]
                     var exist = false
                     for (i in newDataList.indices) {
-                        val cacheInfo: ConversationInfo = newDataList.get(i)
+                        val cacheInfo: ConversationInfo = newDataList[i]
                         //单个会话刷新时找到老的会话数据，替换，这里需要增加群组类型的判断，防止好友id与群组id相同
                         if (cacheInfo.id == (update.id) && cacheInfo.isGroup == update.isGroup) {
                             newDataList.removeAt(i)
@@ -132,12 +133,13 @@ class ConversationManager {
 
 
     /**
-     * 将获取的TIMConversation转换为COnversationInfo
+     * 将获取的TIMConversation转换为ConversationInfo
      */
     fun tIMConversation2ConversationInfo(conversation: V2TIMConversation): ConversationInfo? {
+
         var message: V2TIMMessage? = conversation.lastMessage ?: return null
 
-        var conversationInfo: ConversationInfo = ConversationInfo()
+        var conversationInfo = ConversationInfo()
 
         var type = conversation.type //获取会话类型
         if (type != V2TIMConversation.V2TIM_C2C && type != V2TIMConversation.V2TIM_GROUP) {
@@ -170,6 +172,7 @@ class ConversationManager {
         conversationInfo.conversationId = conversation.conversationID
         conversationInfo.isGroup = isGroup
         conversationInfo.unRead = conversation.unreadCount
+        conversationInfo.type = conversation.type
         return conversationInfo
     }
 

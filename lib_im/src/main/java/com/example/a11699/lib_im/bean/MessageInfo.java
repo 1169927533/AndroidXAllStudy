@@ -3,6 +3,7 @@ package com.example.a11699.lib_im.bean;
 import android.net.Uri;
 import android.text.TextUtils;
 
+import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.example.a11699.comp_base.Util;
 import com.tencent.imsdk.v2.V2TIMCallback;
 import com.tencent.imsdk.v2.V2TIMManager;
@@ -13,6 +14,7 @@ import java.util.UUID;
 
 
 public class MessageInfo {
+
     private final String TAG = "MessageInfo";
 
     public static final int MSG_TYPE_MIME = 0x1;
