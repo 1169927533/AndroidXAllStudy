@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.chat_input_layout.view.*
  *description:
  */
 class BottomInputView : LinearLayout, TextWatcher {
-    var state = 0 //0没点过 1展示更多 2不展示更多
+    var state = 0 //0出视态 1展示更多 2不展示更多 4全部不展示态
 
 
     private var mInputContent: String = ""//输入得内容
@@ -51,15 +51,21 @@ class BottomInputView : LinearLayout, TextWatcher {
         more_btn.setOnClickListener {
             inputViewInterface?.let { inputView ->
                 if (ScreenUtil.isSoftShowing(this)) {
-                    inputView.clickShowMore(1,chat_message_input)
+                    state = 3
+                    inputView.clickShowMore(1, chat_message_input)
                 } else {
-                    if (state == 1 || state == 0) {
+                    if (state == 0) {
                         state = 1
-                        inputView.clickShowMore(state,chat_message_input)
+                        inputView.clickShowMore(state, chat_message_input)
+                    } else if (state == 1) {
                         state = 2
+                        inputView.clickShowMore(state, chat_message_input)
+                    } else if (state == 2) {
+                        state = 3
+                        inputView.clickShowMore(state, chat_message_input)
                     } else {
-                        inputView.clickShowMore(state,chat_message_input)
-                        state = 1
+                        inputView.clickShowMore(state, chat_message_input)
+                        state = 0
                     }
                 }
             }
@@ -68,6 +74,9 @@ class BottomInputView : LinearLayout, TextWatcher {
         chat_message_input.addTextChangedListener(this)
         //输入消息框被点击
         chat_message_input.setOnTouchListener { v, event ->
+            inputViewInterface?.let { inputView ->
+                inputView.clickShowMore(2, chat_message_input)
+            }
             showSoftInputView()
             false
         }
@@ -133,6 +142,7 @@ class BottomInputView : LinearLayout, TextWatcher {
 
     //展开软键盘
     private fun showSoftInputView() {
+
         InputUtil.showSoftInout(chat_message_input, context)
     }
 }

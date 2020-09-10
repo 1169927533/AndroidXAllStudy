@@ -1,9 +1,6 @@
 # AndroidXAllStudy
 第一个版本
 ## 版本1
-
----
-
 新增库：lib_customview
 
 > 新增自定义View： SoftViewGroup.kt

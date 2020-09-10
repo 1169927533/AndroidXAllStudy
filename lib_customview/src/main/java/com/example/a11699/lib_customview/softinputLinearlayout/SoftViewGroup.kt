@@ -5,6 +5,7 @@ import android.os.Build
 import android.transition.ChangeBounds
 import android.transition.TransitionManager
 import android.util.AttributeSet
+import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.LinearLayout
 import androidx.annotation.RequiresApi
@@ -25,6 +26,7 @@ class SoftViewGroup : LinearLayout {
     var mShouldShowMore = 0 //0第一次进入页面  1展示更多内容  2不展示更多内容
 
     var mEditText: EditText? = null
+    var click_soft = 0
     fun setValeToShowMore(shouldShowMore: Int) {
         mShouldShowMore = shouldShowMore
         when (mShouldShowMore) {
@@ -34,12 +36,25 @@ class SoftViewGroup : LinearLayout {
             1 -> { //展示更多 软键盘处于打开状态
                 if (ScreenUtil.isSoftShowing(this)) {
                     InputUtil.hideSoftInput(this, mContext!!)
+                    click_soft = 1
                 } else {
-                    requestLayout()
+                    if (click_soft == 1) {
+                        //   mShouldShowMore = 0
+                        //   InputUtil.showSoftInout(mEditText!!, mContext!!)
+                        requestLayout()
+
+                    } else {
+                        requestLayout()
+                    }
+                    click_soft = 0
                 }
             }
             2 -> { //不展示更多 软键盘谈起
                 InputUtil.showSoftInout(mEditText!!, mContext!!)
+            }
+            3 -> { //全部不展示
+                InputUtil.hideSoftInput(this, mContext!!)
+                requestLayout()
             }
         }
 
@@ -88,7 +103,7 @@ class SoftViewGroup : LinearLayout {
                 secondViewHeight = screenHeight + ScreenUtil.getTitleBarHeight(this, true) - topVisibilityHeight
             }
         }
-        setTransition(500)
+        setTransition(200)
 
         for ((index, childView) in children.withIndex()) {
             var layoutParams = childView.layoutParams

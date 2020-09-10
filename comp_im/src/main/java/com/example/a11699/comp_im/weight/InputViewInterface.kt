@@ -12,5 +12,5 @@ import com.example.a11699.lib_im.bean.MessageInfo
  */
 interface InputViewInterface {
     fun clickSendMessage(msg: MessageInfo, messageInputView: View)
-    fun clickShowMore(showMore: Int, editText: EditText)
+    fun clickShowMore(showMore: Int, editText: EditText)//0没点过 1展示更多 2不展示更多
 }
