@@ -28,5 +28,6 @@ dependencies {
     implementation(project(':comp_base'))
     implementation(project(':module_smartrecycleview'))
     implementation(project(':lib_im'))
+    implementation(project(':lib_customview'))
 
 }

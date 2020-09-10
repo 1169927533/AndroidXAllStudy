@@ -1,9 +1,8 @@
-package com.example.a11699.lib_im.util
+package com.example.a11699.lib_customview.util
 
 import android.graphics.Rect
 import android.view.View
 import android.view.Window
-import com.example.a11699.comp_base.Util
 
 /**
  *Create time 2020/9/9
@@ -43,7 +42,6 @@ object ScreenUtil {
      * 判断当前软键盘是否显示
      */
     public fun isSoftShowing(view: View): Boolean {
-        Util.printLog(" getScreenTotalHeight(): ${getScreenTotalHeight(view)}   getVisibleHeight():${getVisibleHeight(view)}")
         return getScreenTotalHeight(view) - getVisibleHeight(view) != 0
     }
 
@@ -60,7 +58,7 @@ object ScreenUtil {
     /**
      * 获取屏幕高度
      */
-    fun getScreenTotalHeight(view: View): Int {
+    public fun getScreenTotalHeight(view: View): Int {
         return view.resources.displayMetrics.heightPixels
     }
 }

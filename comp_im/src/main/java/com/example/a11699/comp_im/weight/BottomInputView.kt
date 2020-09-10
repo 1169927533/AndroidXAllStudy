@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import com.example.a11699.comp_im.R
 import com.example.a11699.comp_im.fragment.InputMoreFragment
-import com.example.a11699.comp_im.util.InputUtil
+import com.example.a11699.lib_customview.util.InputUtil
 import com.example.a11699.lib_im.util.MessageInfoUtil
 import com.example.a11699.lib_im.util.ScreenUtil
 import kotlinx.android.synthetic.main.chat_input_layout.view.*

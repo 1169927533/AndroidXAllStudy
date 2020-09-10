@@ -7,8 +7,6 @@
             />
         <!--  -->
         <activity android:name=".activity.MessageActivity" />
-        <activity android:name=".activity.AAAA"
 
-            />
     </application>
 </manifest>

@@ -1,15 +1,17 @@
-package com.example.a11699.comp_im.weight
+package com.example.a11699.lib_customview.softinputLinearlayout
 
 import android.content.Context
+import android.os.Build
 import android.transition.ChangeBounds
 import android.transition.TransitionManager
 import android.util.AttributeSet
-import android.util.Log
 import android.widget.EditText
 import android.widget.LinearLayout
+import androidx.annotation.RequiresApi
 import androidx.core.view.children
-import com.example.a11699.comp_im.util.InputUtil
-import com.example.a11699.lib_im.util.ScreenUtil
+import com.example.a11699.lib_customview.util.InputUtil
+import com.example.a11699.lib_customview.util.ScreenUtil
+
 
 /**
  *Create time 2020/9/9
@@ -65,6 +67,7 @@ class SoftViewGroup : LinearLayout {
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
         var secondViewHeight = 0//第二个view展示高度
         var topVisibilityHeight = ScreenUtil.getVisibleHeight(this)//顶部可见距离
@@ -113,6 +116,7 @@ class SoftViewGroup : LinearLayout {
      *
      * @param duration
      */
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
     private fun setTransition(duration: Long) {
         val changeBounds = ChangeBounds()
         changeBounds.duration = duration

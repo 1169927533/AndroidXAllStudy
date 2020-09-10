@@ -1,4 +1,4 @@
-package com.example.a11699.comp_im.util
+package com.example.a11699.lib_customview.util
 
 import android.content.Context
 import android.view.View
@@ -20,7 +20,6 @@ object InputUtil {
     fun hideSoftInput(editText: View, context: Context) {
         val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(editText.windowToken, 0)
-        //  imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS)
         editText.clearFocus()
     }
 }
