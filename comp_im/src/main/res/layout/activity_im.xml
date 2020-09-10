@@ -29,12 +29,10 @@
 
     </LinearLayout>
 
-    <RelativeLayout
+    <FrameLayout
         android:id="@+id/more_groups"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
-
         />
 
 </com.example.a11699.lib_customview.softinputLinearlayout.SoftViewGroup>
