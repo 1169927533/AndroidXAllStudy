@@ -1,12 +1,10 @@
 package com.example.a11699.lib_customview.softinputLinearlayout
 
-import android.animation.ObjectAnimator
 import android.content.Context
 import android.os.Build
 import android.transition.ChangeBounds
 import android.transition.TransitionManager
 import android.util.AttributeSet
-import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.LinearLayout
@@ -19,12 +17,13 @@ import com.example.a11699.lib_customview.util.ScreenUtil
 /**
  *Create time 2020/9/9
  *Create Yu
- *description:父布局 里面必须包含两个子view
- * 用来承装输入框 和 显示界面
+ *description:
+ * 这个将两者进行了分离
  */
-class SoftViewGroup : LinearLayout {
+class Soft2ViewGroup : LinearLayout {
     var mContext: Context? = null
     var childHeightList = ArrayList<Int>() //保存每个子view的高度
+    var cChildHeightList = ArrayList<Int>()
     var mShouldShowMore = 0 //0第一次进入页面  1展示更多内容  2不展示更多内容
 
     var mEditText: EditText? = null
@@ -72,16 +71,27 @@ class SoftViewGroup : LinearLayout {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         var widthParent = MeasureSpec.getSize(widthMeasureSpec)
         var heightParent = MeasureSpec.getSize(heightMeasureSpec)
-        if (childHeightList.size == 0) {
-            for (index in 0 until childCount) {
-                var childView = getChildAt(index)
-                //测量子view
-                measureChild(childView, widthMeasureSpec, heightMeasureSpec)
-                var cHeight = childView.measuredHeight
-                childHeightList.add(cHeight)
-            }
-            setMeasuredDimension(widthParent, heightParent)
+        childHeightList.clear()
+        cChildHeightList.clear()
+
+        var cChildView = getChildAt(0) as ViewGroup
+        for (index in 0 until cChildView.childCount) {
+            var cccchildView = cChildView.getChildAt(index)
+            //测量子view
+            measureChild(cccchildView, widthMeasureSpec, heightMeasureSpec)
+            var cHeight = cccchildView.measuredHeight
+            cChildHeightList.add(cHeight)
         }
+
+        for (index in 0 until childCount) {
+            var childView = getChildAt(index)
+            //测量子view
+            measureChild(childView, widthMeasureSpec, heightMeasureSpec)
+            var cHeight = childView.measuredHeight
+            childHeightList.add(cHeight)
+        }
+        setMeasuredDimension(widthParent, heightParent)
+
 
     }
 
@@ -89,6 +99,7 @@ class SoftViewGroup : LinearLayout {
     @RequiresApi(Build.VERSION_CODES.KITKAT)
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
         var secondViewHeight = 0//第二个view展示高度
+        var thirdViewHeight = 0
         var topVisibilityHeight = ScreenUtil.getVisibleHeight(this)//顶部可见距离
         var screenHeight = ScreenUtil.getScreenTotalHeight(this) - ScreenUtil.getTitleBarHeight(this, true)//整个屏幕的高度
 
@@ -99,12 +110,15 @@ class SoftViewGroup : LinearLayout {
         when (mShouldShowMore) {
             0 -> { //全部都是收起状态
                 secondViewHeight = 0
+                thirdViewHeight = 0
             }
             1 -> { //展示更多 软键盘处于打开状态
                 secondViewHeight = childHeightList[1]
+                thirdViewHeight = screenHeight - childHeightList[1] - cChildHeightList[1]
             }
             2 -> { //不展示更多 软键盘谈起
                 secondViewHeight = screenHeight + ScreenUtil.getTitleBarHeight(this, true) - topVisibilityHeight
+                thirdViewHeight = topVisibilityHeight - cChildHeightList[1] - ScreenUtil.getTitleBarHeight(this, true)
             }
         }
         setTransition(200)
@@ -113,19 +127,16 @@ class SoftViewGroup : LinearLayout {
             var layoutParams = childView.layoutParams
             when (index) {
                 0 -> {
-                    var s = screenHeight - (topVisibilityHeight - ScreenUtil.getTitleBarHeight(this, true))
-                    if (mShouldShowMore == 1) {
-                        childView.layout(l, 0, r, screenHeight - secondViewHeight)
-                        if (layoutParams.height != topVisibilityHeight - ScreenUtil.getTitleBarHeight(this, true) - childHeightList[1]) {
-                            layoutParams.height = topVisibilityHeight - ScreenUtil.getTitleBarHeight(this, true) - childHeightList[1]
+                    if (secondViewHeight == 0) {
+                        childView.layout(l, t - secondViewHeight, r, screenHeight - secondViewHeight)
+                        if (layoutParams.height != childHeightList[0]) {
+                            layoutParams.height = childHeightList[0]
                             childView.layoutParams = layoutParams
                         }
                     } else {
-                        childView.layout(l, s - secondViewHeight, r, screenHeight - secondViewHeight)
-                        if (layoutParams.height != topVisibilityHeight - ScreenUtil.getTitleBarHeight(this, true)) {
-                            layoutParams.height = topVisibilityHeight - ScreenUtil.getTitleBarHeight(this, true)
-                            childView.layoutParams = layoutParams
-                        }
+                        var ccViewGroup = childView as ViewGroup
+                        var ccView = ccViewGroup.getChildAt(1)
+                        ccView.layout(l, thirdViewHeight, r, thirdViewHeight + cChildHeightList[1])
                     }
 
                 }
@@ -149,15 +160,6 @@ class SoftViewGroup : LinearLayout {
     private fun setTransition(duration: Long) {
         val changeBounds = ChangeBounds()
         changeBounds.duration = duration
-        TransitionManager.beginDelayedTransition(this@SoftViewGroup, changeBounds)
-    }
-
-
-    fun moveToTopAnimal(view: View, distance: Float) {
-        ObjectAnimator.ofFloat(view, "translationY", distance)
-                .apply {
-                    duration = 2000
-                    start()
-                }
+        TransitionManager.beginDelayedTransition(this@Soft2ViewGroup, changeBounds)
     }
 }

@@ -74,6 +74,8 @@ class ContentMultiFragment(private val bottomInputView: BottomInputView) : BaseM
         addInputViewStateListener() //添加软键盘弹起监听
         smartRefreshUtil.dropDownFunction = false  //下拉功能换成加载更多
 
+        (layoutManager as LinearLayoutManager).stackFromEnd = false
+
         chatManager!!.mCurrentProvider = ChatProvider().apply {
             setAdapter(baseAdapter, this@ContentMultiFragment.recycleview)
         }
@@ -82,27 +84,55 @@ class ContentMultiFragment(private val bottomInputView: BottomInputView) : BaseM
         chatInfo = bundle!!.getSerializable(Constants.CHAT_INFO) as ChatInfo
         baseAdapter.setEnableLoadMore(false)//禁掉他的上拉加载
 
-      /*  bottomInputView.apply {
-            inputViewInterface = object : InputViewInterface {
-                override fun clickSendMessage(msg: MessageInfo, messageInputView: View) {
-                    msg.isSelf = true
-                    msg.isRead = true
-                    if (msg.msgType == MessageInfo.MSG_TYPE_TEXT) {
-                        var textElem = msg.timMessage.textElem
-                        baseAdapter.addData(msg)
-                        realSendMessage(msg)
-                        (messageInputView as EditText).text.clear()
-                        recycleview!!.scrollToPosition(baseAdapter.itemCount - 1)
-                    }
-                }
+        /*  bottomInputView.apply {
+              inputViewInterface = object : InputViewInterface {
+                  override fun clickSendMessage(msg: MessageInfo, messageInputView: View) {
+                      msg.isSelf = true
+                      msg.isRead = true
+                      if (msg.msgType == MessageInfo.MSG_TYPE_TEXT) {
+                          var textElem = msg.timMessage.textElem
+                          baseAdapter.addData(msg)
+                          realSendMessage(msg)
+                          (messageInputView as EditText).text.clear()
+                          recycleview!!.scrollToPosition(baseAdapter.itemCount - 1)
+                      }
+                  }
 
-                override fun clickShowMore(showMore: Boolean) {
+                  override fun clickShowMore(showMore: Boolean) {
 
+                  }
+              }
+          }*/
+        recycleview.viewTreeObserver.addOnGlobalLayoutListener {
+            (layoutManager as LinearLayoutManager)?.let {
+                val lastCompleteVisibleItemPosition = it.findLastCompletelyVisibleItemPosition()
+                if (lastCompleteVisibleItemPosition < baseAdapter.itemCount - 1) {
+                    //超过一屏幕
+                    (layoutManager as LinearLayoutManager)?.stackFromEnd = true
                 }
             }
-        }*/
+        }
 
+        recycleview.addOnScrollListener(object : RecyclerView.OnScrollListener() {
 
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                (layoutManager as LinearLayoutManager)?.let {
+                    // 当不滚动时(看需求，滚动的时候也可以加上)
+                    if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                        //获取最后一个完全显示的ItemPosition
+                        val lastVisibleItem = it.findLastCompletelyVisibleItemPosition()//从0开始
+                        val totalItemCount = it.itemCount
+                        // 判断是否滚动到底部，并且是向下滚动
+                        if (lastVisibleItem == (totalItemCount - 1)) {
+                            //最后一个完全显示不用处理 默认stackFormEnd = false
+                        } else {
+                            (layoutManager as LinearLayoutManager)?.stackFromEnd = true
+                        }
+                    }
+                }
+            }
+        })
     }
 
     override fun observeLiveData() {
@@ -151,7 +181,7 @@ class ContentMultiFragment(private val bottomInputView: BottomInputView) : BaseM
 
                 if (rootInvisibleHeight > normalHeight && !hasBounce) {
                     hasBounce = true
-                    recycleview!!.scrollToPosition(baseAdapter.itemCount - 1)
+                   // recycleview!!.scrollToPosition(baseAdapter.itemCount - 1)
                 }
                 if (rootInvisibleHeight == normalHeight) {
                     hasBounce = false
