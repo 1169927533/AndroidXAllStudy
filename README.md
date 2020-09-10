@@ -22,4 +22,4 @@
 
 效果如下:
 
-<video src="resourcepackage/softviewgroup.mp4"></video>
+<img src="resourcepackage/1599708909110.gif" alt="1599708909110" style="zoom: 50%;" />
