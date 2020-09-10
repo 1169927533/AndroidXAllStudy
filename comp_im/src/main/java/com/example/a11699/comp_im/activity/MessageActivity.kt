@@ -32,10 +32,13 @@ class MessageActivity : BaseRecycleViewActivity<ConversationInfo>(), Conversatio
                 chatInfo.id = data[position].id // c2c为对方id group为群组id
                 chatInfo.messageType = data[position].type //聊天类型
 
-                var intent = Intent(this@MessageActivity,ImActivity::class.java)
+                var intent = Intent(this@MessageActivity, ImActivity::class.java)
                 intent.putExtra(Constants.CHAT_INFO, chatInfo)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
+
+                /* var intent = Intent(this@MessageActivity, AAAA::class.java)
+                  startActivity(intent)*/
             }
         }
     }
@@ -70,11 +73,17 @@ class MessageActivity : BaseRecycleViewActivity<ConversationInfo>(), Conversatio
             startNum = it
         }
 
+
+    }
+
+    override fun onResume() {
+        super.onResume()
         //添加消息更新的监听
         ConversationManager.getInstance().addRefreshConversationListener(this)
         //添加未读消息数量监听
         ConversationManager.getInstance().addRefreshNoReadNumListener(this)
     }
+
 
     override fun observeLiveData() {
 

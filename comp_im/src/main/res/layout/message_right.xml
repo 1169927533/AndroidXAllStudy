@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp">
+
+    <com.example.a11699.comp_base.util.GlideImageView
+        android:id="@+id/img_anchor_right"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="15dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_rightmessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/chat_bg_send_bg"
+         app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center|left"
+        android:maxWidth="200dp"
+        android:maxLines="2"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp"
+        tools:text="你经常去健身房你经常去健身房"
+        android:textColor="#ffffffff"
+        android:textSize="14dp"
+        app:layout_constraintRight_toLeftOf="@+id/img_anchor_right" />
+</androidx.constraintlayout.widget.ConstraintLayout>

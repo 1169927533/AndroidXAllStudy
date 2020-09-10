@@ -14,6 +14,7 @@ import com.example.a11699.comp_im.R
 import com.example.a11699.comp_im.fragment.InputMoreFragment
 import com.example.a11699.comp_im.util.InputUtil
 import com.example.a11699.lib_im.util.MessageInfoUtil
+import com.example.a11699.lib_im.util.ScreenUtil
 import kotlinx.android.synthetic.main.chat_input_layout.view.*
 
 /**
@@ -22,7 +23,9 @@ import kotlinx.android.synthetic.main.chat_input_layout.view.*
  *description:
  */
 class BottomInputView : LinearLayout, TextWatcher {
-    var isShowMore: Boolean = false //是否展示更多
+    var state = 0 //0没点过 1展示更多 2不展示更多
+
+
     private var mInputContent: String = ""//输入得内容
     var mLastMsgLineCount = 0
 
@@ -46,10 +49,19 @@ class BottomInputView : LinearLayout, TextWatcher {
         initContentView()
         //点击更多按钮
         more_btn.setOnClickListener {
-            if (more_groups.visibility == View.VISIBLE) {
-                more_groups.visibility = View.GONE
-            } else {
-                more_groups.visibility = View.VISIBLE
+            inputViewInterface?.let { inputView ->
+                if (ScreenUtil.isSoftShowing(this)) {
+                    inputView.clickShowMore(1,chat_message_input)
+                } else {
+                    if (state == 1 || state == 0) {
+                        state = 1
+                        inputView.clickShowMore(state,chat_message_input)
+                        state = 2
+                    } else {
+                        inputView.clickShowMore(state,chat_message_input)
+                        state = 1
+                    }
+                }
             }
         }
 
@@ -62,7 +74,7 @@ class BottomInputView : LinearLayout, TextWatcher {
 
         send_btn.setOnClickListener {
             inputViewInterface?.let { inputview ->
-                inputview.clickSendMessage(MessageInfoUtil.buildTextMessage(chat_message_input.text.trim().toString()))
+                inputview.clickSendMessage(MessageInfoUtil.buildTextMessage(chat_message_input.text.trim().toString()), chat_message_input)
             }
         }
     }
@@ -121,7 +133,6 @@ class BottomInputView : LinearLayout, TextWatcher {
 
     //展开软键盘
     private fun showSoftInputView() {
-        more_groups.visibility = View.GONE
         InputUtil.showSoftInout(chat_message_input, context)
     }
 }

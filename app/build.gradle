@@ -76,7 +76,7 @@ dependencies {
     api 'com.pince.maven:comp-datasource-new:1.0.0'
     kapt 'com.pince.maven:comp-repositycp:1.0.1'
     api "com.pince.maven:comp-annotation:1.0.0"
-
+ 
 }
 repositories {
     mavenCentral()

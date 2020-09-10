@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -175,6 +176,10 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+
+    
+    
     <LinearLayout
         android:id="@+id/ly"
         android:layout_width="match_parent"

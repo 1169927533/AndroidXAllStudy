@@ -1,3 +1,4 @@
+include ':lib_customview'
 include ':lib_save'
 include ':comp_chat'
 include ':lib_im'

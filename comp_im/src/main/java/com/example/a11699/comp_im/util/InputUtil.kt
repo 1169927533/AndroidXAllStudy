@@ -11,15 +11,16 @@ import android.widget.EditText
  *description:
  */
 object InputUtil {
-    fun showSoftInout(editText: EditText, context: Context) {
+    fun showSoftInout(editText: View, context: Context) {
         editText.requestFocus()
         var inputMethodManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.showSoftInput(editText, InputMethodManager.HIDE_NOT_ALWAYS)//如果输入法打开则关闭，如果没打开则打开
     }
 
-    fun hideSoftInput(editText: EditText, context: Context) {
+    fun hideSoftInput(editText: View, context: Context) {
         val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(editText.windowToken, 0)
+        //  imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS)
         editText.clearFocus()
     }
 }

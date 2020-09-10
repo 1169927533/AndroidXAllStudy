@@ -228,7 +228,9 @@ class ConversationManager {
 
     //添加消息列表监听
     fun addRefreshConversationListener(refresh: RefreshConversationListener) {
-        conversationManagerListListener.add(refresh)
+        if(!conversationManagerListListener.contains(refresh)){
+            conversationManagerListListener.add(refresh)
+        }
     }
 
     //移除消息列表监听
@@ -243,6 +245,8 @@ class ConversationManager {
 
     //添加消息数据更新监听
     fun addRefreshNoReadNumListener(updateUnReadMessageNumListener: UpdateUnReadMessageNumListener) {
-        updateUnReadMessageNumListListener.add(updateUnReadMessageNumListener)
+        if(!updateUnReadMessageNumListListener.contains(updateUnReadMessageNumListener)){
+            updateUnReadMessageNumListListener.add(updateUnReadMessageNumListener)
+        }
     }
 }

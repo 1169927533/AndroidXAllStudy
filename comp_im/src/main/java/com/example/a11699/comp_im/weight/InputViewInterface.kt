@@ -1,5 +1,7 @@
 package com.example.a11699.comp_im.weight
 
+import android.view.View
+import android.widget.EditText
 import com.example.a11699.lib_im.bean.MessageInfo
 
 
@@ -9,5 +11,6 @@ import com.example.a11699.lib_im.bean.MessageInfo
  *description:消息发送界面的事件回调
  */
 interface InputViewInterface {
-    fun clickSendMessage(msg: MessageInfo)
+    fun clickSendMessage(msg: MessageInfo, messageInputView: View)
+    fun clickShowMore(showMore: Int, editText: EditText)
 }

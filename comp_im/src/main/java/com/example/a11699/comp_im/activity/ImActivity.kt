@@ -2,12 +2,18 @@ package com.example.a11699.comp_im.activity
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import com.example.a11699.comp_im.R
 import com.example.a11699.comp_im.fragment.ContentFragment
+import com.example.a11699.comp_im.fragment.ContentMultiFragment
+import com.example.a11699.comp_im.fragment.InputMoreFragment
+import com.example.a11699.comp_im.weight.InputViewInterface
 import com.example.a11699.lib_im.Constants
 import com.example.a11699.lib_im.bean.ChatInfo
+import com.example.a11699.lib_im.bean.MessageInfo
 import kotlinx.android.synthetic.main.activity_im.*
 
 /**
@@ -18,13 +24,15 @@ import kotlinx.android.synthetic.main.activity_im.*
 class ImActivity : AppCompatActivity() {
 
     private var contentFragment: ContentFragment? = null
+    private var contentMultiFragment: ContentMultiFragment? = null
+    private var inputMoreFragment: InputMoreFragment? = null
+
     private var mFragmentManager: FragmentManager? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_im)
         var bundle = intent.extras
         var chatInfo = bundle?.getSerializable(Constants.CHAT_INFO) as ChatInfo
-        Log.i("Zjc", chatInfo.messageType.toString())
         addContentToMoreView()
     }
 
@@ -39,10 +47,35 @@ class ImActivity : AppCompatActivity() {
             contentFragment = ContentFragment(bottom_input_view)
             contentFragment!!.arguments = bundle
         }
-       mFragmentManager!!.beginTransaction().replace(R.id.frame_content, contentFragment!!).commitAllowingStateLoss()
-        contentFragment!!.viewGroupItemClick = {
-            bottom_input_view.hideSoftInputView()
+
+        if (contentMultiFragment == null) {
+            var bundle: Bundle? = intent.extras
+            contentMultiFragment = ContentMultiFragment(bottom_input_view)
+            contentMultiFragment!!.arguments = bundle
+        }
+
+
+        if (inputMoreFragment == null) {
+            inputMoreFragment = InputMoreFragment()
+        }
+        mFragmentManager!!.beginTransaction().replace(R.id.more_groups, inputMoreFragment!!)
+
+        mFragmentManager!!.beginTransaction().replace(R.id.frame_content, contentMultiFragment!!).commitAllowingStateLoss()
+        contentMultiFragment!!.viewGroupItemClick = {
+            //  bottom_input_view.hideSoftInputView()
+        }
+
+        bottom_input_view.inputViewInterface = object : InputViewInterface {
+            override fun clickSendMessage(msg: MessageInfo, messageInputView: View) {
+                contentMultiFragment!!.sendMessage(msg, messageInputView)
+            }
+
+            override fun clickShowMore(showMore: Int, editText: EditText) {
+                soft_viewgroup.mEditText = editText
+                soft_viewgroup.setValeToShowMore(showMore)
+            }
         }
     }
+
 
 }

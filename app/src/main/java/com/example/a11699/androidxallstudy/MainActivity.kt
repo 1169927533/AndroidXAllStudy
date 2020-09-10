@@ -2,12 +2,9 @@ package com.example.a11699.androidxallstudy
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
-
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.util.Util
 import com.example.a11699.activity.NavigationActivity
 import com.example.a11699.androidxallstudy.botomtab.BottomTabActivity
 import com.example.a11699.androidxallstudy.cunstombarrage.BarrageActivity
@@ -25,21 +22,15 @@ import com.example.a11699.androidxallstudy.viewdraghelper.ViewDragerStudyActivit
 import com.example.a11699.androidxallstudy.webview.WebViewStudy
 import com.example.a11699.comp_base.SPContent
 import com.example.a11699.comp_customview.QQStepViewActivity
-import com.example.a11699.comp_im.activity.ImActivity
 import com.example.a11699.comp_im.activity.MessageActivity
 import com.example.a11699.comp_imgpicker.ImgPickerActivity
 import com.example.a11699.comp_live.MainLiveActivity
 import com.example.a11699.comp_netstudyt.NetStudy
 import com.example.a11699.comp_viewmodel.ViewModelStudyActivity
-import com.example.a11699.lib_im.bean.ConversationInfo
 import com.example.a11699.lib_im.imloginutil.ImHelper
-import com.example.a11699.lib_im.messageutil.ConversationManager
-import com.example.a11699.lib_im.messageutil.IUIKitCallBack
 import com.example.a11699.lib_save.MMKVUtils
 import com.example.a11699.module_smartrecycleview.SmartRecycleViewStudyActivity
 import com.tencent.imsdk.v2.V2TIMManager
-import com.tencent.imsdk.v2.V2TIMManagerImpl
-
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -53,6 +44,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         btn_permission.setOnClickListener { startActivity<PermissionStudyActivity>(this) }
         btn_webview.setOnClickListener { startActivity<WebViewStudy>(this) }

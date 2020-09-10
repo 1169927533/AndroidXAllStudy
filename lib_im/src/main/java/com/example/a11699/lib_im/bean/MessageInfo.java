@@ -13,8 +13,15 @@ import com.tencent.imsdk.v2.V2TIMMessage;
 import java.util.UUID;
 
 
-public class MessageInfo {
-
+public class MessageInfo implements MultiItemEntity {
+    @Override
+    public int getItemType() {
+        if (self) {
+            return 2;
+        } else {
+            return 1;
+        }
+    }
     private final String TAG = "MessageInfo";
 
     public static final int MSG_TYPE_MIME = 0x1;
