@@ -107,7 +107,7 @@ class SoftViewGroup : LinearLayout {
                 secondViewHeight = screenHeight + ScreenUtil.getTitleBarHeight(this, true) - topVisibilityHeight
             }
         }
-        setTransition(200)
+    //    setTransition(200)
 
         for ((index, childView) in children.withIndex()) {
             var layoutParams = childView.layoutParams
