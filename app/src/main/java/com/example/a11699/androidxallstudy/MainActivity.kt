@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.a11699.activity.NavigationActivity
+import com.example.a11699.androidxallstudy.batteryview.BatteryActivity
 import com.example.a11699.androidxallstudy.botomtab.BottomTabActivity
 import com.example.a11699.androidxallstudy.cunstombarrage.BarrageActivity
 import com.example.a11699.androidxallstudy.customdropdown.DropDownActivity
@@ -73,6 +74,7 @@ class MainActivity : AppCompatActivity() {
         btn_smartrecycleview.setOnClickListener { startActivity<SmartRecycleViewStudyActivity>(this) }
         btn_custompassword.setOnClickListener { startActivity<CustomPasswordActivity>(this) }
         btn_im.setOnClickListener { startActivity<MessageActivity>(this) }
+        btn_battery.setOnClickListener { startActivity<BatteryActivity>(this) }
     }
 
     override fun onResume() {

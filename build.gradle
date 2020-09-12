@@ -9,7 +9,6 @@ buildscript {
         maven {
             url "https://jitpack.io"
         }
-        maven { url 'http://nexus.shengshow.com/nexus/content/groups/public/' }
 
 
     }
@@ -32,7 +31,6 @@ allprojects {
         maven {
             url "https://jitpack.io"
         }
-        maven { url 'http://nexus.shengshow.com/nexus/content/groups/public/' }
 
     }
 }

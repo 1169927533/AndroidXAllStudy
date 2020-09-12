@@ -36,6 +36,7 @@
         <activity android:name=".customtab.TabActivity" />
         <activity android:name=".loadingactivity.WuBaActivity" />
         <activity android:name=".databingstudy.DatabindStudyActivity" />
+        <activity android:name=".batteryview.BatteryActivity"/>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

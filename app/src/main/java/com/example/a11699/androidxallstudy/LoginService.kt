@@ -1,6 +1,5 @@
 package com.example.a11699.androidxallstudy
 
-import com.qizhou.annotation.AutoApi
 
 /**
  *Create time 2020/9/4
@@ -8,6 +7,5 @@ import com.qizhou.annotation.AutoApi
  *description:
  */
 interface LoginService {
-    @AutoApi
     fun login()
 }

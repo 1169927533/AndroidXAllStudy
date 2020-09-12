@@ -164,7 +164,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="自定义密码输入框" />
-
+                <Button
+                    android:id="@+id/btn_battery"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="电池" />
                 <Button
                     android:id="@+id/btn_im"
                     android:layout_width="match_parent"

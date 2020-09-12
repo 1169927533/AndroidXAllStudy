@@ -28,4 +28,14 @@
         <attr name="bottomlineheight" format="dimension" />
         <attr name="bottomlinecolor" format="reference" />
     </declare-styleable>
+
+
+    <!--电池-->
+    <declare-styleable name="batteryView">
+        <attr name="batteryTopColor" format="color"/>
+        <attr name="batteryTopWidth" format="dimension"/>
+        <attr name="batteryTopLineWidth" format="dimension"/>
+        <attr name="batteryTopLineHeight" format="dimension"/>
+        <attr name="batteryTopLineArc" format="dimension"/>
+    </declare-styleable>
 </resources>
