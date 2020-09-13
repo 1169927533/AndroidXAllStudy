@@ -21,7 +21,7 @@ class BatteryActivity : AppCompatActivity() {
             var index = batteryView.thePowerMaxNum
             while (true) {
                 delay(500)
-                if (index <= 0) {
+                if (index <  0) {
                     index = batteryView.thePowerMaxNum
                 }
                 batteryView.setPaintColor(index)

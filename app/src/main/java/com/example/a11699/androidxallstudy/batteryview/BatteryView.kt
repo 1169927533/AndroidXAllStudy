@@ -28,18 +28,21 @@ class BatteryView : View {
     private var topLineWidth = 0f //电池头宽度
     private var topLineHeight = 0f//电池头高度
     private var topRectRad = 0f//电池头的弧度
+    private var topRect = RectF()
 
     private var centerBodyLineColor: Int = 0//身体线条颜色
     private var centerBodySideWidth: Float = 0f//身体线条宽度
     private var centerBodyWidth: Float = 0f//身体宽度
     private var centerBodyHeight: Float = 0f//身体高度
     private var centerBodyRectRad: Float = 0f//身体弧度
+    private var centerRect = RectF()
 
     private var powerColor: Int = 0//电量颜色
     private var powerWidth = 0f//电量宽度
     private var powerHeight = 0f//电量高度
     private var powerRectRad = 0f//电量弧度
     private var powerMarginTop = 0f//电量距离顶部的距离
+    private var powerRect = RectF()
 
 
     constructor(context: Context) : this(context, null)
@@ -96,27 +99,33 @@ class BatteryView : View {
     private fun drawTopView(canvas: Canvas?) {
         canvas?.let { mCanvas ->
             //画电池顶部
-            var rect = RectF(width / 2 - topLineWidth / 2, 0f, width / 2 + topLineWidth / 2, topLineHeight)
-            mCanvas.drawRoundRect(rect, topRectRad, topRectRad, mTopPaint!!)
+            setDateToRect(topRect, width / 2 - topLineWidth / 2, 0f, width / 2 + topLineWidth / 2, topLineHeight)
+            mCanvas.drawRoundRect(topRect, topRectRad, topRectRad, mTopPaint!!)
 
             //画电池身体
-            var centerTopDistance = top2centerDistance + topLineHeight + topSideWidth * 2
-            var mBodyRect = RectF(width / 2 - centerBodyWidth / 2, centerTopDistance, width / 2 + centerBodyWidth / 2, top2centerDistance + topLineHeight + centerBodyHeight)
-            mCanvas.drawRoundRect(mBodyRect, centerBodyRectRad, centerBodyRectRad, mCenterPaint!!)
+            var centerTopDistance = top2centerDistance + topLineHeight + topSideWidth * 2 + centerBodySideWidth
+            setDateToRect(centerRect, width / 2 - centerBodyWidth / 2, centerTopDistance, width / 2 + centerBodyWidth / 2, centerBodyHeight + centerTopDistance)
+            mCanvas.drawRoundRect(centerRect, centerBodyRectRad, centerBodyRectRad, mCenterPaint!!)
 
             //画电量
-            var itemHeight = (centerBodyHeight - powerMarginTop - centerBodySideWidth * 2) / thePowerMaxNum //一个item的高度
-            var top = centerTopDistance + itemHeight * (index)
-            var bottom = 0f
+            var itemHeight = (centerBodyHeight).toFloat() / thePowerMaxNum.toFloat() //一个item的高度
 
-            if (index == thePowerMaxNum) {
-                bottom = 0f
+            var top = 0f
+            var bottom = 0f
+            bottom = ((centerBodyHeight + centerTopDistance) - 10f)
+
+            if (thePowerMaxNum == index) {
                 top = 0f
+                bottom = 0f
             } else {
-                bottom = centerBodyHeight + centerTopDistance - centerBodySideWidth
+                top = centerBodyHeight + centerTopDistance - itemHeight * (thePowerMaxNum - index)
+                if (top <= centerTopDistance) {
+                    top = centerBodyHeight + centerTopDistance - itemHeight * (thePowerMaxNum - index) + 10 + powerPaint!!.strokeWidth
+                }
             }
-            var poserItem = RectF(width / 2 - powerWidth / 2, top, width / 2 + powerWidth / 2, bottom)
-            mCanvas.drawRoundRect(poserItem, powerRectRad, powerRectRad, powerPaint!!)
+
+            setDateToRect(powerRect, width / 2 - powerWidth / 2, top, width / 2 + powerWidth / 2, bottom)
+            mCanvas.drawRoundRect(powerRect, powerRectRad, powerRectRad, powerPaint!!)
         }
     }
 
@@ -132,7 +141,17 @@ class BatteryView : View {
             5, 6 -> {
                 setPaintColor(mTopPaint!!, powerPaint!!, mCenterPaint!!, color = R.color.color_FF5757)
             }
+            else -> {
+                setPaintColor(mTopPaint!!, powerPaint!!, mCenterPaint!!, color = R.color.colorPrimaryDark)
+            }
         }
+    }
+
+    private fun setDateToRect(rectF: RectF, left: Float, top: Float, right: Float, bottom: Float) {
+        rectF.left = left
+        rectF.top = top
+        rectF.right = right
+        rectF.bottom = bottom
     }
 
     private fun setPaintColor(vararg paint: Paint, color: Int) {
