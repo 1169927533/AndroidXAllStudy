@@ -69,11 +69,14 @@ dependencies {
     implementation(project(':comp_chat'))
     implementation(project(':lib_im'))
     implementation(project(':lib_save'))
+    // Lifecycles only (without ViewModel or LiveData)
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
 
 
-  
 
- 
+
+
+
 }
 repositories {
     mavenCentral()

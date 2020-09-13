@@ -5,15 +5,26 @@
     android:layout_height="match_parent">
 
     <com.example.a11699.androidxallstudy.batteryview.BatteryView
+        android:id="@+id/batteryView"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:batteryTopColor="@color/colorPrimary"
+        app:batteryTopColor="@color/color_FF5757"
+        app:batteryTopLineArc="3dp"
         app:batteryTopLineHeight="4dp"
-        app:batteryTopLineArc="2dp"
         app:batteryTopLineWidth="14dp"
-        app:batteryTopWidth="4dp"
+        app:batteryTopWidth="0dp"
+        app:centerBodyColor="@color/color_FF5757"
+        app:centerBodySideWidth="3dp"
+        app:centerBodyLineWidth="24dp"
+        app:centerBodyLineHeight="34dp"
+        app:centerBodyLineArc="2dp"
+        app:top2centerdistance="1dp"
+        app:powerColor="@color/color_FF5757"
+        app:powerRectArc="2dp"
+        app:powerMarginTop="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

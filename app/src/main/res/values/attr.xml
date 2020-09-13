@@ -32,10 +32,22 @@
 
     <!--电池-->
     <declare-styleable name="batteryView">
-        <attr name="batteryTopColor" format="color"/>
-        <attr name="batteryTopWidth" format="dimension"/>
-        <attr name="batteryTopLineWidth" format="dimension"/>
-        <attr name="batteryTopLineHeight" format="dimension"/>
-        <attr name="batteryTopLineArc" format="dimension"/>
+        <attr name="top2centerdistance" format="dimension" />
+
+        <attr name="batteryTopColor" format="color" />
+        <attr name="batteryTopWidth" format="dimension" />
+        <attr name="batteryTopLineWidth" format="dimension" />
+        <attr name="batteryTopLineHeight" format="dimension" />
+        <attr name="batteryTopLineArc" format="dimension" />
+
+        <attr name="centerBodyColor" format="color" />
+        <attr name="centerBodySideWidth" format="dimension" />
+        <attr name="centerBodyLineWidth" format="dimension" />
+        <attr name="centerBodyLineHeight" format="dimension" />
+        <attr name="centerBodyLineArc" format="dimension" />
+
+        <attr name="powerColor" format="color" />
+        <attr name="powerRectArc" format="dimension" />
+        <attr name="powerMarginTop" format="dimension" />
     </declare-styleable>
 </resources>
