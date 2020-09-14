@@ -13,10 +13,15 @@ import okhttp3.internal.notify
  *Create time 2020/9/12
  *Create Yu
  *description:自定义电池
+ * 学习到的东西：
+ * 如果view的高度设置为 100 画笔宽度为40 那么实际绘制完成功后的高度为100 + 40
  */
 class BatteryView : View {
     var index = 0 //绘制第几个电量 默认四个电量 index从0开始
     var thePowerMaxNum = 6//电池电量
+    var powerMarginBottom = 10f//电量距离底部的距离
+    var powerMarginTop = 10f//电量距离顶部的距离
+
     private var mTopPaint: Paint? = null    //画电池 顶部帽子
     private var mCenterPaint: Paint? = null //画身体
     private var powerPaint: Paint? = null //画电量
@@ -41,7 +46,8 @@ class BatteryView : View {
     private var powerWidth = 0f//电量宽度
     private var powerHeight = 0f//电量高度
     private var powerRectRad = 0f//电量弧度
-    private var powerMarginTop = 0f//电量距离顶部的距离
+
+    //  private var powerMarginTop = 0f//电量距离顶部的距离
     private var powerRect = RectF()
 
 
@@ -64,7 +70,7 @@ class BatteryView : View {
 
         powerColor = typeArray.getColor(R.styleable.batteryView_powerColor, Color.BLACK)
         powerRectRad = typeArray.getDimension(R.styleable.batteryView_powerRectArc, ViewUtil.dip2px(4f).toFloat())
-        powerMarginTop = typeArray.getDimension(R.styleable.batteryView_powerMarginTop, 0f)
+        //     powerMarginTop = typeArray.getDimension(R.styleable.batteryView_powerMarginTop, 0f)
         powerWidth = centerBodyWidth - centerBodySideWidth * 2
         typeArray.recycle()
 
@@ -74,6 +80,7 @@ class BatteryView : View {
             isAntiAlias = true //抗锯齿
             color = powerColor
             style = Paint.Style.FILL
+            strokeWidth = centerBodySideWidth
         }
         initTopView(mTopPaint!!, topLineColor, topSideWidth, Paint.Style.FILL_AND_STROKE)
         initTopView(mCenterPaint!!, topLineColor, centerBodySideWidth, Paint.Style.STROKE)
@@ -103,25 +110,22 @@ class BatteryView : View {
             mCanvas.drawRoundRect(topRect, topRectRad, topRectRad, mTopPaint!!)
 
             //画电池身体
-            var centerTopDistance = top2centerDistance + topLineHeight + topSideWidth * 2 + centerBodySideWidth
-            setDateToRect(centerRect, width / 2 - centerBodyWidth / 2, centerTopDistance, width / 2 + centerBodyWidth / 2, centerBodyHeight + centerTopDistance)
+            var centerTopDistance = top2centerDistance + topSideWidth + topLineHeight
+            setDateToRect(centerRect, width / 2 - centerBodyWidth / 2, centerTopDistance + centerBodySideWidth / 2, width / 2 + centerBodyWidth / 2, centerBodyHeight + centerTopDistance + centerBodySideWidth / 2)
             mCanvas.drawRoundRect(centerRect, centerBodyRectRad, centerBodyRectRad, mCenterPaint!!)
 
             //画电量
-            var itemHeight = (centerBodyHeight).toFloat() / thePowerMaxNum.toFloat() //一个item的高度
+            var itemHeight = (centerBodyHeight - centerBodySideWidth - powerMarginTop - powerMarginBottom) / thePowerMaxNum.toFloat() //一个item的高度
 
             var top = 0f
             var bottom = 0f
-            bottom = ((centerBodyHeight + centerTopDistance) - 10f)
+            bottom = ((centerBodyHeight + centerTopDistance) - powerMarginBottom)
 
             if (thePowerMaxNum == index) {
                 top = 0f
                 bottom = 0f
             } else {
-                top = centerBodyHeight + centerTopDistance - itemHeight * (thePowerMaxNum - index)
-                if (top <= centerTopDistance) {
-                    top = centerBodyHeight + centerTopDistance - itemHeight * (thePowerMaxNum - index) + 10 + powerPaint!!.strokeWidth
-                }
+                top = centerBodyHeight + centerTopDistance - itemHeight * (thePowerMaxNum - index) - powerMarginTop
             }
 
             setDateToRect(powerRect, width / 2 - powerWidth / 2, top, width / 2 + powerWidth / 2, bottom)
@@ -133,16 +137,16 @@ class BatteryView : View {
         index = mIndex
         when (mIndex) {
             0, 1, 2 -> {
-                setPaintColor(mTopPaint!!, powerPaint!!, mCenterPaint!!, color = R.color.color_00D088)
+                setPaintColor(mTopPaint!!, mCenterPaint!!, powerPaint!!, color = R.color.color_00D088)
             }
             3, 4 -> {
-                setPaintColor(mTopPaint!!, powerPaint!!, mCenterPaint!!, color = R.color.color_a0a0a0)
+                setPaintColor(mTopPaint!!, mCenterPaint!!, powerPaint!!, color = R.color.color_a0a0a0)
             }
             5, 6 -> {
-                setPaintColor(mTopPaint!!, powerPaint!!, mCenterPaint!!, color = R.color.color_FF5757)
+                setPaintColor(mTopPaint!!, mCenterPaint!!, powerPaint!!, color = R.color.color_FF5757)
             }
             else -> {
-                setPaintColor(mTopPaint!!, powerPaint!!, mCenterPaint!!, color = R.color.colorPrimaryDark)
+                setPaintColor(mTopPaint!!, mCenterPaint!!, powerPaint!!, color = R.color.colorPrimaryDark)
             }
         }
     }

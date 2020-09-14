@@ -19,7 +19,7 @@
         app:centerBodyLineHeight="54dp"
         app:centerBodyLineArc="2dp"
         app:top2centerdistance="0dp"
-        app:powerColor="@color/color_FF5757"
+        app:powerColor="#000000"
         app:powerRectArc="2dp"
         app:powerMarginTop="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
