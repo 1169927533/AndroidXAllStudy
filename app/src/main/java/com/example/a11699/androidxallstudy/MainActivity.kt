@@ -12,6 +12,7 @@ import com.example.a11699.androidxallstudy.cunstombarrage.BarrageActivity
 import com.example.a11699.androidxallstudy.customdropdown.DropDownActivity
 import com.example.a11699.androidxallstudy.custompasswordview.CustomPasswordActivity
 import com.example.a11699.androidxallstudy.customtab.TabActivity
+import com.example.a11699.androidxallstudy.lizixiaosan.LiZiActivity
 import com.example.a11699.androidxallstudy.loadingactivity.WuBaActivity
 import com.example.a11699.androidxallstudy.ossstudy.OssStudyActivity
 import com.example.a11699.androidxallstudy.permissionstudy.PermissionStudyActivity
@@ -75,6 +76,7 @@ class MainActivity : AppCompatActivity() {
         btn_custompassword.setOnClickListener { startActivity<CustomPasswordActivity>(this) }
         btn_im.setOnClickListener { startActivity<MessageActivity>(this) }
         btn_battery.setOnClickListener { startActivity<BatteryActivity>(this) }
+        btn_lizi.setOnClickListener { startActivity<LiZiActivity>(this) }
     }
 
     override fun onResume() {

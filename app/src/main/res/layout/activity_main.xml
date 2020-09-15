@@ -164,16 +164,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="自定义密码输入框" />
+
                 <Button
                     android:id="@+id/btn_battery"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="电池" />
+
                 <Button
                     android:id="@+id/btn_im"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Im" />
+
+                <Button
+                    android:id="@+id/btn_lizi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="粒子消散动画" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 
@@ -181,9 +189,6 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-    
-    
     <LinearLayout
         android:id="@+id/ly"
         android:layout_width="match_parent"
