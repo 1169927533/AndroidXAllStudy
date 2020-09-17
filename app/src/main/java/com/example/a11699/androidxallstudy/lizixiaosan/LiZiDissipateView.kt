@@ -4,6 +4,7 @@ import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import android.view.animation.LinearInterpolator
 import java.lang.Math.*
@@ -84,6 +85,7 @@ class LiZiDissipateView(context: Context?, attributeSet: AttributeSet) : View(co
         super.onSizeChanged(w, h, oldw, oldh)
         mWidth = w.toFloat()
         mHeight = h.toFloat()
+        Log.i("zjc", "mWidth:  " + mWidth + "  mHeight:" + mHeight)
         path.addCircle(mWidth / 2, mHeight / 2, diffusionRadius, Path.Direction.CCW)
         pathMeasure.setPath(path, false)
         for (i in 0..particleNumber) {

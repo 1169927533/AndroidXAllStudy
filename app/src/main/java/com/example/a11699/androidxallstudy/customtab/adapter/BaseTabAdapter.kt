@@ -3,14 +3,13 @@ package com.example.a11699.androidxallstudy.customtab.adapter
 import android.content.Context
 import android.view.View
 import androidx.viewpager.widget.ViewPager
-import java.util.*
 
 /**
  *Create time 2020/8/3
  *Create Yu
  *description:
  */
- abstract class BaseAdapter(item:List<Any>,viewPager: ViewPager) {
+ abstract class BaseTabAdapter(item:List<Any>, viewPager: ViewPager) {
     var itemViewWidth = 0
     abstract fun getCount(): Int //获取总个数
     abstract fun getView(context: Context, position: Int): View //获取指定view
@@ -27,7 +26,7 @@ import java.util.*
             null
     var onPageSelectedInLayout: ((position: Int) -> Unit)? = null
 
-    fun addPagerScrollListener(viewPager: ViewPager, adapter: BaseAdapter.() -> Unit) {
+    fun addPagerScrollListener(viewPager: ViewPager, adapter: BaseTabAdapter.() -> Unit) {
         var adapter3 = this
         adapter.invoke(adapter3)
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
@@ -46,7 +45,7 @@ import java.util.*
 
             override fun onPageSelected(position: Int) {
                 adapter3.onPageSelectedInLayout?.let { it(position) }
-                this@BaseAdapter.onPageSelected(position)
+                this@BaseTabAdapter.onPageSelected(position)
             }
         })
     }

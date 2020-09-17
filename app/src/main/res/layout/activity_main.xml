@@ -182,6 +182,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="粒子消散动画" />
+                <Button
+                    android:id="@+id/btn_3d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="3D转场" />
+                <Button
+                    android:id="@+id/btn_3d_effect"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="跟随手指动的3d旋转" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 

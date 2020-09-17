@@ -10,14 +10,13 @@ import android.widget.TextView
 import androidx.viewpager.widget.ViewPager
 import com.example.a11699.androidxallstudy.R
 import com.example.a11699.androidxallstudy.myseekbar.ViewUtil
-import kotlinx.android.synthetic.main.view_indicator_seekbar.view.*
 
 /**
  *Create time 2020/8/4
  *Create Yu
  *description:
  */
-class TabAdapter3(val list: List<String>, val viewpager: ViewPager) : BaseAdapter(list, viewpager) {
+class TabAdapter3(val list: List<String>, val viewpager: ViewPager) : BaseTabAdapter(list, viewpager) {
     var targetListView: ArrayList<TextView> = ArrayList()
     lateinit var mContext: Context
     override fun getCount(): Int {

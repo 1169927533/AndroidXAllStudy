@@ -6,9 +6,15 @@ package com.example.a11699.lib_javatest;
  * description:
  */
 public class Test {
+    static {
+        System.out.println("dsa)");
+    }
     public static void main(String[] args) {
-        int ss = 2 << 30;
-        int bb = 0x3 << 30;
-        System.out.println("fdsfdsfs"+(ss&bb));
+      //  B b = new Test.B();
+    }
+    private static class B {
+        static {
+            System.out.println("bbb)");
+        }
     }
 }

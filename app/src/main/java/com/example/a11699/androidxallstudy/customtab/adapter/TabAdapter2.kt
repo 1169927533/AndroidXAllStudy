@@ -3,14 +3,11 @@ package com.example.a11699.androidxallstudy.customtab.adapter
 import android.content.Context
 import android.graphics.Color
 import android.view.Gravity
-import android.view.TextureView
 import android.view.View
-import android.view.ViewParent
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.viewpager.widget.ViewPager
 import com.example.a11699.androidxallstudy.R
-import com.example.a11699.androidxallstudy.customtab.custonview.ColorTrackTextView
 import com.example.a11699.androidxallstudy.myseekbar.ViewUtil
 
 /**
@@ -18,7 +15,7 @@ import com.example.a11699.androidxallstudy.myseekbar.ViewUtil
  *Create Yu
  *description:
  */
-class TabAdapter2(list: List<String>, private val viewPager: ViewPager) : BaseAdapter(list, viewPager) {
+class TabAdapter2(list: List<String>, private val viewPager: ViewPager) : BaseTabAdapter(list, viewPager) {
     private lateinit var mContext: Context
     var mList: List<String> = list
     var colorTvView: ArrayList<TextView> = ArrayList<TextView>()

@@ -1,12 +1,9 @@
 package com.example.a11699.androidxallstudy.customtab.adapter
 
 import android.content.Context
-import android.graphics.Color
-import android.view.Gravity
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.viewpager.widget.ViewPager
 import com.example.a11699.androidxallstudy.R
 import com.example.a11699.androidxallstudy.myseekbar.ViewUtil
@@ -16,7 +13,7 @@ import com.example.a11699.androidxallstudy.myseekbar.ViewUtil
  *Create Yu
  *description:
  */
-class TabAdapter_Splash(list: List<String>, private val viewPager: ViewPager) : BaseAdapter(list, viewPager) {
+class TabAdapter_Splash(list: List<String>, private val viewPager: ViewPager) : BaseTabAdapter(list, viewPager) {
     private lateinit var mContext: Context
     var mList: List<String> = list
     var colorTvView: ArrayList<ImageView> = ArrayList<ImageView>()

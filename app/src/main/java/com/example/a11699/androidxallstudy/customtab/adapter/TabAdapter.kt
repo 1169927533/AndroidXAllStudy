@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.item_tab.view.*
  *Create Yu
  *description:
  */
-class TabAdapter(list: List<String>, val viewPager: ViewPager) : BaseAdapter(list,viewPager) {
+class TabAdapter(list: List<String>, val viewPager: ViewPager) : BaseTabAdapter(list,viewPager) {
 
     var mList: List<String> = list
     var colorTvView: ArrayList<ColorTrackTextView> = ArrayList<ColorTrackTextView>()

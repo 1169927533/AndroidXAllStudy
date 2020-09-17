@@ -12,6 +12,7 @@ import com.example.a11699.androidxallstudy.cunstombarrage.BarrageActivity
 import com.example.a11699.androidxallstudy.customdropdown.DropDownActivity
 import com.example.a11699.androidxallstudy.custompasswordview.CustomPasswordActivity
 import com.example.a11699.androidxallstudy.customtab.TabActivity
+import com.example.a11699.androidxallstudy.funnyeffect.FunnyActivity
 import com.example.a11699.androidxallstudy.lizixiaosan.LiZiActivity
 import com.example.a11699.androidxallstudy.loadingactivity.WuBaActivity
 import com.example.a11699.androidxallstudy.ossstudy.OssStudyActivity
@@ -19,6 +20,8 @@ import com.example.a11699.androidxallstudy.permissionstudy.PermissionStudyActivi
 import com.example.a11699.androidxallstudy.piaodanmu.DanMuActivity
 import com.example.a11699.androidxallstudy.sendgift.SendGiftActivity
 import com.example.a11699.androidxallstudy.soul.activity.SoulActivity
+import com.example.a11699.androidxallstudy.threed.ThreedActivity
+
 import com.example.a11699.androidxallstudy.util.startActivity
 import com.example.a11699.androidxallstudy.viewdraghelper.ViewDragerStudyActivity
 import com.example.a11699.androidxallstudy.webview.WebViewStudy
@@ -77,6 +80,8 @@ class MainActivity : AppCompatActivity() {
         btn_im.setOnClickListener { startActivity<MessageActivity>(this) }
         btn_battery.setOnClickListener { startActivity<BatteryActivity>(this) }
         btn_lizi.setOnClickListener { startActivity<LiZiActivity>(this) }
+        btn_3d.setOnClickListener { startActivity<ThreedActivity>(this) }
+        btn_3d_effect.setOnClickListener { startActivity<FunnyActivity>(this) }
     }
 
     override fun onResume() {
