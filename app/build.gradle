@@ -52,7 +52,9 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    testImplementation deps.junit
+    androidTestImplementation deps.atsl.ext_junit
+    androidTestImplementation deps.espresso.core
     implementation 'com.squareup.okhttp3:okhttp:4.2.2'
     implementation 'com.squareup.okio:okio:2.2.2'
     implementation(project(':lib_oos'))
@@ -69,6 +71,9 @@ dependencies {
     implementation(project(':comp_chat'))
     implementation(project(':lib_im'))
     implementation(project(':lib_save'))
+    implementation(project(':lib_util'))
+
+    implementation(project(':comp_animalmehod2'))
     // Lifecycles only (without ViewModel or LiveData)
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
 

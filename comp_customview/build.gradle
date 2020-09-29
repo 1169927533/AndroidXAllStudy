@@ -25,4 +25,6 @@ android {
 
 dependencies {
     implementation(project(':comp_base'))
+    implementation(project(':lib_util'))
+
 }

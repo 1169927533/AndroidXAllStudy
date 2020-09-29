@@ -36,4 +36,110 @@
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toRightOf="@+id/img3"
         app:layout_constraintTop_toBottomOf="@+id/img1" />
+
+
+    <ImageView
+        android:id="@+id/img5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/img4"
+        app:layout_constraintTop_toBottomOf="@+id/img1" />
+
+    <ImageView
+        android:id="@+id/img6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/img7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img2" />
+
+    <ImageView
+        android:id="@+id/img8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/img7"
+        app:layout_constraintTop_toTopOf="@+id/img7" />
+
+    <com.example.a11699.androidxallstudy.funnyeffect.MatrixStudyView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="40dp"
+        android:background="#000000"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"></ImageView>
+
+    <Button
+        android:id="@+id/btn_startrotate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开始动画"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_startrotate2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开始动画2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_startrotate" />
+
+    <Button
+        android:id="@+id/btn_startrotate3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开始展开动画"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_startrotate2" />
+
+    <Button
+        android:id="@+id/btn_startrotate4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开始折叠动画"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_startrotate3" />
+    <com.example.a11699.androidxallstudy.funnyeffect.Camera3d
+        android:id="@+id/camera3"
+        android:layout_width="200dp"
+        android:layout_height="300dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.a11699.androidxallstudy.funnyeffect.JiHeBianHuan
+        android:id="@+id/jihebianhuan"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#394" />
+
+    <com.example.a11699.androidxallstudy.funnyeffect.ZhePaperView
+        android:id="@+id/zhepaperview"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

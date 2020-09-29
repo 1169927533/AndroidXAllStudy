@@ -25,6 +25,8 @@ import com.example.a11699.androidxallstudy.threed.ThreedActivity
 import com.example.a11699.androidxallstudy.util.startActivity
 import com.example.a11699.androidxallstudy.viewdraghelper.ViewDragerStudyActivity
 import com.example.a11699.androidxallstudy.webview.WebViewStudy
+import com.example.a11699.androidxallstudy.zhezhi.PaperActivity
+import com.example.a11699.comp_animalmehod2.AnimaMethod2Activity
 import com.example.a11699.comp_base.SPContent
 import com.example.a11699.comp_customview.QQStepViewActivity
 import com.example.a11699.comp_im.activity.MessageActivity
@@ -82,6 +84,9 @@ class MainActivity : AppCompatActivity() {
         btn_lizi.setOnClickListener { startActivity<LiZiActivity>(this) }
         btn_3d.setOnClickListener { startActivity<ThreedActivity>(this) }
         btn_3d_effect.setOnClickListener { startActivity<FunnyActivity>(this) }
+        btn_zhezhi.setOnClickListener { startActivity<PaperActivity>(this) }
+        btn_animal.setOnClickListener { startActivity<AnimaMethod2Activity>(this) }
+
     }
 
     override fun onResume() {

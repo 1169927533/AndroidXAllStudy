@@ -26,10 +26,10 @@ class MyViewModel(application: Application) : BaseViewModel(application) {
     }
 
     fun getStudentInferMarion(uid: String) {
-        launch({
+       launch({
             var userService = getRepo(UserService::class.java)
             studentLiveData.value = userService.getStudentInforMation(uid)
-        })
+         })
     }
 
     fun changLiveDataValue(data: String) {

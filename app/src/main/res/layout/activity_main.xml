@@ -192,6 +192,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="跟随手指动的3d旋转" />
+                <Button
+                    android:id="@+id/btn_zhezhi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="折纸效果" />
+                <Button
+                    android:id="@+id/btn_animal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="动画效果" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 

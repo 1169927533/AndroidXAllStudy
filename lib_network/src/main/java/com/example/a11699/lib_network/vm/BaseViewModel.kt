@@ -45,4 +45,5 @@ open class BaseViewModel : AndroidViewModel {
             }
         }
     }
+
 }

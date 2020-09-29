@@ -1,3 +1,5 @@
+include ':lib_util'
+include ':comp_animalmehod2'
 include ':lib_customview'
 include ':lib_save'
 include ':comp_chat'

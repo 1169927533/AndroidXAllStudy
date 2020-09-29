@@ -13,6 +13,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/comp_animalmehod2" />
             <option value="$PROJECT_DIR$/comp_base" />
             <option value="$PROJECT_DIR$/comp_chat" />
             <option value="$PROJECT_DIR$/comp_customview" />
@@ -28,6 +29,7 @@
             <option value="$PROJECT_DIR$/lib_network" />
             <option value="$PROJECT_DIR$/lib_oos" />
             <option value="$PROJECT_DIR$/lib_save" />
+            <option value="$PROJECT_DIR$/lib_util" />
             <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/module_navigation" />
             <option value="$PROJECT_DIR$/module_smartrecycleview" />

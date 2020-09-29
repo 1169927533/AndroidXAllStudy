@@ -40,6 +40,8 @@
         <activity android:name=".lizixiaosan.LiZiActivity" />
         <activity android:name=".threed.ThreedActivity" />
         <activity android:name=".funnyeffect.FunnyActivity" />
+        <activity android:name=".zhezhi.PaperActivity" />
+        <activity android:name=".drawfish.DrawFishActivity"/>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

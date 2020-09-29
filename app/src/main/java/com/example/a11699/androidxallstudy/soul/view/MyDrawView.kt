@@ -1,11 +1,13 @@
 package com.example.a11699.androidxallstudy.soul.view
 
 import android.content.Context
+import android.content.res.Resources
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Path
 import android.graphics.PointF
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
 
@@ -106,6 +108,13 @@ class MyDrawView : View {
     private fun dip2px(context: Context, dipValue: Float): Int {
         val scale = context.resources.displayMetrics.density
         return (dipValue.toDouble() * scale.toDouble() + 0.5).toInt()
+    }
+
+    /**
+     * dp 2 px 的另外一种方法
+     */
+    private fun dip22px(dipValue: Float): Float {
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dipValue, Resources.getSystem().displayMetrics);
     }
 
     data class Point(var x: Int, var y: Int)
