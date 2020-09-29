@@ -35,7 +35,7 @@ class FunnyActivity : AppCompatActivity() {
         }
 
         btn_startrotate2.setOnClickListener {
-            val animal = ValueAnimator.ofFloat(360f, 180f).apply {
+            val animal = ValueAnimator.ofFloat(0f,290f).apply {
                 duration = 4000
                 interpolator = LinearInterpolator()
                 addUpdateListener {
