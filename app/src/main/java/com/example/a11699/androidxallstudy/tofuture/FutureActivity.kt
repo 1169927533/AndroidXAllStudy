@@ -66,7 +66,7 @@ class FutureActivity : AppCompatActivity() {
                         "scaleX", scaleX, 1f)
             }
         }
-        var yTransLateAnimal  =
+
         var animatorSet = AnimatorSet().apply {
             addListener(object : Animator.AnimatorListener {
                 override fun onAnimationRepeat(animation: Animator?) {
