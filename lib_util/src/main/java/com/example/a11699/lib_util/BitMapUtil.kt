@@ -32,4 +32,6 @@ object BitMapUtil {
         canvas.drawColor(bgColor)
         return bitmap
     }
+
+
 }

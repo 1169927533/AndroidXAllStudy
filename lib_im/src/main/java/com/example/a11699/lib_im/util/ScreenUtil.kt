@@ -1,5 +1,6 @@
 package com.example.a11699.lib_im.util
 
+import android.content.Context
 import android.graphics.Rect
 import android.view.View
 import android.view.Window
@@ -62,6 +63,13 @@ object ScreenUtil {
      */
     fun getScreenTotalHeight(view: View): Int {
         return view.resources.displayMetrics.heightPixels
+    }
+
+    /**
+     * 获取屏幕宽度
+     */
+    fun getScreenTotalWidth(context: Context): Int {
+        return context.resources.displayMetrics.widthPixels
     }
 }
 

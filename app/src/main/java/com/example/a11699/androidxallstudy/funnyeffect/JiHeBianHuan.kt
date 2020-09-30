@@ -16,7 +16,7 @@ import com.example.a11699.lib_util.dp
  *description:camera的应用
  */
 private val BITMAP_SIZE = 200f.dp
-private val BITMAP_PADDING = 200.dp
+private val BITMAP_PADDING = 100.dp
 private val divideTempFloat = FloatArray(9)
 private var flipScale = 0.2f
 

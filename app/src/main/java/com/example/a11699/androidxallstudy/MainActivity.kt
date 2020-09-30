@@ -21,6 +21,7 @@ import com.example.a11699.androidxallstudy.piaodanmu.DanMuActivity
 import com.example.a11699.androidxallstudy.sendgift.SendGiftActivity
 import com.example.a11699.androidxallstudy.soul.activity.SoulActivity
 import com.example.a11699.androidxallstudy.threed.ThreedActivity
+import com.example.a11699.androidxallstudy.tofuture.FutureActivity
 
 import com.example.a11699.androidxallstudy.util.startActivity
 import com.example.a11699.androidxallstudy.viewdraghelper.ViewDragerStudyActivity
@@ -86,6 +87,7 @@ class MainActivity : AppCompatActivity() {
         btn_3d_effect.setOnClickListener { startActivity<FunnyActivity>(this) }
         btn_zhezhi.setOnClickListener { startActivity<PaperActivity>(this) }
         btn_animal.setOnClickListener { startActivity<AnimaMethod2Activity>(this) }
+        btn_future.setOnClickListener { startActivity<FutureActivity>(this) }
 
     }
 
