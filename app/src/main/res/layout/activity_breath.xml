@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent">
+
+    <com.example.a11699.androidxallstudy.breath.GloriousView
+        android:id="@+id/gloriousView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.a11699.androidxallstudy.breath.BreatheView
+        android:id="@+id/breath"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#03DAC5"
+        app:BreatheViewInsideColor="@color/colorPrimaryDark"
+        app:BreatheViewIsLight="true"
+        app:BreatheViewText="余智强"
+        app:layout_constraintBottom_toBottomOf="@+id/gloriousView"
+        app:layout_constraintLeft_toRightOf="@+id/gloriousView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.a11699.androidxallstudy.breath.BreathView2
+        android:id="@+id/breathView2"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginLeft="30dp"
+        app:distance2singleline="30dp"
+        app:intext="罐中沉思"
+        app:intextSize="25dp"
+        app:shadowcolor="@color/colorAccent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gloriousView" />
+</androidx.constraintlayout.widget.ConstraintLayout>

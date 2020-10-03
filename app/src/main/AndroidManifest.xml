@@ -43,6 +43,8 @@
         <activity android:name=".zhezhi.PaperActivity" />
         <activity android:name=".drawfish.DrawFishActivity" />
         <activity android:name=".tofuture.FutureActivity" />
+        <activity android:name=".codescroll.CodeScrollActivity" />
+        <activity android:name=".breath.BreathActivity"/>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

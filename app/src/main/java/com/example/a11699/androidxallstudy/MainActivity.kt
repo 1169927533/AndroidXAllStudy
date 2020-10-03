@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.a11699.activity.NavigationActivity
 import com.example.a11699.androidxallstudy.batteryview.BatteryActivity
 import com.example.a11699.androidxallstudy.botomtab.BottomTabActivity
+import com.example.a11699.androidxallstudy.breath.BreathActivity
+import com.example.a11699.androidxallstudy.codescroll.CodeScrollActivity
 import com.example.a11699.androidxallstudy.cunstombarrage.BarrageActivity
 import com.example.a11699.androidxallstudy.customdropdown.DropDownActivity
 import com.example.a11699.androidxallstudy.custompasswordview.CustomPasswordActivity
@@ -88,6 +90,8 @@ class MainActivity : AppCompatActivity() {
         btn_zhezhi.setOnClickListener { startActivity<PaperActivity>(this) }
         btn_animal.setOnClickListener { startActivity<AnimaMethod2Activity>(this) }
         btn_future.setOnClickListener { startActivity<FutureActivity>(this) }
+        btn_codescroll.setOnClickListener { startActivity<CodeScrollActivity>(this) }
+        btn_breath.setOnClickListener { startActivity<BreathActivity>(this) }
 
     }
 

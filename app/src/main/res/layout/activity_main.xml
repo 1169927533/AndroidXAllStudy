@@ -207,6 +207,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="给未来写封信" />
+                <Button
+                    android:id="@+id/btn_codescroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="马上开学案例" />
+                <Button
+                    android:id="@+id/btn_breath"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="呼吸灯" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 

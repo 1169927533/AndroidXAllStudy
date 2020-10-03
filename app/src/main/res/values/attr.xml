@@ -50,4 +50,31 @@
         <attr name="powerRectArc" format="dimension" />
         <attr name="powerMarginTop" format="dimension" />
     </declare-styleable>
+
+
+    <declare-styleable name="BreatheView">
+        <attr name="insideViewWidth" format="dimension" /> <!--内部TextView的宽度-->
+        <attr name="insideViewHeight" format="dimension" /> <!--内部TextView的高度-->
+
+        <attr name="lightDiffusionWidth" format="dimension" /> <!--光扩散的间距-->
+
+        <attr name="BreatheViewTextSize" format="dimension" />  <!--设置文字的大小-->
+        <attr name="BreatheViewTextColor" format="color" />  <!--设置文字的颜色-->
+        <attr name="BreatheViewText" format="string" /> <!--控件的文字-->
+
+        <attr name="BreatheViewInsideColor" format="color" />  <!--设置内部View的颜色-->
+
+        <attr name="BreatheViewIsLight" format="boolean" /> <!--设置控件是否扩散-->
+
+    </declare-styleable>
+
+
+    <declare-styleable name="BreatheView2">
+        <attr name="incolor" format="color" /><!--背景圆形的颜色-->
+        <attr name="distance2singleline" format="dimension" /><!--距离边线的距离-->
+        <attr name="intext" format="string" /><!--文字-->
+        <attr name="intextSize" format="dimension" /><!--内部文字大小-->
+        <attr name="shadowcolor" format="color"/>
+    </declare-styleable>
+
 </resources>
