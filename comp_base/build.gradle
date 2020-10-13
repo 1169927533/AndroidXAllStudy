@@ -25,6 +25,7 @@ android {
 }
 
 dependencies {
+    api (project(':lib_util'))
 
     api deps.app_compat
     api deps.constraintlayout
