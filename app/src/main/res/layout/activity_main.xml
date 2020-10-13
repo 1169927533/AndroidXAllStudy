@@ -182,41 +182,67 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="粒子消散动画" />
+
                 <Button
                     android:id="@+id/btn_3d"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="3D转场" />
+
                 <Button
                     android:id="@+id/btn_3d_effect"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="跟随手指动的3d旋转" />
+
                 <Button
                     android:id="@+id/btn_zhezhi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="折纸效果" />
+
                 <Button
                     android:id="@+id/btn_animal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="动画效果" />
+
                 <Button
                     android:id="@+id/btn_future"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="给未来写封信" />
+
                 <Button
                     android:id="@+id/btn_codescroll"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="马上开学案例" />
+
                 <Button
                     android:id="@+id/btn_breath"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="呼吸灯" />
+
+                <Button
+                    android:id="@+id/btn_zhuanchang"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="转场动画" />
+
+                <Button
+                    android:id="@+id/btn_zhuanchang2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="转场动画学习2" />
+
+                <Button
+                    android:id="@+id/btn_floapcard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="卡牌" />
+
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 

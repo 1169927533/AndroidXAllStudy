@@ -9,6 +9,7 @@ import android.util.AttributeSet
 import android.view.View
 import android.view.animation.AccelerateInterpolator
 import com.example.a11699.androidxallstudy.R
+import com.example.a11699.lib_util.dp
 
 /**
  *Create time 2020/10/3
@@ -92,7 +93,7 @@ class BreathView2(context: Context, attributeSet: AttributeSet) : View(context, 
                 })
             }
         }
-        if (animatorAlpha == null){
+        if (animatorAlpha == null) {
             animatorAlpha = ValueAnimator.ofFloat(0f, 255f).apply {
                 duration = 1000
                 interpolator = AccelerateInterpolator()
@@ -129,7 +130,7 @@ class BreathView2(context: Context, attributeSet: AttributeSet) : View(context, 
         //绘制文字内容
         drawTextContent(canvas)
         //绘制 通过控制半径控制 阴影
-         drawCircleShade(canvas)
+        drawCircleShade(canvas)
         //绘制 通过控制透明度控制 阴影
         drawAlphaShade(canvas)
     }

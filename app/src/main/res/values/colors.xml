@@ -7,7 +7,7 @@
     <color name="transparent">#00000000</color>
     <color name="white">#ffffffff</color>
     <color name="color_a0a0a0">#A0A0A0</color>
-
+    <color name="color_FFD7DD">#FFD7DD</color>
     <color name="color_FF5757">#FF5757</color>
     <color name="color_00D088">#00D088</color>
 </resources>

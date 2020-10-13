@@ -1,3 +1,4 @@
+include ':module_flop'
 include ':lib_util'
 include ':comp_animalmehod2'
 include ':lib_customview'

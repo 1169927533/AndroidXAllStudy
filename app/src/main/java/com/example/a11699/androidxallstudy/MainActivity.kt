@@ -1,5 +1,7 @@
 package com.example.a11699.androidxallstudy
 
+import android.app.ActivityOptions
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
@@ -28,8 +30,11 @@ import com.example.a11699.androidxallstudy.tofuture.FutureActivity
 import com.example.a11699.androidxallstudy.util.startActivity
 import com.example.a11699.androidxallstudy.viewdraghelper.ViewDragerStudyActivity
 import com.example.a11699.androidxallstudy.webview.WebViewStudy
+import com.example.a11699.androidxallstudy.zhaunchang.TransLationActivity
 import com.example.a11699.androidxallstudy.zhezhi.PaperActivity
 import com.example.a11699.comp_animalmehod2.AnimaMethod2Activity
+import com.example.a11699.comp_animalmehod2.animal.AActivity
+import com.example.a11699.comp_animalmehod2.animal.BActivity
 import com.example.a11699.comp_base.SPContent
 import com.example.a11699.comp_customview.QQStepViewActivity
 import com.example.a11699.comp_im.activity.MessageActivity
@@ -39,6 +44,7 @@ import com.example.a11699.comp_netstudyt.NetStudy
 import com.example.a11699.comp_viewmodel.ViewModelStudyActivity
 import com.example.a11699.lib_im.imloginutil.ImHelper
 import com.example.a11699.lib_save.MMKVUtils
+import com.example.a11699.module_flop.activity.FloapCardActivity
 import com.example.a11699.module_smartrecycleview.SmartRecycleViewStudyActivity
 import com.tencent.imsdk.v2.V2TIMManager
 import kotlinx.android.synthetic.main.activity_main.*
@@ -61,7 +67,12 @@ class MainActivity : AppCompatActivity() {
         btn_oss.setOnClickListener { startActivity<OssStudyActivity>(this) }
         // btn_greendao.setOnClickListener { startActivity<GreenDaoActivity>(this) }
         btn_barrage.setOnClickListener { startActivity<BarrageActivity>(this) }
-        btn_bottomtab.setOnClickListener { startActivity<BottomTabActivity>(this) }
+        btn_bottomtab.setOnClickListener {
+            var intent = Intent(this, BottomTabActivity::class.java)
+            var bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+            startActivity(intent, bundle)
+            /*  startActivity<BottomTabActivity>(this) */
+        }
         btn_imgpicker.setOnClickListener { startActivity<ImgPickerActivity>(this) }
         btn_qqstep.setOnClickListener { startActivity<QQStepViewActivity>(this) }
         btn_viewdrager.setOnClickListener {
@@ -92,7 +103,13 @@ class MainActivity : AppCompatActivity() {
         btn_future.setOnClickListener { startActivity<FutureActivity>(this) }
         btn_codescroll.setOnClickListener { startActivity<CodeScrollActivity>(this) }
         btn_breath.setOnClickListener { startActivity<BreathActivity>(this) }
-
+        btn_zhuanchang.setOnClickListener { startActivity<TransLationActivity>(this) }
+        btn_zhuanchang2.setOnClickListener {
+            var intent = Intent(this, AActivity::class.java)
+            var bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+            startActivity(intent, bundle)
+        }
+        btn_floapcard.setOnClickListener { startActivity<FloapCardActivity>(this) }
     }
 
     override fun onResume() {

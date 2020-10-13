@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-  <!--  <style name="AppTheme" parent="Theme.AppCompat.Light">
-        &lt;!&ndash; Customize your theme here. &ndash;&gt;
-    </style>
--->
+    <!--  <style name="AppTheme" parent="Theme.AppCompat.Light">
+          &lt;!&ndash; Customize your theme here. &ndash;&gt;
+      </style>
+  -->
     <!--解决冷启动白屏问题-->
     <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -18,6 +18,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowAllowEnterTransitionOverlap">false</item>
+        <item name="android:windowAllowReturnTransitionOverlap">false</item>
     </style>
 
     <style name="Transparent" parent="AppTheme.TransStatus">
@@ -62,4 +64,63 @@
         <item name="android:backgroundDimEnabled">false</item>
     </style>
 
+    <style name="bstyle" parent="AppTheme">
+
+        <!--   <item name="android:windowEnterTransition">@transition/slide_from_right</item>
+           <item name="android:windowReturnTransition">@transition/slide_from_right</item>
+          &lt;!&ndash;/是否覆盖执行，其实可以理解成是否同步执行还是顺序执行&ndash;&gt;
+           <item name="android:windowAllowEnterTransitionOverlap">false</item>
+           <item name="android:windowAllowReturnTransitionOverlap">false</item>-->
+    </style>
+
+    <style name="fadeddd" parent="@android:style/Animation.Translucent">
+        <!--   <item name="android:activityOpenEnterAnimation">@anim/fade_in</item>
+           &lt;!&ndash;下面三个没啥用 都要在当前activity设置了finish后才哟用&ndash;&gt;
+           <item name="android:activityOpenExitAnimation">@anim/fade_out</item>
+           <item name="android:activityCloseEnterAnimation">@anim/fade_out</item>
+           <item name="android:activityCloseExitAnimation">@anim/fade_out</item>-->
+        <!--  <item name="android:windowEnterTransition">@anim/fade_in</item>
+          <item name="android:windowReturnTransition">@anim/fade_out</item>
+  -->
+    </style>
+
+    <style name="fade" parent="AppTheme">
+        <item name="android:backgroundDimAmount">0.0</item><!-- 灰度 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>-->
+    </style>
+
+    <!--   <style name="animation_translucent_translate" parent="@android:style/Animation.Translucent">
+           <item name="android:windowEnterAnimation">@anim/activity_open_in_anim</item>
+           <item name="android:windowExitAnimation">@anim/activity_open_out_anim</item>
+           <item name="android:taskOpenEnterAnimation">@anim/activity_open_in_anim</item>
+           <item name="android:taskOpenExitAnimation">@anim/activity_open_out_anim</item>
+           <item name="android:taskToFrontEnterAnimation">@anim/activity_open_in_anim</item>
+           <item name="android:taskToFrontExitAnimation">@anim/activity_open_out_anim</item>
+           <item name="android:activityOpenEnterAnimation">@anim/activity_open_in_anim</item>
+           <item name="android:activityOpenExitAnimation">@anim/activity_open_out_anim</item>
+           <item name="android:activityCloseEnterAnimation">@anim/activity_open_in_anim</item>
+           <item name="android:activityCloseExitAnimation">@anim/activity_open_out_anim</item>
+           <item name="android:taskCloseEnterAnimation">@anim/activity_open_in_anim</item>
+           <item name="android:taskCloseExitAnimation">@anim/activity_open_out_anim</item>
+           <item name="android:taskToBackEnterAnimation">@anim/activity_open_in_anim</item>
+           <item name="android:taskToBackExitAnimation">@anim/activity_open_out_anim</item>
+           <item name="android:wallpaperOpenEnterAnimation">@anim/activity_open_in_anim</item>
+           <item name="android:wallpaperOpenExitAnimation">@anim/activity_open_out_anim</item>
+           <item name="android:wallpaperCloseEnterAnimation">@anim/activity_open_in_anim</item>
+           <item name="android:wallpaperCloseExitAnimation">@anim/activity_open_out_anim</item>
+           <item name="android:wallpaperIntraOpenEnterAnimation">@anim/activity_open_in_anim</item>
+           <item name="android:wallpaperIntraOpenExitAnimation">@anim/activity_open_out_anim</item>
+           <item name="android:wallpaperIntraCloseEnterAnimation">@anim/activity_open_in_anim</item>
+           <item name="android:wallpaperIntraCloseExitAnimation">@anim/activity_open_out_anim</item>
+       </style>-->
 </resources>

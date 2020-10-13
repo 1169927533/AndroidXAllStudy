@@ -48,6 +48,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    kotlinOptions{
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -72,7 +76,9 @@ dependencies {
     implementation(project(':lib_im'))
     implementation(project(':lib_save'))
     implementation(project(':lib_util'))
+    implementation(project(':module_flop'))
 
+    implementation 'com.android.support:support-dynamic-animation:28.0.0'//实现小球可以上下弹的动画
     implementation(project(':comp_animalmehod2'))
     // Lifecycles only (without ViewModel or LiveData)
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"

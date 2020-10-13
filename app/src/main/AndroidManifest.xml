@@ -23,7 +23,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".botomtab.BottomTabActivity" />
         <activity android:name=".cunstombarrage.BarrageActivity" />
         <activity android:name=".ossstudy.OssStudyActivity" />
         <activity android:name=".webview.WebViewStudy" />
@@ -45,6 +44,9 @@
         <activity android:name=".tofuture.FutureActivity" />
         <activity android:name=".codescroll.CodeScrollActivity" />
         <activity android:name=".breath.BreathActivity"/>
+        <activity android:name=".zhaunchang.TransLationActivity"/>
+        <activity android:name=".botomtab.BottomTabActivity"   />
+        <activity android:name=".botomtab.CopyTangApp" android:theme="@style/fade"/>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
