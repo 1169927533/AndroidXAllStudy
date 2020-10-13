@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.animation.LinearInterpolator
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -25,6 +26,7 @@ import kotlinx.android.synthetic.main.item_flop.view.*
 class FloapCardActivity : AppCompatActivity() {
     var holder: RecyclerView.ViewHolder? = null
     var listLocation = ArrayList<IntArray>()
+    var imgView = ArrayList<ImageView>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_floa)
@@ -40,39 +42,54 @@ class FloapCardActivity : AppCompatActivity() {
         list.add(FlopBean(R.drawable.b5, ""))
         list.add(FlopBean(R.drawable.b6, ""))
         adapter.setNewData(list)
+        imgView.add(flopview1)
+        imgView.add(flopview2)
+        imgView.add(flopview3)
+        imgView.add(flopview4)
+        imgView.add(flopview5)
+        imgView.add(flopview6)
+
 
         btn_send.setOnClickListener {
             for (index in 0 until adapter.itemCount) {
                 holder = recycleview.findViewHolderForAdapterPosition(index)
                 listLocation.add(holder!!.itemView.flopview.location)
-                prePareAnimal(holder!!.itemView.flopview, holder!!.itemView.flopview.location)
+                prePareAnimal(imgView[index], holder!!.itemView.flopview.location, index)
             }
-            prePareAnimal(btn_send, recycleview.findViewHolderForAdapterPosition(1)!!.itemView.flopview.location)
         }
     }
 
-    private fun prePareAnimal(view: View, location3: IntArray) {
+    private fun prePareAnimal(view: View, location3: IntArray, index: Int) {
         var location1 = IntArray(2)
         recycleview.getLocationInWindow(location1)
 
         var location = IntArray(2)
         view.getLocationInWindow(location)
 
+        var xxx  = view.width*1.6
+        var curx = view.width
+        var pian = (xxx-curx)/2
+
+
+        var yyy = view.height*1.6
+        var cury =  view.height
+        var piany = (yyy-cury)/2
+
 
         var trx = location[0] - (location1[0] + location3[0])
         var tryy = location[1] - (location1[1] + location3[1])
 
-        ValueAnimator.ofFloat(0f, 1f).apply {
-            duration = 1000
+        var anima = ValueAnimator.ofFloat(1f, 1.6f).apply {
+            duration = 500
             interpolator = LinearInterpolator()
             addUpdateListener {
                 view.scaleX = it.animatedValue as Float
                 view.scaleY = it.animatedValue as Float
             }
-        }.start()
-        view.animate().translationY(-tryy.toFloat()).translationX(-trx.toFloat()).setStartDelay(1000L).duration = 1000
-
-
+        }
+        anima.startDelay = 500 * index.toLong()
+        anima.start()
+        view.animate().translationY(-(tryy.toFloat()-piany.toFloat())).translationX(-(trx.toFloat()-pian.toFloat())).setStartDelay(500 * index.toLong()).duration = 500
     }
 
     private fun preFlopView(flopView: FlopView, frontSrc: Int) {

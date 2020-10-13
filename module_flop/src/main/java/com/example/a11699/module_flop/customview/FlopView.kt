@@ -25,10 +25,6 @@ class FlopView : View {
     private var mMatrix = Matrix()
     private var rotateAngle = 0f//旋转角度
     var mFontBg = 0
-        set(value) {
-            field = value
-            invalidate()
-        }
 
 
     var location = IntArray(2)

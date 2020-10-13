@@ -25,55 +25,66 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <com.example.a11699.module_flop.customview.FlopView
+    <ImageView
+        android:background="@drawable/b6"
+
         android:id="@+id/flopview6"
-        android:layout_width="80dp"
-        android:layout_height="160dp"
+        android:layout_width="50dp"
+        android:layout_height="100dp"
         android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <com.example.a11699.module_flop.customview.FlopView
+    <ImageView
+        android:background="@drawable/b5"
+
         android:id="@+id/flopview5"
-        android:layout_width="80dp"
-        android:layout_height="160dp"
+        android:layout_width="50dp"
+        android:layout_height="100dp"
         android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <com.example.a11699.module_flop.customview.FlopView
+    <ImageView
+        android:background="@drawable/b4"
+
         android:id="@+id/flopview4"
-        android:layout_width="80dp"
-        android:layout_height="160dp"
+        android:layout_width="50dp"
+        android:layout_height="100dp"
         android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <com.example.a11699.module_flop.customview.FlopView
+    <ImageView
+        android:background="@drawable/b3"
+
         android:id="@+id/flopview3"
-        android:layout_width="80dp"
-        android:layout_height="160dp"
+        android:layout_width="50dp"
+        android:layout_height="100dp"
         android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <com.example.a11699.module_flop.customview.FlopView
+    <ImageView
+        android:background="@drawable/b2"
+
         android:id="@+id/flopview2"
-        android:layout_width="80dp"
-        android:layout_height="160dp"
+        android:layout_width="50dp"
+        android:layout_height="100dp"
         android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <com.example.a11699.module_flop.customview.FlopView
+    <ImageView
+        android:background="@drawable/b1"
         android:id="@+id/flopview1"
-        android:layout_width="80dp"
-        android:layout_height="160dp"
+        android:layout_width="50dp"
+        android:layout_height="100dp"
         android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
