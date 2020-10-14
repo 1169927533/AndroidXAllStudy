@@ -1,28 +1,24 @@
 package com.example.a11699.module_flop.activity
 
+import android.animation.Animator
+import android.animation.ObjectAnimator
+import android.animation.PropertyValuesHolder
 import android.animation.ValueAnimator
-import android.graphics.Bitmap
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AccelerateInterpolator
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.animation.addListener
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.target.SimpleTarget
-import com.bumptech.glide.request.transition.Transition
 import com.example.a11699.lib_util.dp
 import com.example.a11699.module_flop.R
 import com.example.a11699.module_flop.adapter.FlopAdater
 import com.example.a11699.module_flop.bean.FlopBean
-import com.example.a11699.module_flop.customview.FlopView
 import kotlinx.android.synthetic.main.activity_floa.*
 import kotlinx.android.synthetic.main.item_flop.view.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 
 /**
@@ -91,23 +87,35 @@ class FloapCardActivity : AppCompatActivity() {
         var cury = view.height
         var piany = (yyy - cury) / 2
 
-
         var trx = location[0] - (location1[0] + location3[0])
         var tryy = location[1] - (location1[1] + location3[1])
+        var animalScaleX = PropertyValuesHolder.ofFloat("scaleX", 1f, 1.6f)
+        var animalScaleY = PropertyValuesHolder.ofFloat("scaleY", 1f, 1.6f)
+        var animalTreansX = PropertyValuesHolder.ofFloat("translationX", 0f, -(trx.toFloat() - pian.toFloat()))
+        var animalTreansY = PropertyValuesHolder.ofFloat("translationY", 0f, -(tryy.toFloat() - piany.toFloat()))
+        var animatordd = ObjectAnimator.ofPropertyValuesHolder(view, animalScaleX, animalScaleY, animalTreansX, animalTreansY)
+        animatordd.duration = 150
+        animatordd.startDelay = 150 * index.toLong()
+        animatordd.start()
 
-        var anima = ValueAnimator.ofFloat(1f, 1.6f).apply {
-            duration = 150
-            interpolator = AccelerateInterpolator()
-            addUpdateListener {
-                view.scaleX = it.animatedValue as Float
-                view.scaleY = it.animatedValue as Float
-            }
+        if (index == 5) {
+            animatordd.addListener(object : Animator.AnimatorListener{
+                override fun onAnimationEnd(animation: Animator?) {
+                     recycleview.visibility = View.VISIBLE
+
+                }
+
+                override fun onAnimationRepeat(animation: Animator?) {
+
+                }
+
+                override fun onAnimationCancel(animation: Animator?) {
+                }
+
+                override fun onAnimationStart(animation: Animator?) {
+                }
+            })
         }
-
-
-        anima.startDelay = 100 * index.toLong()
-        anima.start()
-        view.animate().translationY(-(tryy.toFloat() - piany.toFloat())).translationX(-(trx.toFloat() - pian.toFloat())).setStartDelay(150 * index.toLong()).duration = 150
     }
 
     class FollowItemDecoration : RecyclerView.ItemDecoration() {
