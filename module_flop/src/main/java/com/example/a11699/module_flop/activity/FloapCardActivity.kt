@@ -57,15 +57,14 @@ class FloapCardActivity : AppCompatActivity() {
         imgView.add(flopview6)
 
 
-
-
+/*
         Glide.with(this).asBitmap()
                 .load("https://upload-images.jianshu.io/upload_images/16562048-d8b36e00a8ddd8ba.png")
                 .into(object : SimpleTarget<Bitmap?>() {
                     override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap?>?) {
                         flopview1.setImageBitmap(resource)
                     }
-                })
+                })*/
 
         btn_send.setOnClickListener {
             for (index in 0 until adapter.itemCount) {
@@ -104,6 +103,8 @@ class FloapCardActivity : AppCompatActivity() {
                 view.scaleY = it.animatedValue as Float
             }
         }
+
+
         anima.startDelay = 100 * index.toLong()
         anima.start()
         view.animate().translationY(-(tryy.toFloat() - piany.toFloat())).translationX(-(trx.toFloat() - pian.toFloat())).setStartDelay(150 * index.toLong()).duration = 150

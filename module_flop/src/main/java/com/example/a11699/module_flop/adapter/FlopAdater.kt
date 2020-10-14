@@ -24,10 +24,8 @@ class FlopAdater(var context: Context) : BaseQuickAdapter<FlopBean, BaseViewHold
             itt.mFontBg = item?.frontSrc!!
             Glide.with(context).asBitmap()
                     .load(item!!.backSrc)
-                  //  .override(120, 240)
                     .into(object : SimpleTarget<Bitmap?>() {
                         override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap?>?) {
-
                             itt.mBackBitMap = resource
                         }
                     })

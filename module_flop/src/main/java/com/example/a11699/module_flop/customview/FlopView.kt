@@ -7,6 +7,7 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.View
 import android.view.animation.LinearInterpolator
+import com.example.a11699.lib_util.dp
 import com.example.a11699.module_flop.R
 
 /**
@@ -22,15 +23,13 @@ class FlopView : View {
     private var m = Matrix().apply {
         setScale(-1F, 1F)
     }
+
     var mBackBitMap: Bitmap? = null
         set(value) {
-            m.postScale(240f / value!!.width.toFloat(),480f/value!!.height.toFloat())
-
             field = value?.let {
-                Bitmap.createBitmap(it, 0, 0, value.width, value.height, m, false)
-
+                m.postScale(80f.dp / it.width.toFloat(), 160f.dp / it.height.toFloat())
+                Bitmap.createBitmap(it, 0, 0, it.width, it.height, m, false)
             }
-
             invalidate()
         }
 
@@ -49,9 +48,13 @@ class FlopView : View {
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+
+
         if (mFontBg != 0) {
             mFontBitMap = getAvatar(measuredWidth, mFontBg)
         }
+
+
     }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
@@ -61,7 +64,7 @@ class FlopView : View {
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        if (mBackBitMap != null) {
+        if (mFontBitMap != null) {
             mCamera.save()
             mCamera.rotateY(rotateAngle)
             mCamera.getMatrix(mMatrix)
