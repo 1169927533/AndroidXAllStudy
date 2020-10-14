@@ -1,15 +1,18 @@
 package com.example.a11699.module_flop.activity
 
 import android.animation.ValueAnimator
+import android.graphics.Bitmap
 import android.graphics.Rect
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.view.animation.LinearInterpolator
+import android.view.animation.AccelerateInterpolator
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.SimpleTarget
+import com.bumptech.glide.request.transition.Transition
 import com.example.a11699.lib_util.dp
 import com.example.a11699.module_flop.R
 import com.example.a11699.module_flop.adapter.FlopAdater
@@ -17,6 +20,10 @@ import com.example.a11699.module_flop.bean.FlopBean
 import com.example.a11699.module_flop.customview.FlopView
 import kotlinx.android.synthetic.main.activity_floa.*
 import kotlinx.android.synthetic.main.item_flop.view.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+
 
 /**
  *Create time 2020/10/13
@@ -35,12 +42,12 @@ class FloapCardActivity : AppCompatActivity() {
         recycleview.adapter = adapter
         recycleview.addItemDecoration(FollowItemDecoration())
         var list = ArrayList<FlopBean>()
-        list.add(FlopBean(R.drawable.b1, ""))
-        list.add(FlopBean(R.drawable.b2, ""))
-        list.add(FlopBean(R.drawable.b3, ""))
-        list.add(FlopBean(R.drawable.b4, ""))
-        list.add(FlopBean(R.drawable.b5, ""))
-        list.add(FlopBean(R.drawable.b6, ""))
+        list.add(FlopBean(R.drawable.b1, "https://upload-images.jianshu.io/upload_images/16562048-36d730fc88d46c68.png"))
+        list.add(FlopBean(R.drawable.b2, "https://upload-images.jianshu.io/upload_images/16562048-51b62bcde50714c2.png"))
+        list.add(FlopBean(R.drawable.b3, "https://upload-images.jianshu.io/upload_images/16562048-34b96f46aa0a9614.png"))
+        list.add(FlopBean(R.drawable.b4, "https://upload-images.jianshu.io/upload_images/16562048-15a610246f5d3b1e.png"))
+        list.add(FlopBean(R.drawable.b5, "https://lk20.oss-accelerate.aliyuncs.com/avatar/default/avatar_2.jpg"))
+        list.add(FlopBean(R.drawable.b6, "https://upload-images.jianshu.io/upload_images/16562048-41bd5a442ec84a1e.png"))
         adapter.setNewData(list)
         imgView.add(flopview1)
         imgView.add(flopview2)
@@ -49,6 +56,16 @@ class FloapCardActivity : AppCompatActivity() {
         imgView.add(flopview5)
         imgView.add(flopview6)
 
+
+
+
+        Glide.with(this).asBitmap()
+                .load("https://upload-images.jianshu.io/upload_images/16562048-d8b36e00a8ddd8ba.png")
+                .into(object : SimpleTarget<Bitmap?>() {
+                    override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap?>?) {
+                        flopview1.setImageBitmap(resource)
+                    }
+                })
 
         btn_send.setOnClickListener {
             for (index in 0 until adapter.itemCount) {
@@ -66,38 +83,32 @@ class FloapCardActivity : AppCompatActivity() {
         var location = IntArray(2)
         view.getLocationInWindow(location)
 
-        var xxx  = view.width*1.6
+        var xxx = view.width * 1.6
         var curx = view.width
-        var pian = (xxx-curx)/2
+        var pian = (xxx - curx) / 2
 
 
-        var yyy = view.height*1.6
-        var cury =  view.height
-        var piany = (yyy-cury)/2
+        var yyy = view.height * 1.6
+        var cury = view.height
+        var piany = (yyy - cury) / 2
 
 
         var trx = location[0] - (location1[0] + location3[0])
         var tryy = location[1] - (location1[1] + location3[1])
 
         var anima = ValueAnimator.ofFloat(1f, 1.6f).apply {
-            duration = 500
-            interpolator = LinearInterpolator()
+            duration = 150
+            interpolator = AccelerateInterpolator()
             addUpdateListener {
                 view.scaleX = it.animatedValue as Float
                 view.scaleY = it.animatedValue as Float
             }
         }
-        anima.startDelay = 500 * index.toLong()
+        anima.startDelay = 100 * index.toLong()
         anima.start()
-        view.animate().translationY(-(tryy.toFloat()-piany.toFloat())).translationX(-(trx.toFloat()-pian.toFloat())).setStartDelay(500 * index.toLong()).duration = 500
+        view.animate().translationY(-(tryy.toFloat() - piany.toFloat())).translationX(-(trx.toFloat() - pian.toFloat())).setStartDelay(150 * index.toLong()).duration = 150
     }
 
-    private fun preFlopView(flopView: FlopView, frontSrc: Int) {
-        flopView.mFontBg = frontSrc
-
-    }
-
-    //首页 关注页
     class FollowItemDecoration : RecyclerView.ItemDecoration() {
         override fun getItemOffsets(
                 outRect: Rect,
@@ -110,11 +121,11 @@ class FloapCardActivity : AppCompatActivity() {
             val margin = 34.dp.toInt()
             val bottom = 6.dp.toInt()
             val middle = 13.dp.toInt()
-            when {
-                column == 0 -> {
+            when (column) {
+                0 -> {
                     outRect.set(middle, bottom, middle, 0)
                 }
-                column == 1 -> {
+                1 -> {
                     outRect.set(middle, bottom, middle, 0)
                 }
                 else -> {

@@ -7,6 +7,7 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.View
 import android.view.animation.LinearInterpolator
+import android.widget.ImageView
 import com.example.a11699.module_flop.R
 
 /**
@@ -16,7 +17,7 @@ import com.example.a11699.module_flop.R
  */
 private val divideTempFloat = FloatArray(9)
 
-class FlopView : View {
+class FlopView2 : androidx.appcompat.widget.AppCompatImageView {
     private var flipScale = 0.2f
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private var m = Matrix().apply {
