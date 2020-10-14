@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="flowViewGroup">
+        <attr name="row" format="integer"/> <!--行数-->
+        <attr name="column" format="integer"/><!--纵数-->
+        <attr name="top2bottom" format="dimension"/><!--行与行的上下间距-->
+        <attr name="left2right" format="dimension"/><!--item与item的左右间距-->
+    </declare-styleable>
+</resources>

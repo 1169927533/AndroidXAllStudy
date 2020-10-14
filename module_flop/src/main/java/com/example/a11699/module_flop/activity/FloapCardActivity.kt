@@ -4,19 +4,26 @@ import android.animation.Animator
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
 import android.animation.ValueAnimator
+import android.graphics.Bitmap
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AccelerateInterpolator
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.animation.addListener
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.SimpleTarget
+import com.bumptech.glide.request.transition.Transition
 import com.example.a11699.lib_util.dp
 import com.example.a11699.module_flop.R
 import com.example.a11699.module_flop.adapter.FlopAdater
 import com.example.a11699.module_flop.bean.FlopBean
+import com.example.a11699.module_flop.customview.FlopView
 import kotlinx.android.synthetic.main.activity_floa.*
 import kotlinx.android.synthetic.main.item_flop.view.*
 
@@ -29,7 +36,8 @@ import kotlinx.android.synthetic.main.item_flop.view.*
 class FloapCardActivity : AppCompatActivity() {
     var holder: RecyclerView.ViewHolder? = null
     var listLocation = ArrayList<IntArray>()
-    var imgView = ArrayList<ImageView>()
+    var listFlopView = ArrayList<FlopView>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_floa)
@@ -37,6 +45,8 @@ class FloapCardActivity : AppCompatActivity() {
         var adapter = FlopAdater(this)
         recycleview.adapter = adapter
         recycleview.addItemDecoration(FollowItemDecoration())
+
+
         var list = ArrayList<FlopBean>()
         list.add(FlopBean(R.drawable.b1, "https://upload-images.jianshu.io/upload_images/16562048-36d730fc88d46c68.png"))
         list.add(FlopBean(R.drawable.b2, "https://upload-images.jianshu.io/upload_images/16562048-51b62bcde50714c2.png"))
@@ -45,77 +55,61 @@ class FloapCardActivity : AppCompatActivity() {
         list.add(FlopBean(R.drawable.b5, "https://lk20.oss-accelerate.aliyuncs.com/avatar/default/avatar_2.jpg"))
         list.add(FlopBean(R.drawable.b6, "https://upload-images.jianshu.io/upload_images/16562048-41bd5a442ec84a1e.png"))
         adapter.setNewData(list)
-        imgView.add(flopview1)
-        imgView.add(flopview2)
-        imgView.add(flopview3)
-        imgView.add(flopview4)
-        imgView.add(flopview5)
-        imgView.add(flopview6)
 
-
-/*
-        Glide.with(this).asBitmap()
-                .load("https://upload-images.jianshu.io/upload_images/16562048-d8b36e00a8ddd8ba.png")
-                .into(object : SimpleTarget<Bitmap?>() {
-                    override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap?>?) {
-                        flopview1.setImageBitmap(resource)
-                    }
-                })*/
 
         btn_send.setOnClickListener {
+            for (value in listFlopView) {
+                cc.removeView(value)
+            }
+            listFlopView.clear()
             for (index in 0 until adapter.itemCount) {
                 holder = recycleview.findViewHolderForAdapterPosition(index)
                 listLocation.add(holder!!.itemView.flopview.location)
-                prePareAnimal(imgView[index], holder!!.itemView.flopview.location, index)
+                prePareAnimal(list[index].frontSrc, list[index].backSrc, holder!!.itemView.flopview.location, index)
             }
         }
     }
 
-    private fun prePareAnimal(view: View, location3: IntArray, index: Int) {
+    private fun prePareAnimal(fg: Int, bg: String, location3: IntArray, index: Int) {
+        var flopView = FlopView(this)
+        listFlopView.add(flopView)
+        flopView.mFontBg = fg
+        Glide.with(this).asBitmap()
+                .load(bg)
+                .into(object : SimpleTarget<Bitmap?>() {
+                    override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap?>?) {
+                        flopView.mBackBitMap = resource
+                    }
+                })
+        flopView.id = R.id.f1
+        val ivLeftLayoutParams: ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(
+                50.dp.toInt(), 100.dp.toInt()
+        )
+        ivLeftLayoutParams.leftToLeft = R.id.cc
+        ivLeftLayoutParams.bottomToBottom = R.id.cc
+        ivLeftLayoutParams.rightToRight = R.id.cc
+        flopView.layoutParams = ivLeftLayoutParams
+        cc.addView(flopView)
+        flopView.setOnClickListener {
+            flopView.startAnimal()
+        }
+
+
+
         var location1 = IntArray(2)
         recycleview.getLocationInWindow(location1)
-
         var location = IntArray(2)
-        view.getLocationInWindow(location)
-
-        var xxx = view.width * 1.6
-        var curx = view.width
+        flopview6.getLocationInWindow(location)
+        var xxx = flopview6.width * 1.6
+        var curx = flopview6.width
         var pian = (xxx - curx) / 2
-
-
-        var yyy = view.height * 1.6
-        var cury = view.height
+        var yyy = flopview6.height * 1.6
+        var cury = flopview6.height
         var piany = (yyy - cury) / 2
-
         var trx = location[0] - (location1[0] + location3[0])
         var tryy = location[1] - (location1[1] + location3[1])
-        var animalScaleX = PropertyValuesHolder.ofFloat("scaleX", 1f, 1.6f)
-        var animalScaleY = PropertyValuesHolder.ofFloat("scaleY", 1f, 1.6f)
-        var animalTreansX = PropertyValuesHolder.ofFloat("translationX", 0f, -(trx.toFloat() - pian.toFloat()))
-        var animalTreansY = PropertyValuesHolder.ofFloat("translationY", 0f, -(tryy.toFloat() - piany.toFloat()))
-        var animatordd = ObjectAnimator.ofPropertyValuesHolder(view, animalScaleX, animalScaleY, animalTreansX, animalTreansY)
-        animatordd.duration = 150
-        animatordd.startDelay = 150 * index.toLong()
-        animatordd.start()
+        flopView.startTransAnimal(-(trx.toFloat() - pian.toFloat()), -(tryy.toFloat() - piany.toFloat()), index)
 
-        if (index == 5) {
-            animatordd.addListener(object : Animator.AnimatorListener{
-                override fun onAnimationEnd(animation: Animator?) {
-                     recycleview.visibility = View.VISIBLE
-
-                }
-
-                override fun onAnimationRepeat(animation: Animator?) {
-
-                }
-
-                override fun onAnimationCancel(animation: Animator?) {
-                }
-
-                override fun onAnimationStart(animation: Animator?) {
-                }
-            })
-        }
     }
 
     class FollowItemDecoration : RecyclerView.ItemDecoration() {

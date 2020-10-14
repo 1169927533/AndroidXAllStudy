@@ -21,7 +21,7 @@ class FlopAdater(var context: Context) : BaseQuickAdapter<FlopBean, BaseViewHold
     var bitmap: Bitmap? = null
     override fun convert(helper: BaseViewHolder, item: FlopBean?) {
         helper.itemView.flopview?.let { itt ->
-            itt.mFontBg = item?.frontSrc!!
+           /* itt.mFontBg = item?.frontSrc!!
             Glide.with(context).asBitmap()
                     .load(item!!.backSrc)
                     .into(object : SimpleTarget<Bitmap?>() {
@@ -32,7 +32,7 @@ class FlopAdater(var context: Context) : BaseQuickAdapter<FlopBean, BaseViewHold
 
             itt.setOnClickListener {
                 itt.startAnimal()
-            }
+            }*/
         }
     }
 }
