@@ -19,10 +19,7 @@
 
 效果如下:
 
-<img src="resourcepackage/1599708909110.gif" alt="1599708909110" style="zoom: 50%;" />
-
-
-
+<img src="resourcepackage/1599708909110.gif" width="200"  height = "400" alt="1599708909110" style="zoom: 50%;" />
 
 
 ## 版本2
@@ -74,4 +71,5 @@ onApper 和 onDIsapper方法就可以了。这两个方法可以实现去创建�
 >```
 **具体案例见：app里的BottomTabActivity.kt页面。**
 效果如下：
-<img src="resourcepackage/g1.gif" alt="g1" style="zoom: 10%;" />
+
+<img src="resourcepackage/g1.gif" width = "200" height = "400" alt="g1" style="zoom: 50%;" />
