@@ -20,10 +20,11 @@ import kotlinx.android.synthetic.main.activity_copy_tang.tv1
  *description:仿照躺平中间菜单栏app
  */
 class CopyTangApp : AppCompatActivity() {
-    var transTime = 200L
+    var transTime = 1000L
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_copy_tang)
+        initEnterAndExitAnimal()
 
         initAnimator()
 
@@ -51,7 +52,6 @@ class CopyTangApp : AppCompatActivity() {
                     }
 
                     override fun onAnimationEnd(animation: Animator?) {
-                        finishAfterTransition()
 
                     }
 
@@ -63,6 +63,8 @@ class CopyTangApp : AppCompatActivity() {
                 })
             }
             trview.startCloseAnimal()
+            finishAfterTransition()
+
         }
     }
 
@@ -98,6 +100,14 @@ class CopyTangApp : AppCompatActivity() {
         }
 
     }
+    private fun initEnterAndExitAnimal() {
+        val enterTransition = Fade3()
+        enterTransition.duration = 600
+        enterTransition.excludeTarget(android.R.id.statusBarBackground, true);
+        enterTransition.excludeTarget(android.R.id.navigationBarBackground, true);
+        window.enterTransition = enterTransition
+        window.exitTransition = enterTransition
 
+    }
 
 }

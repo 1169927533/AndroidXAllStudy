@@ -9,19 +9,23 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
 import android.view.animation.AccelerateInterpolator
+import com.example.a11699.androidxallstudy.R
 
 /**
  *Create time 2020/10/5
  *Create Yu
  *description:
  */
-class TransLationView(context: Context, attributeSet: AttributeSet) : View(context, attributeSet) {
+class TransLationView(var mContext: Context, attributeSet: AttributeSet) : View(mContext, attributeSet) {
     var animatorAlpha: ValueAnimator? = null
     var animaor_Close: ValueAnimator? = null
-
+    var durationTime = 600L
     var mPaint: Paint = Paint().apply {
         style = Paint.Style.FILL
         color = Color.RED
+    }
+    var paint = Paint().apply {
+
     }
     var mRadius: Float = 0f
 
@@ -40,7 +44,7 @@ class TransLationView(context: Context, attributeSet: AttributeSet) : View(conte
     private fun prePareAnimator(width: Int) {
         if (animatorAlpha == null) {
             animatorAlpha = ValueAnimator.ofFloat(0f, width.toFloat()).apply {
-                duration = 500
+                duration = durationTime
                 interpolator = AccelerateInterpolator()
 
                 addUpdateListener {
@@ -51,7 +55,7 @@ class TransLationView(context: Context, attributeSet: AttributeSet) : View(conte
         }
         if (animaor_Close == null) {
             animaor_Close = ValueAnimator.ofFloat(width.toFloat(), 0f).apply {
-                duration = 500
+                duration = durationTime
                 interpolator = AccelerateInterpolator()
 
                 addUpdateListener {

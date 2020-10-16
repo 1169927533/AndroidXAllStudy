@@ -30,13 +30,6 @@ class Fade2 extends Visibility {
 
     private static final String LOG_TAG = "Fade";
 
-    /**
-     * Constructs a Fade transition that will fade targets in and out.
-     */
-    public Fade2() {
-    }
-
-
     @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
     public void captureStartValues(TransitionValues transitionValues) {
@@ -45,29 +38,6 @@ class Fade2 extends Visibility {
                 transitionValues.view.getTransitionAlpha());
     }
 
-    /**
-     * Utility method to handle creating and running the Animator.
-     */
-    @RequiresApi(api = Build.VERSION_CODES.Q)
-    private Animator createAnimation(final View view, float startAlpha, final float endAlpha) {
-        if (startAlpha == endAlpha) {
-            return null;
-        }
-        view.setTransitionAlpha(startAlpha);
-        final ObjectAnimator anim = ObjectAnimator.ofFloat(view, "transitionAlpha", endAlpha);
-        if (DBG) {
-            Log.d(LOG_TAG, "Created animator " + anim);
-        }
-
-        addListener(new TransitionListenerAdapter() {
-            @Override
-            public void onTransitionEnd(Transition transition) {
-                view.setTransitionAlpha(1);
-                transition.removeListener(this);
-            }
-        });
-        return anim;
-    }
 
     @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
@@ -107,17 +77,5 @@ class Fade2 extends Visibility {
         });
         return valueAnimator;
     }
-
-    private static float getStartAlpha(TransitionValues startValues, float fallbackValue) {
-        float startAlpha = fallbackValue;
-        if (startValues != null) {
-            Float startAlphaFloat = (Float) startValues.values.get(PROPNAME_TRANSITION_ALPHA);
-            if (startAlphaFloat != null) {
-                startAlpha = startAlphaFloat;
-            }
-        }
-        return startAlpha;
-    }
-
 
 }

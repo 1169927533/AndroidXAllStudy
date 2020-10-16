@@ -33,7 +33,7 @@ class BottomTabActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bottom_tab)
-        initEnterAndExitAnimal()
+       initEnterAndExitAnimal()
 
 
         titles.add("新秀")
@@ -62,11 +62,7 @@ class BottomTabActivity : AppCompatActivity() {
             val intent = Intent(this, CopyTangApp::class.java)
             val pairs: Array<androidx.core.util.Pair<View, String>> = TransitionHelper.createSafeTransitionParticipants(this, true)
             var bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(this@BottomTabActivity, *pairs).toBundle()
-            // var bundle: ActivityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(this)
             startActivity(intent, bundle)
-            /*  val intent = Intent(this, CopyTangApp::class.java)
-              startActivity(intent)
-              overridePendingTransition(0, R.anim.anim_zoom_in)*/
         }
     }
 
@@ -76,6 +72,5 @@ class BottomTabActivity : AppCompatActivity() {
         enterTransition.excludeTarget(android.R.id.statusBarBackground, true);
         enterTransition.excludeTarget(android.R.id.navigationBarBackground, true);
         window.exitTransition = enterTransition
-
     }
 }
