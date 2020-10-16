@@ -1,7 +1,7 @@
 # AndroidXAllStudy
-第一个版本
+
 ## 版本1
-新增库：lib_customview
+新增库：lib_customview 实现了类似微信的软件盘展示和消失效果，让交互更加顺畅
 
 > 新增自定义View： SoftViewGroup.kt
 
@@ -19,10 +19,7 @@
 
 效果如下:
 
-<img src="resourcepackage/1599708909110.gif" alt="1599708909110" style="zoom: 50%;" />
-
-
-
+<img src="resourcepackage/1599708909110.gif" width="200"  height = "400" alt="1599708909110" style="zoom: 50%;" />
 
 
 ## 版本2
@@ -74,4 +71,19 @@ onApper 和 onDIsapper方法就可以了。这两个方法可以实现去创建�
 >```
 **具体案例见：app里的BottomTabActivity.kt页面。**
 效果如下：
-<img src="resourcepackage/g1.gif" alt="g1" style="zoom: 50%;" />
+
+<img src="resourcepackage/g1.gif" width = "200" height = "400" alt="g1" style="zoom: 50%;" />
+
+## 版本3
+实现卡牌发放和反转的效果。
+>新增自定义View： FlopView 和 FlopViewGroup
+>新增库 module_flop
+>实现思路 先用recycleview定位牌展示的位置
+>然后给FlopView添加动画效果，让他移动到指定位置。
+通过实现这个功能让我学习到：
+1. Camera和Matrix的使用 用来实现view的3d效果 比如3d旋转。
+2. 将本地的Drawable文件转换成bitmap
+3. 关于Bitmap的知识。
+
+效果如下:
+<img src="resourcepackage/g3.gif" width = "200" height = "400" alt="g1" style="zoom: 50%;" />
