@@ -86,4 +86,4 @@ onApper 和 onDIsapper方法就可以了。这两个方法可以实现去创建�
 3. 关于Bitmap的知识。
 
 效果如下:
-<img src="resourcepackage/g3.gif" width = "200" height = "400" alt="g1" style="zoom: 50%;" />
+<img src="resourcepackage/g2.gif" width = "200" height = "400" alt="g2" style="zoom: 50%;" />
