@@ -6,6 +6,7 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.transition.SidePropagation;
+import android.transition.Transition;
 import android.transition.TransitionValues;
 import android.transition.Visibility;
 import android.util.AttributeSet;
@@ -26,7 +27,7 @@ import java.lang.annotation.RetentionPolicy;
  * description:
  */
 
-public class FABTransition extends Visibility {
+public class FABTransition extends Transition {
 
 
     private View fab;
@@ -48,7 +49,6 @@ public class FABTransition extends Visibility {
      */
     @Override
     public void captureStartValues(TransitionValues transitionValues) {
-        super.captureStartValues(transitionValues);
         int transY = (int) (context.getResources().getDisplayMetrics().density * 56 * 2);
         transitionValues.values.put(BOTTOM_TRANSITION_Y, transY);
 
@@ -59,7 +59,6 @@ public class FABTransition extends Visibility {
      */
     @Override
     public void captureEndValues(TransitionValues transitionValues) {
-        super.captureEndValues(transitionValues);
         transitionValues.values.put(BOTTOM_TRANSITION_Y, 0);
     }
 
@@ -71,7 +70,7 @@ public class FABTransition extends Visibility {
         return super.createAnimator(sceneRoot, startValues, endValues);
     }
 
-    @Override
+ /*   @Override
     public Animator onAppear(ViewGroup sceneRoot, final View view, TransitionValues startValues, TransitionValues endValues) {
         if (null == startValues || null == endValues) {
             return null;
@@ -93,9 +92,9 @@ public class FABTransition extends Visibility {
             return valueAnimator;
         }
         return null;
-    }
+    }*/
 
-    @Override
+   /* @Override
     public Animator onDisappear(ViewGroup sceneRoot, final View view, TransitionValues startValues, TransitionValues endValues) {
         if (null == startValues || null == endValues) {
             return null;
@@ -117,5 +116,5 @@ public class FABTransition extends Visibility {
             return valueAnimator;
         }
         return null;
-    }
+    }*/
 }

@@ -43,10 +43,13 @@
         <activity android:name=".drawfish.DrawFishActivity" />
         <activity android:name=".tofuture.FutureActivity" />
         <activity android:name=".codescroll.CodeScrollActivity" />
-        <activity android:name=".breath.BreathActivity"/>
-        <activity android:name=".zhaunchang.TransLationActivity"/>
-        <activity android:name=".botomtab.BottomTabActivity"   />
-        <activity android:name=".botomtab.CopyTangApp" android:theme="@style/fade"/>
+        <activity android:name=".breath.BreathActivity" />
+        <activity android:name=".zhaunchang.TransLationActivity" />
+        <activity android:name=".botomtab.BottomTabActivity" />
+        <activity
+            android:name=".botomtab.CopyTangApp"
+            android:theme="@style/fade" />
+        <activity android:name=".TvActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

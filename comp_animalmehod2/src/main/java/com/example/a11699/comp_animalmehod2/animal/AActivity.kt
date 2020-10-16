@@ -1,15 +1,15 @@
 package com.example.a11699.comp_animalmehod2.animal
 
-import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import android.transition.Slide
-import android.transition.Visibility
-import android.view.Gravity
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
 import com.example.a11699.comp_animalmehod2.R
+import com.example.a11699.comp_animalmehod2.TransitionHelper
 import kotlinx.android.synthetic.main.activity_a.*
-import kotlinx.android.synthetic.main.activity_b.*
 
 /**
  *Create time 2020/10/12
@@ -21,25 +21,23 @@ class AActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_a)
         setupWindowAnimations()
-        tv_1.setOnClickListener {
+        aaaa.setOnClickListener {
+            //      var pair = android.util.Pair.create(tv_1 as View, tv_1.transitionName!!)
             var intent = Intent(this, BActivity::class.java)
-            var bundle = ActivityOptions.makeSceneTransitionAnimation(this@AActivity).toBundle()
+            val pairs: Array<Pair<View, String>> = TransitionHelper.createSafeTransitionParticipants(this, true)
+
+            var bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(this@AActivity, *pairs).toBundle()
+
             startActivity(intent, bundle)
+
         }
     }
 
     private fun setupWindowAnimations() {
-        /*   var slideTransLation = Slide()
-           slideTransLation.slideEdge = Gravity.LEFT
-           slideTransLation.duration = 500
-           window.reenterTransition = slideTransLation
-           window.exitTransition = slideTransLation*/
-
-        val enterTransition = FABTransition(aaaa, this)
-        /*    enterTransition.addTarget(tvb)*/
-        enterTransition.duration = 500
-        window.enterTransition = enterTransition
-        window.exitTransition = enterTransition
+        var slideTransLation = Slide()
+        slideTransLation.duration = 500
+        window.exitTransition = slideTransLation
+        // window.enterTransition = slideTransLation
 
     }
 }

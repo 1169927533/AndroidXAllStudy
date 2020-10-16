@@ -242,7 +242,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="卡牌" />
-
+                <Button
+                    android:id="@+id/btn_tvclick"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="给textview添加不同的点击事件  " />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 

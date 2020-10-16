@@ -110,6 +110,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent, bundle)
         }
         btn_floapcard.setOnClickListener { startActivity<FloapCardActivity>(this) }
+        btn_tvclick.setOnClickListener {
+            startActivity<TvActivity>(this)
+        }
     }
 
     override fun onResume() {

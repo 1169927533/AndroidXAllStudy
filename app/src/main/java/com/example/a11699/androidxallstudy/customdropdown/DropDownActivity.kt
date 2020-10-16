@@ -5,7 +5,7 @@ import android.graphics.PointF.length
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.a11699.androidxallstudy.R
-import com.example.a11699.androidxallstudy.botomtab.myanimal.ScaleTranslation
+
 import com.example.a11699.androidxallstudy.customdropdown.MySpinnerDialog.OnSpinnerItemClick
 import kotlinx.android.synthetic.main.activity_bottom_tab.*
 import kotlinx.android.synthetic.main.activity_dropdown.*
@@ -21,7 +21,7 @@ class DropDownActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dropdown)
-        initEnterAndExitAnimal()
+      //  initEnterAndExitAnimal()
         val list: MutableList<String> = ArrayList()
 
         list.add("123")
@@ -33,15 +33,5 @@ class DropDownActivity : AppCompatActivity() {
             //得到返回
             finishAfterTransition()
         })
-    }
-    private fun initEnterAndExitAnimal() {
-        val enterTransition = ScaleTranslation(my_spinner1,this,"jin")
-        /*    enterTransition.addTarget(tvb)*/
-        enterTransition.duration = 500
-        window.enterTransition = enterTransition
-      //  window.exitTransition = enterTransition
-
-        /*    window.exitTransition = TransitionInflater.from(this).inflateTransition(R.transition.slide_from_right);
-            window.enterTransition = TransitionInflater.from(this).inflateTransition(R.transition.slide_from_right);*/
     }
 }

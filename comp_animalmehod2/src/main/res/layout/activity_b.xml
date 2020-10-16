@@ -3,9 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:id="@+id/cc"
-    android:layout_height="match_parent"
+    android:layout_height="400dp"
     android:background="#099080">
-
     <TextView
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -14,6 +13,7 @@
         android:layout_height="wrap_content"
         android:text="我是页面B"
         android:textSize="25dp"
+        android:transitionName="meeee"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.AccelerateInterpolator
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
@@ -24,6 +25,7 @@ import com.example.a11699.module_flop.R
 import com.example.a11699.module_flop.adapter.FlopAdater
 import com.example.a11699.module_flop.bean.FlopBean
 import com.example.a11699.module_flop.customview.FlopView
+import com.example.a11699.module_flop.customview.FlopViewGroup
 import kotlinx.android.synthetic.main.activity_floa.*
 import kotlinx.android.synthetic.main.item_flop.view.*
 
@@ -67,6 +69,16 @@ class FloapCardActivity : AppCompatActivity() {
                 listLocation.add(holder!!.itemView.flopview.location)
                 prePareAnimal(list[index].frontSrc, list[index].backSrc, holder!!.itemView.flopview.location, index)
             }
+        }
+
+
+
+        ffffff.setOnClickListener {
+            ffffff.startAnimal()
+        }
+
+        click.setOnClickListener {
+            Toast.makeText(this,"Dasdasdasdas",Toast.LENGTH_LONG).show()
         }
     }
 

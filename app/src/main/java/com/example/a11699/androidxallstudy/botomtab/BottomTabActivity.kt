@@ -1,17 +1,23 @@
 package com.example.a11699.androidxallstudy.botomtab
 
+import android.animation.TimeInterpolator
 import android.content.Intent
 import android.os.Bundle
+import android.transition.Explode
+import android.transition.Fade
+import android.transition.Transition
+import android.util.Pair
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import com.example.a11699.androidxallstudy.R
-import com.example.a11699.androidxallstudy.botomtab.myanimal.ScaleTranslation
-import com.example.a11699.androidxallstudy.botomtab.myanimal.ScaleTranslationOut
 import com.example.a11699.androidxallstudy.customdropdown.DropDownActivity
+import com.example.a11699.comp_animalmehod2.TransitionHelper
 import kotlinx.android.synthetic.main.activity_bottom_tab.*
+
 
 class BottomTabActivity : AppCompatActivity() {
     private var titles: ArrayList<String> = ArrayList()//菜单标题
@@ -49,26 +55,27 @@ class BottomTabActivity : AppCompatActivity() {
             Toast.makeText(this, position.toString(), Toast.LENGTH_SHORT).show()
         }
         var img = ImageView(this)
+        img.transitionName = "liquid"
         img.setImageResource(R.drawable.rotate_before);
         bottomTabLayout.addItemView(2, img)
         img.setOnClickListener {
-            val intent = Intent(this, DropDownActivity::class.java)
-            var bundle: ActivityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(this)
-            startActivity(intent, bundle.toBundle())
-            //     overridePendingTransition(0, R.anim.fade_out)
+            val intent = Intent(this, CopyTangApp::class.java)
+            val pairs: Array<androidx.core.util.Pair<View, String>> = TransitionHelper.createSafeTransitionParticipants(this, true)
+            var bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(this@BottomTabActivity, *pairs).toBundle()
+            // var bundle: ActivityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(this)
+            startActivity(intent, bundle)
+            /*  val intent = Intent(this, CopyTangApp::class.java)
+              startActivity(intent)
+              overridePendingTransition(0, R.anim.anim_zoom_in)*/
         }
     }
 
     private fun initEnterAndExitAnimal() {
-        val enterTransition = ScaleTranslation(img1, this, "jin")
-        val enterTransitionOut = ScaleTranslationOut(img1, this, "jin")
-
-        enterTransition.addTarget(img1)
-        enterTransition.duration = 500
-        window.enterTransition = enterTransition
-      //  window.exitTransition = enterTransitionOut
-
-
+        val enterTransition = Fade2()
+        enterTransition.duration = 600
+        enterTransition.excludeTarget(android.R.id.statusBarBackground, true);
+        enterTransition.excludeTarget(android.R.id.navigationBarBackground, true);
+        window.exitTransition = enterTransition
 
     }
 }

@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.activity_copy_tang.tv1
  *description:仿照躺平中间菜单栏app
  */
 class CopyTangApp : AppCompatActivity() {
+    var transTime = 200L
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_copy_tang)
@@ -33,16 +34,16 @@ class CopyTangApp : AppCompatActivity() {
             descTitleAlphaAnim.start()
             img1.animate()
                     .rotation(90f)
-                    .duration = 500
+                    .duration = transTime
         }, 100)
 
         img1.setOnClickListener {
             img1.animate()
                     .rotation(-90f)
-                    .duration = 500
-            tv1.animate().alpha(0f).duration=500
-            tv2.animate().alpha(0f).duration=500
-            img1.animate().alpha(0f).duration=500
+                    .duration = transTime
+            tv1.animate().alpha(0f).duration = transTime
+            tv2.animate().alpha(0f).duration = transTime
+            img1.animate().alpha(0f).duration = transTime
             trview.animaor_Close?.apply {
                 addListener(object : Animator.AnimatorListener {
                     override fun onAnimationRepeat(animation: Animator?) {
@@ -50,8 +51,8 @@ class CopyTangApp : AppCompatActivity() {
                     }
 
                     override fun onAnimationEnd(animation: Animator?) {
-                        finish()
-                       // overridePendingTransition(R.anim.fade_in2, R.anim.fade_out2)
+                        finishAfterTransition()
+
                     }
 
                     override fun onAnimationCancel(animation: Animator?) {

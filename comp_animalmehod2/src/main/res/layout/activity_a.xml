@@ -1,16 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#090"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/aaaa"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-<TextView
-    android:id="@+id/tv_1"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintLeft_toLeftOf="parent"
-    android:text="我是页面A"
-    android:textSize="25dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
+    android:layout_height="200dp"
+    android:background="#090"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_1"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:text="我是页面A"
+        android:textSize="15dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/abc_vector_test"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_1" />
+
+    <ImageView
+        app:layout_constraintRight_toRightOf="parent"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/brvah_sample_footer_loading"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
