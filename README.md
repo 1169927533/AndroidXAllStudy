@@ -74,4 +74,4 @@ onApper 和 onDIsapper方法就可以了。这两个方法可以实现去创建�
 >```
 **具体案例见：app里的BottomTabActivity.kt页面。**
 效果如下：
-<img src="resourcepackage/g1.gif" alt="g1" style="zoom: 50%;" />
+<img src="resourcepackage/g1.gif" alt="g1" style="zoom: 10%;" />
