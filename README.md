@@ -1,7 +1,7 @@
 # AndroidXAllStudy
 第一个版本
 ## 版本1
-新增库：lib_customview
+新增库：lib_customview 实现了类似微信的软件盘展示和消失效果，让交互更加顺畅
 
 > 新增自定义View： SoftViewGroup.kt
 
