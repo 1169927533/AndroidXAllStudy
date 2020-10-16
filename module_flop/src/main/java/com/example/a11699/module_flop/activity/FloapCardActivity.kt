@@ -7,6 +7,7 @@ import android.animation.ValueAnimator
 import android.graphics.Bitmap
 import android.graphics.Rect
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.AccelerateInterpolator
 import android.widget.ImageView
@@ -47,7 +48,7 @@ class FloapCardActivity : AppCompatActivity() {
         var adapter = FlopAdater(this)
         recycleview.adapter = adapter
         recycleview.addItemDecoration(FollowItemDecoration())
-
+        var ii = LayoutInflater.from(this).inflate(R.layout.item_flop, null)
 
         var list = ArrayList<FlopBean>()
         list.add(FlopBean(R.drawable.b1, "https://upload-images.jianshu.io/upload_images/16562048-36d730fc88d46c68.png"))
@@ -78,7 +79,7 @@ class FloapCardActivity : AppCompatActivity() {
         }
 
         click.setOnClickListener {
-            Toast.makeText(this,"Dasdasdasdas",Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Dasdasdasdas", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -105,7 +106,6 @@ class FloapCardActivity : AppCompatActivity() {
         flopView.setOnClickListener {
             flopView.startAnimal()
         }
-
 
 
         var location1 = IntArray(2)
