@@ -15,7 +15,6 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import com.example.a11699.androidxallstudy.R
 import com.example.a11699.androidxallstudy.customdropdown.DropDownActivity
-import com.example.a11699.comp_animalmehod2.TransitionHelper
 import kotlinx.android.synthetic.main.activity_bottom_tab.*
 
 

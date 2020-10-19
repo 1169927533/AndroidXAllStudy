@@ -1,8 +1,0 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-
-    <style name="astyle" parent="Theme.AppCompat.Light.NoActionBar">
-
-        <item name="android:windowEnterTransition">@transition/out_to_left</item>
-    </style>
-
-</resources>

@@ -1,9 +1,0 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.a11699.comp_animalmehod2">
-
-    <application>
-        <activity android:name=".AnimaMethod2Activity" />
-        <activity android:name=".animal.AActivity" />
-        <activity android:name=".animal.BActivity"  />
-    </application>
-</manifest>

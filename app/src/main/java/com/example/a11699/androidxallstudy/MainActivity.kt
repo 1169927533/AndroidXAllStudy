@@ -9,6 +9,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.a11699.activity.NavigationActivity
 import com.example.a11699.androidxallstudy.batteryview.BatteryActivity
+import com.example.a11699.androidxallstudy.bitmap.BitStudyActivity
 import com.example.a11699.androidxallstudy.botomtab.BottomTabActivity
 import com.example.a11699.androidxallstudy.breath.BreathActivity
 import com.example.a11699.androidxallstudy.codescroll.CodeScrollActivity
@@ -32,9 +33,6 @@ import com.example.a11699.androidxallstudy.viewdraghelper.ViewDragerStudyActivit
 import com.example.a11699.androidxallstudy.webview.WebViewStudy
 import com.example.a11699.androidxallstudy.zhaunchang.TransLationActivity
 import com.example.a11699.androidxallstudy.zhezhi.PaperActivity
-import com.example.a11699.comp_animalmehod2.AnimaMethod2Activity
-import com.example.a11699.comp_animalmehod2.animal.AActivity
-import com.example.a11699.comp_animalmehod2.animal.BActivity
 import com.example.a11699.comp_base.SPContent
 import com.example.a11699.comp_customview.QQStepViewActivity
 import com.example.a11699.comp_im.activity.MessageActivity
@@ -99,17 +97,13 @@ class MainActivity : AppCompatActivity() {
         btn_3d.setOnClickListener { startActivity<ThreedActivity>(this) }
         btn_3d_effect.setOnClickListener { startActivity<FunnyActivity>(this) }
         btn_zhezhi.setOnClickListener { startActivity<PaperActivity>(this) }
-        btn_animal.setOnClickListener { startActivity<AnimaMethod2Activity>(this) }
         btn_future.setOnClickListener { startActivity<FutureActivity>(this) }
         btn_codescroll.setOnClickListener { startActivity<CodeScrollActivity>(this) }
         btn_breath.setOnClickListener { startActivity<BreathActivity>(this) }
         btn_zhuanchang.setOnClickListener { startActivity<TransLationActivity>(this) }
-        btn_zhuanchang2.setOnClickListener {
-            var intent = Intent(this, AActivity::class.java)
-            var bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
-            startActivity(intent, bundle)
-        }
+
         btn_floapcard.setOnClickListener { startActivity<FloapCardActivity>(this) }
+        btn_db.setOnClickListener { startActivity<BitStudyActivity>(this) }
         btn_tvclick.setOnClickListener {
             startActivity<TvActivity>(this)
         }

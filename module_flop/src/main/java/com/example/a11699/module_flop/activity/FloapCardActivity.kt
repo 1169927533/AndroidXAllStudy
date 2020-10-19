@@ -96,7 +96,7 @@ class FloapCardActivity : AppCompatActivity() {
                 })
         flopView.id = R.id.f1
         val ivLeftLayoutParams: ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(
-                50.dp.toInt(), 100.dp.toInt()
+                50.dp.toInt(), 100.dp.toInt()//这里填写发牌时的卡片大小
         )
         ivLeftLayoutParams.leftToLeft = R.id.cc
         ivLeftLayoutParams.bottomToBottom = R.id.cc

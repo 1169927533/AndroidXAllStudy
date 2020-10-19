@@ -13,7 +13,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/comp_animalmehod2" />
             <option value="$PROJECT_DIR$/comp_base" />
             <option value="$PROJECT_DIR$/comp_chat" />
             <option value="$PROJECT_DIR$/comp_customview" />

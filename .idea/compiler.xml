@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.7">
+      <module name="AndroidXAllStudy.app" target="1.8" />
+      <module name="AndroidXAllStudy.comp_base" target="1.8" />
+      <module name="AndroidXAllStudy.comp_chat" target="1.8" />
+      <module name="AndroidXAllStudy.comp_customview" target="1.8" />
+      <module name="AndroidXAllStudy.comp_im" target="1.8" />
+      <module name="AndroidXAllStudy.comp_imgpicker" target="1.8" />
+      <module name="AndroidXAllStudy.comp_live" target="1.8" />
+      <module name="AndroidXAllStudy.comp_netstudyt" target="1.8" />
+      <module name="AndroidXAllStudy.comp_viewmodel" target="1.8" />
+      <module name="AndroidXAllStudy.lib_customview" target="1.8" />
+      <module name="AndroidXAllStudy.lib_greendao" target="1.8" />
+      <module name="AndroidXAllStudy.lib_im" target="1.8" />
+      <module name="AndroidXAllStudy.lib_network" target="1.8" />
+      <module name="AndroidXAllStudy.lib_oos" target="1.8" />
+      <module name="AndroidXAllStudy.lib_save" target="1.8" />
+      <module name="AndroidXAllStudy.lib_util" target="1.8" />
+      <module name="AndroidXAllStudy.library" target="1.8" />
+      <module name="AndroidXAllStudy.module_flop" target="1.8" />
+      <module name="AndroidXAllStudy.module_navigation" target="1.8" />
+      <module name="AndroidXAllStudy.module_smartrecycleview" target="1.8" />
       <module name="lib_javatest" target="1.7" />
     </bytecodeTargetLevel>
   </component>

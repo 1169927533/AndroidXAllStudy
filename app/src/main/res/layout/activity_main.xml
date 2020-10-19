@@ -231,22 +231,25 @@
                     android:layout_height="wrap_content"
                     android:text="转场动画" />
 
-                <Button
-                    android:id="@+id/btn_zhuanchang2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="转场动画学习2" />
 
                 <Button
                     android:id="@+id/btn_floapcard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="卡牌" />
+
                 <Button
                     android:id="@+id/btn_tvclick"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="给textview添加不同的点击事件  " />
+
+                <Button
+                    android:id="@+id/btn_db"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="drawable bimap学习  " />
+
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 

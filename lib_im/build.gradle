@@ -26,7 +26,7 @@ android {
 dependencies {
     implementation(project(':comp_base'))
     api 'com.tencent.imsdk:imsdk:4.9.1'
-    implementation 'com.google.code.gson:gson:2.8.5'
-    api 'com.tencent.liteav:LiteAVSDK_TRTC:latest.release'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    api 'com.tencent.liteav:LiteAVSDK_TRTC:7.8.9518'
 
 }
