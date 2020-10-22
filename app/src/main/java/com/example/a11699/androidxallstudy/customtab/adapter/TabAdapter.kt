@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.item_tab.view.*
  *Create Yu
  *description:
  */
-class TabAdapter(list: List<String>, val viewPager: ViewPager) : BaseTabAdapter(list,viewPager) {
+class TabAdapter(list: List<String>, private val viewPager: ViewPager) : BaseTabAdapter(list,viewPager) {
 
     var mList: List<String> = list
     var colorTvView: ArrayList<ColorTrackTextView> = ArrayList<ColorTrackTextView>()
@@ -52,8 +52,6 @@ class TabAdapter(list: List<String>, val viewPager: ViewPager) : BaseTabAdapter(
         }
     }
 
-    override fun onPageScrollStateChangedd(state: Int) {
-    }
 
     override fun onPageScrolledd(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
         if (getAllTargetView()[position] is ColorTrackTextView) {

@@ -16,7 +16,6 @@ import com.example.a11699.androidxallstudy.myseekbar.ViewUtil
 class TabAdapter_Splash(list: List<String>, private val viewPager: ViewPager) : BaseTabAdapter(list, viewPager) {
     private lateinit var mContext: Context
     var mList: List<String> = list
-    var colorTvView: ArrayList<ImageView> = ArrayList<ImageView>()
 
     override fun getCount(): Int {
         return mList.size
@@ -29,14 +28,11 @@ class TabAdapter_Splash(list: List<String>, private val viewPager: ViewPager) : 
         img.setBackgroundResource(R.drawable.shape_splash_noselect)
         img.layoutParams = layoutParams
 
-        colorTvView.add(img)
+        targetListView.add(img)
 
         return img
     }
 
-    override fun getAllTargetView(): List<View> {
-        return colorTvView
-    }
 
     override fun clickItem(position: Int) {
         viewPager.currentItem = position
@@ -44,7 +40,7 @@ class TabAdapter_Splash(list: List<String>, private val viewPager: ViewPager) : 
 
     //选中时
     override fun onPageSelected(position: Int) {
-        for ((index, value) in colorTvView.withIndex()) {
+        for ((index, value) in targetListView.withIndex()) {
             if (index == position) {
                 value.isSelected = true
                 value.setBackgroundResource(R.drawable.shape_splash_select)

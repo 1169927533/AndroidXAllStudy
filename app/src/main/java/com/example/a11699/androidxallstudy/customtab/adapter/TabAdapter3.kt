@@ -17,7 +17,6 @@ import com.example.a11699.androidxallstudy.myseekbar.ViewUtil
  *description:
  */
 class TabAdapter3(val list: List<String>, val viewpager: ViewPager) : BaseTabAdapter(list, viewpager) {
-    var targetListView: ArrayList<TextView> = ArrayList()
     lateinit var mContext: Context
     override fun getCount(): Int {
         return list.size
@@ -39,9 +38,6 @@ class TabAdapter3(val list: List<String>, val viewpager: ViewPager) : BaseTabAda
         return tv
     }
 
-    override fun getAllTargetView(): List<View> {
-        return targetListView
-    }
 
     override fun clickItem(position: Int) {
         viewpager.currentItem = position
@@ -49,6 +45,7 @@ class TabAdapter3(val list: List<String>, val viewpager: ViewPager) : BaseTabAda
 
     override fun onPageSelected(position: Int) {
         for ((index, value) in targetListView.withIndex()) {
+             value as TextView
             if (index == position) {
                 value.setTextColor(Color.BLACK)
                 // value.textSize = 18f
@@ -61,8 +58,6 @@ class TabAdapter3(val list: List<String>, val viewpager: ViewPager) : BaseTabAda
         }
     }
 
-    override fun onPageScrollStateChangedd(state: Int) {
-    }
 
     override fun onPageScrolledd(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
         if (1.28f - positionOffset <= 1) {

@@ -39,10 +39,6 @@ class TabAdapter2(list: List<String>, private val viewPager: ViewPager) : BaseTa
         return tv
     }
 
-    override fun getAllTargetView(): List<View> {
-        return colorTvView
-    }
-
     override fun clickItem(position: Int) {
         viewPager.currentItem = position
     }

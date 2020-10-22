@@ -9,16 +9,28 @@ import androidx.viewpager.widget.ViewPager
  *Create Yu
  *description:
  */
- abstract class BaseTabAdapter(item:List<Any>, viewPager: ViewPager) {
+ abstract class BaseTabAdapter(val item:List<Any>, val mViewPager: ViewPager) {
     var itemViewWidth = 0
-    abstract fun getCount(): Int //获取总个数
+    var targetListView = ArrayList<View>()
+
+    //获取总个数
+    open fun getCount(): Int {
+        return item.size
+    }
+
     abstract fun getView(context: Context, position: Int): View //获取指定view
-    abstract fun getAllTargetView(): List<View> //获取全部指定View
-    abstract fun clickItem(position: Int)//item的点击事件
+
+    open fun getAllTargetView(): List<View> {//获取全部指定View
+        return targetListView
+    }
+
+    open fun clickItem(position: Int){//item的点击事件
+        mViewPager.currentItem = position
+    }
 
 
-    abstract fun onPageScrollStateChangedd(state: Int)
-    abstract fun onPageScrolledd(position: Int, positionOffset: Float, positionOffsetPixels: Int)
+    open fun onPageScrollStateChangedd(state: Int){}
+    open fun onPageScrolledd(position: Int, positionOffset: Float, positionOffsetPixels: Int){}
     abstract fun onPageSelected(position: Int) //当某个item被选中 该变状态
 
 
@@ -49,4 +61,5 @@ import androidx.viewpager.widget.ViewPager
             }
         })
     }
+
 }
