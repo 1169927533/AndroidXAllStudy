@@ -31,6 +31,7 @@ import com.example.a11699.androidxallstudy.tofuture.FutureActivity
 import com.example.a11699.androidxallstudy.util.startActivity
 import com.example.a11699.androidxallstudy.viewdraghelper.ViewDragerStudyActivity
 import com.example.a11699.androidxallstudy.webview.WebViewStudy
+import com.example.a11699.androidxallstudy.weibo.WeiBoActivity
 import com.example.a11699.androidxallstudy.zhaunchang.TransLationActivity
 import com.example.a11699.androidxallstudy.zhezhi.PaperActivity
 import com.example.a11699.comp_base.SPContent
@@ -44,6 +45,7 @@ import com.example.a11699.lib_im.imloginutil.ImHelper
 import com.example.a11699.lib_save.MMKVUtils
 import com.example.a11699.module_flop.activity.FloapCardActivity
 import com.example.a11699.module_smartrecycleview.SmartRecycleViewStudyActivity
+import com.example.a11699.pack.NetStudyActivity
 import com.tencent.imsdk.v2.V2TIMManager
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -106,6 +108,12 @@ class MainActivity : AppCompatActivity() {
         btn_db.setOnClickListener { startActivity<BitStudyActivity>(this) }
         btn_tvclick.setOnClickListener {
             startActivity<TvActivity>(this)
+        }
+        btn_ns.setOnClickListener {
+            startActivity<NetStudyActivity>(this)
+        }
+        btn_weibo.setOnClickListener {
+            startActivity<WeiBoActivity>(this)
         }
     }
 

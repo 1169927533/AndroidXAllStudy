@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
+import com.bumptech.glide.manager.LifecycleListener
 import com.example.a11699.androidxallstudy.R
 import com.example.a11699.androidxallstudy.customdropdown.DropDownActivity
 import kotlinx.android.synthetic.main.activity_bottom_tab.*

@@ -13,6 +13,6 @@ class MainApplication : Application() {
         super.onCreate()
         //初始化im
         ImHelper.initImSdk(this, 1400382026)
-
+        registerActivityLifecycleCallbacks(HookActivityLifecycleCallBacks())
     }
 }

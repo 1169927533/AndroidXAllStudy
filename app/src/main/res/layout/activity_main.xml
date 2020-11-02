@@ -250,6 +250,17 @@
                     android:layout_height="wrap_content"
                     android:text="drawable bimap学习  " />
 
+
+                <Button
+                    android:id="@+id/btn_ns"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="网络请求封装" />
+                <Button
+                    android:id="@+id/btn_weibo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="微博" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 

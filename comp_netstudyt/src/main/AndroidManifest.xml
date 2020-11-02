@@ -4,5 +4,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <application>
         <activity android:name=".NetStudy" />
+        <activity android:name="com.example.a11699.pack.NetStudyActivity" />
     </application>
 </manifest>

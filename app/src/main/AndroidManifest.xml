@@ -38,6 +38,7 @@
         <activity android:name=".batteryview.BatteryActivity" />
         <activity android:name=".lizixiaosan.LiZiActivity" />
         <activity android:name=".threed.ThreedActivity" />
+        <activity android:name=".weibo.WeiBoActivity" />
         <activity android:name=".funnyeffect.FunnyActivity" />
         <activity android:name=".zhezhi.PaperActivity" />
         <activity android:name=".drawfish.DrawFishActivity" />
@@ -46,7 +47,7 @@
         <activity android:name=".breath.BreathActivity" />
         <activity android:name=".zhaunchang.TransLationActivity" />
         <activity android:name=".botomtab.BottomTabActivity" />
-        <activity android:name=".bitmap.BitStudyActivity"/>
+        <activity android:name=".bitmap.BitStudyActivity" />
         <activity
             android:name=".botomtab.CopyTangApp"
             android:theme="@style/fade" />

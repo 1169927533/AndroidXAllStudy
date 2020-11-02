@@ -12,6 +12,11 @@
         <attr name="testInColor" format="color" />
     </declare-styleable>
 
+    <!-- TEditText -->
+    <declare-styleable name="TEditText">
+        <attr name="object_foreground_color" format="color" />
+        <attr name="object_background_color" format="color" />
+    </declare-styleable>
 
     <!--底部导航栏-->
     <declare-styleable name="ColorTrackTextView">

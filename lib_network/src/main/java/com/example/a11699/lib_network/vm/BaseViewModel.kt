@@ -27,7 +27,7 @@ open class BaseViewModel : AndroidViewModel {
     }
 
     fun <T> getRepo(cls: Class<T>?): T {
-        return RetrofitBuild.initConfig().create(cls)
+        return RetrofitBuild.retrofit.create(cls)
     }
 
     fun launch(

@@ -28,14 +28,10 @@ class ViewModelLazy<VM : ViewModel>(
 
     override val value: VM
         get() {
-            val viewModel = cached
-            return if (viewModel == null) {
-                ViewModelProvider(viewModelStoreOwner).get(viewModelClass.java).also {
-                    cached = it
-                }
-            } else {
-                viewModel
-            }
+            return cached
+                    ?: ViewModelProvider(viewModelStoreOwner).get(viewModelClass.java).also {
+                        cached = it
+                    }
         }
 
     override fun isInitialized() = cached != null
@@ -70,10 +66,5 @@ class ActivityVmFac(private val application: Application, private val bundle: Bu
             throw RuntimeException("Cannot create an instance of $modelClass", e)
         }
     }
-
-    class Dsa(dds: String) {
-
-    }
-
 }
 

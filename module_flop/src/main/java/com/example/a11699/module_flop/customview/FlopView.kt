@@ -109,6 +109,7 @@ class FlopView : View {
 
     //开始缩放移动动画
     fun startTransAnimal(trx: Float, tryy: Float, index: Int) {
+
         var animalScaleX = PropertyValuesHolder.ofFloat("scaleX", 1f, 1.6f)
         var animalScaleY = PropertyValuesHolder.ofFloat("scaleY", 1f, 1.6f)
         var animalTreansX = PropertyValuesHolder.ofFloat("translationX", 0f, trx)
@@ -117,10 +118,12 @@ class FlopView : View {
         animatordd.duration = 150
         animatordd.startDelay = 150 * index.toLong()
         animatordd.start()
+
     }
 
     //开始反转动画
     fun startAnimal() {
+
         val animal = ValueAnimator.ofFloat(0f, 180f).apply {
             duration = 1000
             interpolator = LinearInterpolator()
