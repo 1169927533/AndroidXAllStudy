@@ -47,6 +47,10 @@ public class ChatBean implements MultiItemEntity {
     @Property(nameInDb = "receiveimg")
     private String receiveimg;
 
+    @Generated(hash = 1872716502)
+    public ChatBean() {
+    }
+
     @Generated(hash = 1021063218)
     public ChatBean(Long id, String sendid, String sendname, String sendimg, String sendtime, String receivetime, String chatcontent, int whichItem, String receiveid, String receivename,
             String receiveimg) {
@@ -76,9 +80,6 @@ public class ChatBean implements MultiItemEntity {
         this.receiveimg = receiveimg;
     }
 
-    @Generated(hash = 1872716502)
-    public ChatBean() {
-    }
 
     public Long getId() {
         return this.id;

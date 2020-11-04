@@ -32,6 +32,7 @@ import com.example.a11699.androidxallstudy.util.startActivity
 import com.example.a11699.androidxallstudy.viewdraghelper.ViewDragerStudyActivity
 import com.example.a11699.androidxallstudy.webview.WebViewStudy
 import com.example.a11699.androidxallstudy.weibo.WeiBoActivity
+import com.example.a11699.androidxallstudy.xmlwriteandread.XmlStudyActivity
 import com.example.a11699.androidxallstudy.zhaunchang.TransLationActivity
 import com.example.a11699.androidxallstudy.zhezhi.PaperActivity
 import com.example.a11699.comp_base.SPContent
@@ -114,6 +115,9 @@ class MainActivity : AppCompatActivity() {
         }
         btn_weibo.setOnClickListener {
             startActivity<WeiBoActivity>(this)
+        }
+        btn_xml.setOnClickListener {
+            startActivity<XmlStudyActivity>(this)
         }
     }
 

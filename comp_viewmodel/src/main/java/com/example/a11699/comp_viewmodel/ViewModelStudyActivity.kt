@@ -29,7 +29,9 @@ class ViewModelStudyActivity : AppCompatActivity() {
             textView.setText("自定义构造函数里的值" + viewmodel.args)
         }
         initData()
+
     }
+
 
     private fun initData() {
         viewmodel.numLiveData.observe(this, Observer {

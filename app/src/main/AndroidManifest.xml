@@ -48,6 +48,7 @@
         <activity android:name=".zhaunchang.TransLationActivity" />
         <activity android:name=".botomtab.BottomTabActivity" />
         <activity android:name=".bitmap.BitStudyActivity" />
+        <activity android:name=".xmlwriteandread.XmlStudyActivity"/>
         <activity
             android:name=".botomtab.CopyTangApp"
             android:theme="@style/fade" />
