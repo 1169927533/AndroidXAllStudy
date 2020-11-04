@@ -2,6 +2,8 @@ package com.example.a11699.androidxallstudy.xmlwriteandread.util;
 
 import android.util.Xml;
 
+import com.example.a11699.androidxallstudy.xmlwriteandread.FaceModel;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 import org.xmlpull.v1.XmlSerializer;
@@ -9,7 +11,9 @@ import org.xmlpull.v1.XmlSerializer;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author Yu
@@ -83,4 +87,53 @@ public class PullHelper {
     }
 
 
+    public static ArrayList<FaceModel> getEmoticons(InputStream xml) throws Exception {
+        String kindName = null;
+        ArrayList<FaceModel> list = null;
+        FaceModel faceModel = null;
+        //创建xmlPull解析器
+        XmlPullParser parser = Xml.newPullParser();
+        ///初始化xmlPull解析器
+        parser.setInput(xml, "utf-8");
+        //读取文件的类型
+        int type = parser.getEventType();
+        //无限判断文件类型进行读取
+        while (type != XmlPullParser.END_DOCUMENT) {
+            switch (type) {
+                //开始标签
+                case XmlPullParser.START_TAG:
+                    if ("facekind".equals(parser.getName())) {
+                        list = new ArrayList<>();
+                        kindName = parser.getAttributeValue(null, "name");
+                    } else if ("face".equals(parser.getName())) {
+                        faceModel = new FaceModel();
+                    } else if ("file".equals(parser.getName())) {
+                        String file = parser.nextText();
+                        faceModel.setFile(file);
+                    } else if ("name".equals(parser.getName())) {
+                        //获取name值
+                        String name = parser.nextText();
+                        faceModel.setName(name);
+                    } else if ("mrf".equals(parser.getName())) {
+                        //获取mrf值
+                        String mrf = parser.nextText();
+                        faceModel.setMrf(mrf);
+                    }
+                    break;
+                //结束标签
+                case XmlPullParser.END_TAG:
+                    if ("face".equals(parser.getName())) {
+                        list.add(faceModel);
+                    } else if ("facekind".equals(parser.getName())) {
+                       // map.put(kindName, list);
+                    }
+                    break;
+                default:
+                    break;
+            }
+            //继续往下读取标签类型
+            type = parser.next();
+        }
+        return list;
+    }
 }

@@ -7,11 +7,16 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.a11699.androidxallstudy.R
+import com.example.a11699.androidxallstudy.xmlwriteandread.adapter.EmoticonViewPagerAdapter
 import com.example.a11699.androidxallstudy.xmlwriteandread.util.DomHelper
 import com.example.a11699.androidxallstudy.xmlwriteandread.util.Person
 import com.example.a11699.androidxallstudy.xmlwriteandread.util.PullHelper
 import com.example.a11699.androidxallstudy.xmlwriteandread.util.SaxHelper
 import kotlinx.android.synthetic.main.activity_xml.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
@@ -24,14 +29,16 @@ import javax.xml.parsers.SAXParserFactory
  * @Date 2020/11/4 11:08
  * @Description TODO
  */
-class XmlStudyActivity:AppCompatActivity() {
+class XmlStudyActivity : AppCompatActivity() {
     var persons = ArrayList<Person>()
-    lateinit var mAdapter:ArrayAdapter<Person>
+    private var faceModeList = ArrayList<FaceModel>()//表情数据
+    lateinit var mAdapter: ArrayAdapter<Person>
+    private lateinit var adapter: EmoticonViewPagerAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_xml)
         btnsax.setOnClickListener {
-            persons =readXmlForSAX()
+            persons = readXmlForSAX()
             mAdapter = ArrayAdapter<Person>(this, R.layout.support_simple_spinner_dropdown_item, persons)
             list.adapter = mAdapter
         }
@@ -73,8 +80,14 @@ class XmlStudyActivity:AppCompatActivity() {
                 e.printStackTrace()
             }
         }
+
+
+
+
+        getEmoilData()
     }
-    private fun readXmlForSAX():ArrayList<Person>{
+
+    private fun readXmlForSAX(): ArrayList<Person> {
         //获取文件资源建立输入流对象
         val `is`: InputStream = assets.open("person1.xml")
         //①创建XML解析处理器
@@ -87,5 +100,23 @@ class XmlStudyActivity:AppCompatActivity() {
         parser.parse(`is`, ss)
         `is`.close()
         return ss.persons;
+    }
+
+    private fun getEmoilData() {
+        GlobalScope.launch(Dispatchers.Main) {
+
+            var inputStream = application.resources.openRawResource(R.raw.faceconfig_mr)
+            faceModeList = PullHelper.getEmoticons(inputStream)
+            for (value in faceModeList) {
+                var packName: String = application.packageName
+                var id = resources.getIdentifier(value.file.substring(0, value.file.length - 4), "raw", packName)
+                value.id = id
+            }
+
+            adapter = EmoticonViewPagerAdapter(this@XmlStudyActivity, faceModeList, layout_face_image)
+            emojiViewpager.adapter = adapter
+            emojiViewpager.offscreenPageLimit = 1
+        }
+
     }
 }
