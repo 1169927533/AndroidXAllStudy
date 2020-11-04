@@ -88,3 +88,8 @@ onApper 和 onDIsapper方法就可以了。这两个方法可以实现去创建�
 效果如下:
 
 <img src="resourcepackage/g2.gif" width = "200" height = "400" alt="g2" style="zoom: 50%;" />
+
+## 版本4
+学习了关于xml的读取写入学习
+>新增类XmlStudyActivity.kt
+[简书地址](https://www.jianshu.com/p/3f1d8394a2e1)
