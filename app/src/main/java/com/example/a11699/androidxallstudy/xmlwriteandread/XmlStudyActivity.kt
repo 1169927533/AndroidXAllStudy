@@ -13,10 +13,7 @@ import com.example.a11699.androidxallstudy.xmlwriteandread.util.Person
 import com.example.a11699.androidxallstudy.xmlwriteandread.util.PullHelper
 import com.example.a11699.androidxallstudy.xmlwriteandread.util.SaxHelper
 import kotlinx.android.synthetic.main.activity_xml.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
@@ -81,9 +78,6 @@ class XmlStudyActivity : AppCompatActivity() {
             }
         }
 
-
-
-
         getEmoilData()
     }
 
@@ -104,19 +98,21 @@ class XmlStudyActivity : AppCompatActivity() {
 
     private fun getEmoilData() {
         GlobalScope.launch(Dispatchers.Main) {
-
-            var inputStream = application.resources.openRawResource(R.raw.faceconfig_mr)
-            faceModeList = PullHelper.getEmoticons(inputStream)
-            for (value in faceModeList) {
-                var packName: String = application.packageName
-                var id = resources.getIdentifier(value.file.substring(0, value.file.length - 4), "raw", packName)
-                value.id = id
+            withContext(Dispatchers.IO) {
+                var inputStream = application.resources.openRawResource(R.raw.faceconfig_mr)
+                faceModeList = PullHelper.getEmoticons(inputStream)
+                for (value in faceModeList) {
+                    var packName: String = application.packageName
+                    var id = resources.getIdentifier(value.file.substring(0, value.file.length - 4), "raw", packName)
+                    value.id = id
+                }
             }
-
             adapter = EmoticonViewPagerAdapter(this@XmlStudyActivity, faceModeList, layout_face_image)
             emojiViewpager.adapter = adapter
             emojiViewpager.offscreenPageLimit = 1
         }
 
     }
+
+
 }

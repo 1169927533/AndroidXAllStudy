@@ -7,6 +7,7 @@ import android.animation.ValueAnimator
 import android.graphics.Bitmap
 import android.graphics.Rect
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.AccelerateInterpolator
@@ -16,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.animation.addListener
+import androidx.core.view.marginBottom
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -95,13 +97,18 @@ class FloapCardActivity : AppCompatActivity() {
                     }
                 })
         flopView.id = R.id.f1
+
+        var la = flopview6.layoutParams as ConstraintLayout.LayoutParams
         val ivLeftLayoutParams: ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(
                 50.dp.toInt(), 100.dp.toInt()//这里填写发牌时的卡片大小
         )
         ivLeftLayoutParams.leftToLeft = R.id.cc
         ivLeftLayoutParams.bottomToBottom = R.id.cc
         ivLeftLayoutParams.rightToRight = R.id.cc
+        ivLeftLayoutParams.bottomMargin = la.bottomMargin
         flopView.layoutParams = ivLeftLayoutParams
+
+
         cc.addView(flopView)
         flopView.setOnClickListener {
             flopView.startAnimal()
@@ -112,14 +119,21 @@ class FloapCardActivity : AppCompatActivity() {
         recycleview.getLocationInWindow(location1)
         var location = IntArray(2)
         flopview6.getLocationInWindow(location)
-        var xxx = flopview6.width * 1.6
-        var curx = flopview6.width
-        var pian = (xxx - curx) / 2
+
         var yyy = flopview6.height * 1.6
         var cury = flopview6.height
         var piany = (yyy - cury) / 2
-        var trx = location[0] - (location1[0] + location3[0])
         var tryy = location[1] - (location1[1] + location3[1])
+
+        var xxx = flopview6.width * 1.6
+        var curx = flopview6.width
+        var pian = (xxx - curx) / 2
+        var trx = location[0] - (location1[0] + location3[0])
+
+
+
+
+
         flopView.startTransAnimal(-(trx.toFloat() - pian.toFloat()), -(tryy.toFloat() - piany.toFloat()), index)
 
     }

@@ -25,6 +25,7 @@ import com.example.a11699.androidxallstudy.permissionstudy.PermissionStudyActivi
 import com.example.a11699.androidxallstudy.piaodanmu.DanMuActivity
 import com.example.a11699.androidxallstudy.sendgift.SendGiftActivity
 import com.example.a11699.androidxallstudy.soul.activity.SoulActivity
+import com.example.a11699.androidxallstudy.suspension.FloatActivity
 import com.example.a11699.androidxallstudy.threed.ThreedActivity
 import com.example.a11699.androidxallstudy.tofuture.FutureActivity
 
@@ -55,13 +56,15 @@ import kotlinx.android.synthetic.main.activity_main.*
  *Create Yu
  *description:
  */
-class MainActivity : AppCompatActivity() {
+class MainActivity : FloatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.KITKAT)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        chkShowFloatWindow.setOnCheckedChangeListener { _, isChecked ->
+            showFloatWindow(isChecked) //根据勾选值显示或隐藏悬浮窗
+        }
 
         btn_permission.setOnClickListener { startActivity<PermissionStudyActivity>(this) }
         btn_webview.setOnClickListener { startActivity<WebViewStudy>(this) }
@@ -119,10 +122,15 @@ class MainActivity : AppCompatActivity() {
         btn_xml.setOnClickListener {
             startActivity<XmlStudyActivity>(this)
         }
+        btn_quickclick.setOnClickListener {
+            Toast.makeText(this,"按钮被点击了",Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onResume() {
         super.onResume()
+        chkShowFloatWindow.isChecked = FloatActivity.isShowing(this)
+
         when (V2TIMManager.getInstance().loginStatus) {
             V2TIMManager.V2TIM_STATUS_LOGOUT -> {
                 //无登陆 app闪退了 进行一个二次登录

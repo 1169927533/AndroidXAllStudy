@@ -15,6 +15,7 @@
       <module name="AndroidXAllStudy.lib_greendao" target="1.8" />
       <module name="AndroidXAllStudy.lib_im" target="1.8" />
       <module name="AndroidXAllStudy.lib_network" target="1.8" />
+      <module name="AndroidXAllStudy.lib_oop" target="1.8" />
       <module name="AndroidXAllStudy.lib_oos" target="1.8" />
       <module name="AndroidXAllStudy.lib_save" target="1.8" />
       <module name="AndroidXAllStudy.lib_util" target="1.8" />
