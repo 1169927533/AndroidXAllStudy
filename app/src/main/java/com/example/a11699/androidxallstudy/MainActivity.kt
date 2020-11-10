@@ -57,11 +57,28 @@ import kotlinx.android.synthetic.main.activity_main.*
  *description:
  */
 class MainActivity : FloatActivity() {
+    override fun getLayoutId(): Int {
+     return R.layout.activity_main
+    }
 
-    @RequiresApi(Build.VERSION_CODES.KITKAT)
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun getToolBarTitle(): String {
+        return "我是自定义的标题栏哦"
+    }
+    override fun isToolBarEnable(): Boolean {
+        return true
+    }
+
+    override fun isTitleCenter(): Boolean {
+        return true
+    }
+
+    override fun observeLiveData() {
+    }
+
+    override fun initViewData() {
+    }
+
+    override fun initView() {
         chkShowFloatWindow.setOnCheckedChangeListener { _, isChecked ->
             showFloatWindow(isChecked) //根据勾选值显示或隐藏悬浮窗
         }

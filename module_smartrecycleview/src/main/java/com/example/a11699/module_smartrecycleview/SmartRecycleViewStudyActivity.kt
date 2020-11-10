@@ -15,6 +15,10 @@ import com.example.a11699.module_smartrecycleview.viewmodel.SearchViewModel
  *description:给recycleview增加下拉刷新
  */
 class SmartRecycleViewStudyActivity : BaseRecycleViewActivity<DailyStudentBean>() {
+    override fun initView() {
+
+    }
+
     val viewModel by lazyVm<SearchViewModel>()
 
 

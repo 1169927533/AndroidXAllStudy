@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--顶部菜单栏-->
+    <declare-styleable name="customTab">
+        <attr name="hasBottomLine" format="boolean" />
+        <attr name="average" format="boolean" />
+        <attr name="itemmarginright" format="dimension" />
+
+        <attr name="bottomlinewidth" format="dimension" />
+        <attr name="bottomlineheight" format="dimension" />
+        <attr name="bottomlinecolor" format="reference" />
+    </declare-styleable>
+
+    <!--底部导航栏-->
+    <declare-styleable name="NavigationVieww">
+        <attr name="image_height" format="dimension" />
+        <attr name="image_width" format="dimension" />
+        <attr name="text_size" format="dimension" />
+        <attr name="text_selectcolor" format="color" />
+        <attr name="text_noneselectcolor" format="color" />
+        <attr name="text_image_margintop" format="dimension" />
+        <attr name="image_center_height" format="dimension" />
+        <attr name="image_center_width" format="dimension" />
+        <attr name="img_item_height" format="dimension"></attr>
+    </declare-styleable>
+</resources>

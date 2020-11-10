@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
+import com.example.a11699.comp_base.activity.BaseActivity
 import com.example.a11699.module_smartrecycleview.R
 import com.example.a11699.module_smartrecycleview.util.SmartRefreshUtil
 import com.scwang.smartrefresh.layout.header.ClassicsHeader
@@ -18,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_base_recycleview.*
  *Create Yu
  *description:
  */
-abstract class BaseRecycleViewActivity<T> : BaseVmActivity() {
+abstract class BaseRecycleViewActivity<T> : BaseActivity() {
 
     //无数据展示效果
     open val emptyView: View by lazy {
@@ -71,14 +72,6 @@ abstract class BaseRecycleViewActivity<T> : BaseVmActivity() {
         smartRefreshUtil.startRefresh()//开启第一个加载数据
     }
 
-    override fun showLoading(toShow: Boolean) {
-        //这里可以自定义自己得加载效果
-        if (toShow) {
-
-        } else {
-
-        }
-    }
 
     fun finishGetDataError() {
         emptyView.visibility = View.VISIBLE

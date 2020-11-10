@@ -11,14 +11,19 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import com.example.a11699.androidxallstudy.R
+import com.example.a11699.comp_base.activity.BaseActivity
 import kotlinx.android.synthetic.main.float_window.view.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 
 /**
  * @Author Yu
  * @Date 2020/11/6 10:45
  * @Description 带悬浮窗操作的Activiti
  */
-open class FloatActivity : AppCompatActivity() {
+open abstract class FloatActivity : BaseActivity() {
+
     private var offX = 0
     private var offY = 0
     private var isPressing = false
@@ -43,10 +48,11 @@ open class FloatActivity : AppCompatActivity() {
      */
     protected fun showFloatWindow( isShow: Boolean) {
         val vgContent = findViewById<ViewGroup>(android.R.id.content)
-        if (vgContent.childCount == 1) {
-            vgContent.addView(FrameLayout(this))
-        }
-        val vgFloatContainer = vgContent.getChildAt(1) as ViewGroup
+     //   if (vgContent.childCount == 1) {
+           vgContent.addView(FrameLayout(this))
+       // }
+
+        val vgFloatContainer = vgContent.getChildAt(3) as ViewGroup
 
         if (isShow) {
             if (vgFloatContainer.childCount == 0) {

@@ -23,7 +23,9 @@ import kotlinx.android.synthetic.main.activity_messagee.*
  */
 class MessageActivity : BaseRecycleViewActivity<ConversationInfo>(), ConversationManager.RefreshConversationListener, ConversationManager.UpdateUnReadMessageNumListener {
     var startNum = 0L //分页查询的下一页id
+    override fun initView() {
 
+    }
     override val baseAdapter: BaseQuickAdapter<ConversationInfo, BaseViewHolder> by lazy {
         ConversationListAdapter(this).apply {
             setOnItemChildClickListener { _, _, position ->

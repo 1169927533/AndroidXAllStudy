@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.7">
       <module name="AndroidXAllStudy.app" target="1.8" />
+      <module name="AndroidXAllStudy.base" target="1.8" />
       <module name="AndroidXAllStudy.comp_base" target="1.8" />
       <module name="AndroidXAllStudy.comp_chat" target="1.8" />
       <module name="AndroidXAllStudy.comp_customview" target="1.8" />
