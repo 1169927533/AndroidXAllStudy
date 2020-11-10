@@ -95,3 +95,18 @@ onApper 和 onDIsapper方法就可以了。这两个方法可以实现去创建�
 [简书地址](https://www.jianshu.com/p/3f1d8394a2e1)
 效果如下:
 <img src="resourcepackage/emojil.jpg" width = "200" height = "400" alt="g2" style="zoom: 50%;" />
+
+
+---
+
+## 实现自定义的悬浮窗效果
+>使用方法 使用的类 只需要继承FloatActivity类即可。
+>详细实现代码见FloatActivity
+
+如图：
+
+![Screenshot_2020-11-06-13-49-17-39_a71e12dc77d940d.jpg](https://upload-images.jianshu.io/upload_images/16562048-e122c01efc19aa71.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/200)
+
+**实现原理：**
+我们知道一个Activity的层级分布是PhnowWindow -> Decorview在Decorview的FragmentLayout里面将我们悬浮窗view添加进去。
+
