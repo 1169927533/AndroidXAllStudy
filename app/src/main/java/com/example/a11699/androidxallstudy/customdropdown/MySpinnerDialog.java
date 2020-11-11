@@ -22,6 +22,7 @@ import androidx.annotation.RequiresApi;
 
 import com.example.a11699.androidxallstudy.R;
 import com.example.a11699.androidxallstudy.myseekbar.ViewUtil;
+import com.scwang.smartrefresh.layout.listener.CoordinatorLayoutListener;
 
 import java.util.List;
 

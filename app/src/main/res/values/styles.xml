@@ -15,8 +15,8 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorFFFFFF</item>
+        <item name="colorPrimaryDark">@color/colorFFFFFF</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowAllowEnterTransitionOverlap">true</item>
         <item name="android:windowAllowReturnTransitionOverlap">true</item>
@@ -123,4 +123,8 @@
            <item name="android:wallpaperIntraCloseEnterAnimation">@anim/activity_open_in_anim</item>
            <item name="android:wallpaperIntraCloseExitAnimation">@anim/activity_open_out_anim</item>
        </style>-->
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">@color/colorFFFFFF</item>
+    </style>
+
 </resources>

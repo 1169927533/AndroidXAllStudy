@@ -41,7 +41,7 @@ class Fade3 extends Visibility {
 
     @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
-    public Animator onAppear(ViewGroup sceneRoot, View view,
+    public Animator onAppear(ViewGroup sceneRoot, final View view,
                              TransitionValues startValues,
                              TransitionValues endValues) {
         float startY = 1f;

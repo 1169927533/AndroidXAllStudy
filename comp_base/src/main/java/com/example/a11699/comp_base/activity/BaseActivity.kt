@@ -26,7 +26,6 @@ import com.example.a11699.comp_base.util.ClickUtil
  */
 abstract class BaseActivity : AppCompatActivity(), Toolbar.OnMenuItemClickListener {
     var mContentView: View? = null
-
     /**
      * 根布局
      */

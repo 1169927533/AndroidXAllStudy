@@ -42,17 +42,21 @@ open abstract class FloatActivity : BaseActivity() {
         })
     }
 
+   lateinit var   vgFloatContainer:ViewGroup
 
     /**
      * 设置悬浮窗的展示和隐藏
      */
     protected fun showFloatWindow( isShow: Boolean) {
         val vgContent = findViewById<ViewGroup>(android.R.id.content)
-     //   if (vgContent.childCount == 1) {
+         if (vgContent.childCount >= 2) {
            vgContent.addView(FrameLayout(this))
-       // }
-
-        val vgFloatContainer = vgContent.getChildAt(3) as ViewGroup
+         }
+        vgFloatContainer = if(vgContent.childCount>3){
+            vgContent.getChildAt(3) as ViewGroup
+        }else{
+            vgContent.getChildAt(2) as ViewGroup
+        }
 
         if (isShow) {
             if (vgFloatContainer.childCount == 0) {

@@ -29,7 +29,6 @@ dependencies {
     api (project(':lib_oop'))
     api deps.app_compat
     api deps.constraintlayout
-    api 'androidx.appcompat:appcompat:1.2.0'
     api 'com.android.support.constraint:constraint-layout:2.0.1'//android新得动画库
     testImplementation deps.junit
     androidTestImplementation deps.atsl.ext_junit

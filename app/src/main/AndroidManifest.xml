@@ -49,6 +49,9 @@
         <activity android:name=".botomtab.BottomTabActivity" />
         <activity android:name=".bitmap.BitStudyActivity" />
         <activity android:name=".xmlwriteandread.XmlStudyActivity"/>
+        <activity android:name=".timepick.TimePickActivity"/>
+        <activity android:name=".meinformation.MeInforMationActivity"/>
+
         <activity
             android:name=".botomtab.CopyTangApp"
             android:theme="@style/fade" />

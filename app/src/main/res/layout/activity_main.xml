@@ -271,6 +271,19 @@
                     android:layout_width="match_parent"
                     android:text="面向切面实现 给button添加防快速点击功能"
                     android:layout_height="wrap_content"/>
+
+
+                <Button
+                    android:id="@+id/btn_timepick"
+                    android:layout_width="match_parent"
+                    android:text="时间选择器"
+                    android:layout_height="wrap_content"/>
+                <Button
+                    android:id="@+id/btn_meinformation"
+                    android:layout_width="match_parent"
+                    android:text="个人信息界面"
+                    android:layout_height="wrap_content"/>
+
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 

@@ -20,6 +20,7 @@ import com.example.a11699.androidxallstudy.customtab.TabActivity
 import com.example.a11699.androidxallstudy.funnyeffect.FunnyActivity
 import com.example.a11699.androidxallstudy.lizixiaosan.LiZiActivity
 import com.example.a11699.androidxallstudy.loadingactivity.WuBaActivity
+import com.example.a11699.androidxallstudy.meinformation.MeInforMationActivity
 import com.example.a11699.androidxallstudy.ossstudy.OssStudyActivity
 import com.example.a11699.androidxallstudy.permissionstudy.PermissionStudyActivity
 import com.example.a11699.androidxallstudy.piaodanmu.DanMuActivity
@@ -27,6 +28,7 @@ import com.example.a11699.androidxallstudy.sendgift.SendGiftActivity
 import com.example.a11699.androidxallstudy.soul.activity.SoulActivity
 import com.example.a11699.androidxallstudy.suspension.FloatActivity
 import com.example.a11699.androidxallstudy.threed.ThreedActivity
+import com.example.a11699.androidxallstudy.timepick.TimePickActivity
 import com.example.a11699.androidxallstudy.tofuture.FutureActivity
 
 import com.example.a11699.androidxallstudy.util.startActivity
@@ -56,6 +58,7 @@ import kotlinx.android.synthetic.main.activity_main.*
  *Create Yu
  *description:
  */
+
 class MainActivity : FloatActivity() {
     override fun getLayoutId(): Int {
      return R.layout.activity_main
@@ -65,7 +68,7 @@ class MainActivity : FloatActivity() {
         return "我是自定义的标题栏哦"
     }
     override fun isToolBarEnable(): Boolean {
-        return true
+        return false
     }
 
     override fun isTitleCenter(): Boolean {
@@ -141,6 +144,14 @@ class MainActivity : FloatActivity() {
         }
         btn_quickclick.setOnClickListener {
             Toast.makeText(this,"按钮被点击了",Toast.LENGTH_SHORT).show()
+        }
+
+        btn_timepick.setOnClickListener {
+            startActivity<TimePickActivity>(this)
+        }
+
+        btn_meinformation.setOnClickListener {
+            startActivity<MeInforMationActivity>(this)
         }
     }
 
