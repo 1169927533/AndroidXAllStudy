@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/simpleview"
+        android:layout_width="310dp"
+        android:layout_height="150dp"
+       app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_inroom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="添加一个进场动画"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/simpleview" />
+    <Button
+
+        android:id="@+id/btn_startanimal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开始动画"
+        app:layout_constraintLeft_toLeftOf="@+id/btn_inroom"
+        app:layout_constraintRight_toRightOf="@+id/btn_inroom"
+        app:layout_constraintTop_toBottomOf="@+id/btn_inroom" />
 </androidx.constraintlayout.widget.ConstraintLayout>
