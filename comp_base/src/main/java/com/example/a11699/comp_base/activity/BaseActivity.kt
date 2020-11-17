@@ -6,6 +6,7 @@ package com.example.a11699.comp_base.activity
  * @Description 基类  可以动态展示or隐藏标题栏
  */
 
+import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -49,6 +50,7 @@ abstract class BaseActivity : AppCompatActivity(), Toolbar.OnMenuItemClickListen
         initView()
         observeLiveData()
         initViewData()
+
     }
 
     abstract fun getLayoutId(): Int

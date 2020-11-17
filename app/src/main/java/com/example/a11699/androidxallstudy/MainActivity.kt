@@ -18,6 +18,7 @@ import com.example.a11699.androidxallstudy.customdropdown.DropDownActivity
 import com.example.a11699.androidxallstudy.custompasswordview.CustomPasswordActivity
 import com.example.a11699.androidxallstudy.customtab.TabActivity
 import com.example.a11699.androidxallstudy.funnyeffect.FunnyActivity
+import com.example.a11699.androidxallstudy.inanimal.LiveRoomInAnimalActivity
 import com.example.a11699.androidxallstudy.lizixiaosan.LiZiActivity
 import com.example.a11699.androidxallstudy.loadingactivity.WuBaActivity
 import com.example.a11699.androidxallstudy.meinformation.MeInforMationActivity
@@ -68,7 +69,7 @@ class MainActivity : FloatActivity() {
         return "我是自定义的标题栏哦"
     }
     override fun isToolBarEnable(): Boolean {
-        return false
+        return true
     }
 
     override fun isTitleCenter(): Boolean {
@@ -152,6 +153,9 @@ class MainActivity : FloatActivity() {
 
         btn_meinformation.setOnClickListener {
             startActivity<MeInforMationActivity>(this)
+        }
+        btn_inanmal.setOnClickListener {
+            startActivity<LiveRoomInAnimalActivity>(this)
         }
     }
 

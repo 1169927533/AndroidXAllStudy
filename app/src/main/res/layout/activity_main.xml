@@ -283,7 +283,11 @@
                     android:layout_width="match_parent"
                     android:text="个人信息界面"
                     android:layout_height="wrap_content"/>
-
+                <Button
+                    android:id="@+id/btn_inanmal"
+                    android:layout_width="match_parent"
+                    android:text="lucky用户进场动画"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 

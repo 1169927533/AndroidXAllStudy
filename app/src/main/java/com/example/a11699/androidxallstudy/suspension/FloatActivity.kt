@@ -3,10 +3,13 @@ package com.example.a11699.androidxallstudy.suspension
 import android.content.Context
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
 import android.view.*
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
+import androidx.core.view.get
+import androidx.core.view.size
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
@@ -49,6 +52,9 @@ open abstract class FloatActivity : BaseActivity() {
      */
     protected fun showFloatWindow( isShow: Boolean) {
         val vgContent = findViewById<ViewGroup>(android.R.id.content)
+        for(inedx in 0 until vgContent.size){
+            Log.i("Zjc","${vgContent.getChildAt(inedx).javaClass}")
+        }
          if (vgContent.childCount >= 2) {
            vgContent.addView(FrameLayout(this))
          }

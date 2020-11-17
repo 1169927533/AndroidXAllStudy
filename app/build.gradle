@@ -84,7 +84,11 @@ dependencies {
 
 
 
-
+    //引入fresco依赖库
+    implementation 'com.facebook.fresco:fresco:2.0.0'
+    // 支持 WebP （静态图+动图），需要添加
+    implementation 'com.facebook.fresco:animated-webp:2.0.0'
+    implementation 'com.facebook.fresco:webpsupport:2.0.0'
 
 
 }

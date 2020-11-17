@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_meinformation.*
  * @Date 2020/11/11 14:35
  * @Description TODO
  */
-class MeInforMationActivity:BaseActivity() {
+class MeInforMationActivity : BaseActivity() {
     override fun getLayoutId(): Int {
         return R.layout.activity_meinformation
     }
@@ -48,6 +48,10 @@ class MeInforMationActivity:BaseActivity() {
         })
         toolbar.setNavigationOnClickListener {
             finish()
+        }
+        edit.setOnClickListener {
+            var myTestDialog = MyTestDialog()
+            myTestDialog.show(supportFragmentManager, "myTestDialog")
         }
     }
 
