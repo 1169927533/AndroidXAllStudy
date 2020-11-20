@@ -12,6 +12,7 @@
       <module name="AndroidXAllStudy.comp_live" target="1.8" />
       <module name="AndroidXAllStudy.comp_netstudyt" target="1.8" />
       <module name="AndroidXAllStudy.comp_viewmodel" target="1.8" />
+      <module name="AndroidXAllStudy.lib_crash" target="1.8" />
       <module name="AndroidXAllStudy.lib_customview" target="1.8" />
       <module name="AndroidXAllStudy.lib_greendao" target="1.8" />
       <module name="AndroidXAllStudy.lib_im" target="1.8" />

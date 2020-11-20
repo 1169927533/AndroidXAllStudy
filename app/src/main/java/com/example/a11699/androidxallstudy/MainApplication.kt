@@ -2,6 +2,7 @@ package com.example.a11699.androidxallstudy
 
 import android.app.Application
 import com.example.a11699.lib_im.imloginutil.ImHelper
+import com.example.lib_crash.CrashHandler
 import com.facebook.drawee.backends.pipeline.Fresco
 
 /**
@@ -16,5 +17,7 @@ class MainApplication : Application() {
         ImHelper.initImSdk(this, 1400382026)
         registerActivityLifecycleCallbacks(HookActivityLifecycleCallBacks())
         Fresco.initialize(applicationContext);
+        //初始化异常捕获 他会把么每次奔溃信息进行一个本地保存
+        CrashHandler.getInstance().init(this)
     }
 }

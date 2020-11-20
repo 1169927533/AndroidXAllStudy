@@ -77,6 +77,8 @@ dependencies {
     implementation(project(':lib_save'))
     implementation(project(':lib_util'))
     implementation(project(':module_flop'))
+    implementation(project(':lib_crash'))
+
     implementation "com.google.android.material:material:1.2.1"
     implementation 'com.android.support:support-dynamic-animation:28.0.0'//实现小球可以上下弹的动画
     // Lifecycles only (without ViewModel or LiveData)
