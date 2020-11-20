@@ -110,3 +110,12 @@ onApper 和 onDIsapper方法就可以了。这两个方法可以实现去创建�
 **实现原理：**
 我们知道一个Activity的层级分布是PhnowWindow -> Decorview在Decorview的FragmentLayout里面将我们悬浮窗view添加进去。
 
+## 增加对奔溃日志手机
+>增加类 CrashHandler
+>使用方法在Application里面进行注册CrashHandler.getInstance().init(this)
+
+收集信息如图：
+
+<img src="resourcepackage/crash.png" width = "200" height = "400" alt="g2" style="zoom: 50%;" />
+
+<img src="resourcepackage/crash2.png" width = "200" height = "400" alt="g2" style="zoom: 50%;" />
