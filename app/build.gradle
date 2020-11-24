@@ -92,6 +92,7 @@ dependencies {
     implementation 'com.facebook.fresco:animated-webp:2.0.0'
     implementation 'com.facebook.fresco:webpsupport:2.0.0'
 
+    implementation "com.facebook.fresco:imagepipeline-okhttp3:1.11.0"
 
 }
 repositories {

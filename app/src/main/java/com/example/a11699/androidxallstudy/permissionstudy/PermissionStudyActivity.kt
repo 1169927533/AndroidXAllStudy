@@ -57,13 +57,17 @@ class PermissionStudyActivity : AppCompatActivity() {
 
 
 
-           rotateMatrix.preRotate(45f)
-           //  rotateMatrix.preTranslate(bimap.width / 2.toFloat(), bimap.height / 2.toFloat())
-           rotateMatrix.getValues(rectLocation)
-           for (value in rectLocation) {
-               Util.printLog("" + value)
-           }
-           Util.printLog("平移后==================================")
+        rotateMatrix.preRotate(45f)
+        //  rotateMatrix.preTranslate(bimap.width / 2.toFloat(), bimap.height / 2.toFloat())
+        rotateMatrix.getValues(rectLocation)
+        for (value in rectLocation) {
+            Util.printLog("" + value)
+        }
+        Util.printLog("平移后==================================")
+
+        tvvv.setText("卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽卧槽")
+        tvvv.setScrollMode(MarQueeTextView.SCROLL_FAST);
+
     }
 
 }

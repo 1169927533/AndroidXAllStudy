@@ -1,7 +1,7 @@
 ext.deps = [:]
 
 def build_versions = [:]
-build_versions.min_sdk = 23
+build_versions.min_sdk = 26
 build_versions.compile_sdk = 29
 build_versions.target_sdk = 29
 build_versions.build_tools = "29.0.3"
@@ -46,7 +46,7 @@ espresso.contrib = "androidx.test.espresso:espresso-contrib:$versions.espresso"
 espresso.intents = "androidx.test.espresso:espresso-intents:$versions.espresso"
 deps.espresso = espresso
 
-deps.core_ktx = "androidx.core:core-ktx:$versions.core_ktx"
+deps.core_ktx = "androidx.core:core-ktx:1.5.0-alpha05"
 
 def kotlin = [:]
 kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
