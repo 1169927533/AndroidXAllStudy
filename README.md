@@ -116,6 +116,6 @@ onApper 和 onDIsapper方法就可以了。这两个方法可以实现去创建�
 
 收集信息如图：
 
-<img src="resourcepackage/crash.png" width = "200" height = "400" alt="g2" style="zoom: 50%;" />
+<img src="resourcepackage/crash.png" width = "400" height = "200" alt="g2" style="zoom: 50%;" />
 
-<img src="resourcepackage/crash2.png" width = "200" height = "400" alt="g2" style="zoom: 50%;" />
+<img src="resourcepackage/crash2.jpg" width = "400" height = "200" alt="g2" style="zoom: 50%;" />
