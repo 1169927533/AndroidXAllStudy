@@ -31,11 +31,16 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:tag="topview"
 
+                <TextView
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:text="我是顶部view"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp" />
+                    android:layout_height="100dp"
+                    android:background="@drawable/shape_beauty_seek_thumb"
+                    android:tag="topview" />
+
 
                 <Button
                     android:id="@+id/btn_permission"

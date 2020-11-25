@@ -12,17 +12,15 @@ import androidx.core.widget.NestedScrollView
 /**
  * @Author Yu
  * @Date 2020/11/24 16:18
- * @Description 当页面下拉的时候 顶部的view会实现放大效果。然后松手后 页面会回弹
+ * @Description 当页面下拉的时候 tag标记为 topview 的viewgroup 或者 view 会实现放大效果。然后松手后 页面会回弹
  */
 class TopViewScaleScrollView : NestedScrollView {
     private var isInit = false //是否已经初始化过
     private var topViewHeight = 0 //顶部要缩放的view的原始高度
-    private lateinit var mTopView: ViewGroup //会随着页面的滑动做出响应的view
+    private lateinit var mTopView: View //会随着页面的滑动做出响应的view
 
     constructor(context: Context) : super(context)
-    constructor(context: Context, attribute: AttributeSet) : super(context, attribute) {
-
-    }
+    constructor(context: Context, attribute: AttributeSet) : super(context, attribute)
 
 
     /**
@@ -34,14 +32,15 @@ class TopViewScaleScrollView : NestedScrollView {
             isInit = true
             var viewe = getChildAt(0) as ViewGroup
             for (value in 0 until viewe.childCount) {
-                var ss = viewe.getChildAt(value)
-                if (ss.tag == "topview") {
-                    mTopView = ss as ViewGroup
+                var targetView = viewe.getChildAt(value)
+                if (targetView.tag == "topview") {
+                    mTopView = targetView
                     break
                 }
             }
         }
         if (topViewHeight == 0) {
+            measureChildren(widthMeasureSpec, heightMeasureSpec)
             measureChild(mTopView, widthMeasureSpec, heightMeasureSpec)
             topViewHeight = mTopView.measuredHeight
         }
