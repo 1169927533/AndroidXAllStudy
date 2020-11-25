@@ -119,3 +119,10 @@ onApper 和 onDIsapper方法就可以了。这两个方法可以实现去创建�
 <img src="resourcepackage/crash.png" width = "400" height = "200" alt="g2" style="zoom: 50%;" />
 
 <img src="resourcepackage/crash2.jpg" width = "400" height = "200" alt="g2" style="zoom: 50%;" />
+
+## 自定义NestedScrollView实现监听滑动 指定对view实现缩放操作
+>增加类TopViewScaleScrollView.kt
+使用：对想被错做的view添加标签 android:tag="topview" 即可。
+效果如下：
+<img src="resourcepackage/topviewscale.gif" width = "200" height = "400" alt="g2" style="zoom: 50%;" />
+
