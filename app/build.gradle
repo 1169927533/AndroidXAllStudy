@@ -18,7 +18,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         ndk {
-            abiFilters "armeabi-v7a"
+            abiFilters "armeabi-v7a","x86"
         }
         javaCompileOptions {
             annotationProcessorOptions {
@@ -49,8 +49,18 @@ android {
         targetCompatibility JavaVersion.VERSION_1_7
     }
 
-    kotlinOptions{
+    kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+        }
+
     }
 }
 
@@ -78,12 +88,12 @@ dependencies {
     implementation(project(':lib_util'))
     implementation(project(':module_flop'))
     implementation(project(':lib_crash'))
+    implementation(project(':module_threelogin'))
 
     implementation "com.google.android.material:material:1.2.1"
     implementation 'com.android.support:support-dynamic-animation:28.0.0'//实现小球可以上下弹的动画
     // Lifecycles only (without ViewModel or LiveData)
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
-
 
 
     //引入fresco依赖库

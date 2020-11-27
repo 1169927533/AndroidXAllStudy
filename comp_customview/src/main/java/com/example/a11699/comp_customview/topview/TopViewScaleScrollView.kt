@@ -39,9 +39,14 @@ class TopViewScaleScrollView : NestedScrollView {
                 }
             }
         }
+        /*
+        A BoringLayout is a very simple Layout implementation for text that fits on a single line and is all left-to-right characters. You will probably never want to make one of these yourself; if you do, be sure to call isBoring(CharSequence, TextPaint) first to make sure the text meets the criteria.
+
+This class is used by widgets to control text layout. You should not need to use this class directly unless you are implementing your own widget or custom display object, in which case you are encouraged to use a Layout instead of calling Canvas.drawText() directly.
+         */
         if (topViewHeight == 0) {
             measureChildren(widthMeasureSpec, heightMeasureSpec)
-            measureChild(mTopView, widthMeasureSpec, heightMeasureSpec)
+         //   measureChild(mTopView, widthMeasureSpec, heightMeasureSpec)
             topViewHeight = mTopView.measuredHeight
         }
     }

@@ -80,6 +80,7 @@ class MainActivity : FloatActivity() {
     }
 
     override fun initViewData() {
+
     }
 
     override fun initView() {
