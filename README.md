@@ -126,3 +126,15 @@ onApper 和 onDIsapper方法就可以了。这两个方法可以实现去创建�
 效果如下：
 <img src="resourcepackage/topviewscale.gif" width = "200" height = "400" alt="g2" style="zoom: 50%;" />
 
+
+##写一个task用来启动一个Activity
+>运行下面的任务 我们的Activity就会被开启
+``grovvy
+/**
+ * 写个任务开启activity
+ */
+task run(type: Exec, dependsOn: 'installDebug') {
+    description 'Installs the APK and runs the main activity: "gradlew :samples:???:run"'
+    commandLine "${android.sdkDirectory}/platform-tools/adb", 'shell', 'am', 'start', '-n', 'com.example.a11699.androidxallstudy/.LoginActivity'
+}
+```

@@ -25,8 +25,8 @@ android {
 }
 
 dependencies {
-    api (project(':lib_util'))
-    api (project(':lib_oop'))
+    api(project(':lib_util'))
+    api(project(':lib_oop'))
     api deps.app_compat
     api deps.constraintlayout
     api 'com.android.support.constraint:constraint-layout:2.0.1'//android新得动画库
@@ -51,9 +51,12 @@ dependencies {
 
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50'
 
-    api 'com.github.bumptech.glide:glide:4.11.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.5.0'
+    /**
+     * glide图片加载
+     */
+    api "com.github.bumptech.glide:glide:${GLIDE_VERSION}"
+    annotationProcessor "com.github.bumptech.glide:compiler:${GLIDE_VERSION}"
 
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation deps.lifecycle_extensions
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.2.0'
 }

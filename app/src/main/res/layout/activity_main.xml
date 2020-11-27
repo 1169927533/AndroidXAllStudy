@@ -303,6 +303,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="lucky用户进场动画" />
+
+                <Button
+                    android:id="@+id/btn_loadwebp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Glide加载webp" />
             </LinearLayout>
         </com.example.a11699.comp_customview.topview.TopViewScaleScrollView>
 

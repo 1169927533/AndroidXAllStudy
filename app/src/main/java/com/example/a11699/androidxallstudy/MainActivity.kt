@@ -2,11 +2,8 @@ package com.example.a11699.androidxallstudy
 
 import android.app.ActivityOptions
 import android.content.Intent
-import android.os.Build
-import android.os.Bundle
 import android.widget.Toast
-import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AppCompatActivity
+import com.alibaba.android.arouter.launcher.ARouter
 import com.example.a11699.activity.NavigationActivity
 import com.example.a11699.androidxallstudy.batteryview.BatteryActivity
 import com.example.a11699.androidxallstudy.bitmap.BitStudyActivity
@@ -31,7 +28,6 @@ import com.example.a11699.androidxallstudy.suspension.FloatActivity
 import com.example.a11699.androidxallstudy.threed.ThreedActivity
 import com.example.a11699.androidxallstudy.timepick.TimePickActivity
 import com.example.a11699.androidxallstudy.tofuture.FutureActivity
-
 import com.example.a11699.androidxallstudy.util.startActivity
 import com.example.a11699.androidxallstudy.viewdraghelper.ViewDragerStudyActivity
 import com.example.a11699.androidxallstudy.webview.WebViewStudy
@@ -40,6 +36,7 @@ import com.example.a11699.androidxallstudy.xmlwriteandread.XmlStudyActivity
 import com.example.a11699.androidxallstudy.zhaunchang.TransLationActivity
 import com.example.a11699.androidxallstudy.zhezhi.PaperActivity
 import com.example.a11699.comp_base.SPContent
+import com.example.a11699.comp_base.arouter.RouterConstant
 import com.example.a11699.comp_customview.QQStepViewActivity
 import com.example.a11699.comp_im.activity.MessageActivity
 import com.example.a11699.comp_imgpicker.ImgPickerActivity
@@ -53,6 +50,7 @@ import com.example.a11699.module_smartrecycleview.SmartRecycleViewStudyActivity
 import com.example.a11699.pack.NetStudyActivity
 import com.tencent.imsdk.v2.V2TIMManager
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 /**
  *Create time 2020/6/17
@@ -145,7 +143,7 @@ class MainActivity : FloatActivity() {
             startActivity<XmlStudyActivity>(this)
         }
         btn_quickclick.setOnClickListener {
-            Toast.makeText(this,"按钮被点击了",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "按钮被点击了", Toast.LENGTH_SHORT).show()
         }
 
         btn_timepick.setOnClickListener {
@@ -157,6 +155,10 @@ class MainActivity : FloatActivity() {
         }
         btn_inanmal.setOnClickListener {
             startActivity<LiveRoomInAnimalActivity>(this)
+        }
+        btn_loadwebp.setOnClickListener {
+            ARouter.getInstance().build(RouterConstant.Main.MAIN)
+                    .navigation()
         }
     }
 

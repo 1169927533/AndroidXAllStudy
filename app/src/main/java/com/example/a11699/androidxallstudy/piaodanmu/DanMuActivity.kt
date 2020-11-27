@@ -2,6 +2,7 @@ package com.example.a11699.androidxallstudy.piaodanmu
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.example.a11699.androidxallstudy.R
 import kotlinx.android.synthetic.main.activity_danmu.*
 

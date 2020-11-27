@@ -26,6 +26,7 @@
       <module name="AndroidXAllStudy.module_navigation" target="1.8" />
       <module name="AndroidXAllStudy.module_smartrecycleview" target="1.8" />
       <module name="AndroidXAllStudy.module_threelogin" target="1.8" />
+      <module name="AndroidXAllStudy.module_webbp" target="1.8" />
       <module name="lib_javatest" target="1.7" />
     </bytecodeTargetLevel>
   </component>

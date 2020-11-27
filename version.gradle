@@ -20,6 +20,7 @@ versions.atsl_runner = "1.2.0"
 versions.espresso = "3.2.0"
 versions.kotlin = "1.3.72"
 versions.lifecycle_version = "2.2.0"
+versions.lifecycle_extensions = "2.2.0"
 ext.versions = versions
 
 def deps = [:]
@@ -62,6 +63,7 @@ deps.kotlin = kotlin
 
 
 deps.lifecycle_version = "androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifecycle_version"
+deps.lifecycle_extensions = "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle_extensions"
 // ViewModel
 deps.viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle_version"
 // LiveData

@@ -21,7 +21,6 @@ class BarrageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_barrage)
-
         var animatorSet = AnimatorSet()
         var scaleX = ObjectAnimator.ofFloat(img_animal, "scaleX", 0.7f, 1f)
         var scaleY = ObjectAnimator.ofFloat(img_animal, "scaleY", 0.7f, 1f)
