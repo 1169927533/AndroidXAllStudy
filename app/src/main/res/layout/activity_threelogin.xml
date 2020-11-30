@@ -3,10 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <Button
-        android:id="@+id/btn_loginByWX"
+        android:id="@+id/btn_initthree"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="初始化第三方" />
+    <Button
+        app:layout_constraintTop_toBottomOf="@+id/btn_initthree"
+        android:id="@+id/btn_loginByWX"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
