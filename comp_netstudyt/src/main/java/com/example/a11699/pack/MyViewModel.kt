@@ -5,7 +5,8 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.a11699.comp_base.bean.StudentBean
 import com.example.a11699.comp_base.service.UserService
-import com.example.a11699.lib_network.vm.BaseViewModel
+import com.example.a11699.lib_network.getRepo
+import com.hipi.vm.BaseViewModel
 
 /**
  *Create time 2020/10/29
@@ -22,7 +23,7 @@ class MyViewModel(application: Application) : BaseViewModel(application) {
             var userService = getRepo(UserService::class.java)
             userLiveData.value = userService.getStudentInforMation("201602020124")
         }, error = {
-            Log.i("zjc","dsadsad")
+            Log.i("zjc","获取用户数据的网络请求失败")
         })
     }
 }

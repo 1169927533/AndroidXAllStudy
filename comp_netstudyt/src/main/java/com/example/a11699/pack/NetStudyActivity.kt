@@ -9,7 +9,7 @@ import androidx.core.widget.addTextChangedListener
 import com.example.a11699.comp_netstudyt.R
 import com.example.a11699.lib_network.config.BaseConfig
 import com.example.a11699.lib_network.util.RetrofitBuild
-import com.example.a11699.lib_network.vm.lazyVm
+import com.hipi.vm.lazyVm
 import kotlinx.android.synthetic.main.ac_n2.*
 
 /**

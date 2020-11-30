@@ -1,4 +1,4 @@
-package com.pince.toast.builder;
+package com.example.a11699.comp_base.util.toast.builder;
 
 import android.content.Context;
 import android.widget.Toast;

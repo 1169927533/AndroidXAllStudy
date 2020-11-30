@@ -1,13 +1,13 @@
-package com.pince.toast;
+package com.example.a11699.comp_base.util.toast;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.Toast;
 
-import com.pince.toast.builder.IconToastBuilder;
-import com.pince.toast.builder.TextToastBuilder;
-import com.pince.toast.builder.ViewToastBuilder;
+import com.example.a11699.comp_base.util.toast.builder.IconToastBuilder;
+import com.example.a11699.comp_base.util.toast.builder.TextToastBuilder;
+import com.example.a11699.comp_base.util.toast.builder.ViewToastBuilder;
 
 /**
  * @author athoucai

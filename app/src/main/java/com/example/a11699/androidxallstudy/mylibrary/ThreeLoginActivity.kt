@@ -1,12 +1,11 @@
-package com.example.mylibrary
+package com.example.a11699.androidxallstudy.mylibrary
 
 import android.text.TextUtils
-import com.alibaba.android.arouter.facade.annotation.Route
+import android.util.Log
+import com.example.a11699.androidxallstudy.R
 import com.example.a11699.comp_base.activity.BaseActivity
-import com.example.a11699.comp_base.arouter.RouterConstant
+import com.example.a11699.comp_base.util.toast.ToastUtil
 import com.example.a11699.comp_base.util.toastCenter
-import com.example.util.MobManager
-import com.mob.MobSDK
 import kotlinx.android.synthetic.main.activity_threelogin.*
 
 /**
@@ -14,10 +13,13 @@ import kotlinx.android.synthetic.main.activity_threelogin.*
  * @Date 2020/11/25 11:53
  * @Description 第三方登录
  */
-@Route(path = RouterConstant.Three.MAIN)
 class ThreeLoginActivity:BaseActivity() {
     override fun getLayoutId(): Int {
         return R.layout.activity_threelogin
+    }
+
+    override fun isToolBarEnable(): Boolean {
+        return true
     }
 
     override fun initView() {
@@ -29,6 +31,8 @@ class ThreeLoginActivity:BaseActivity() {
             MobManager.instance.authorization { token, unionid, code ->
                 if (!TextUtils.isEmpty(token) && !TextUtils.isEmpty(unionid)) {
                  //   splashVm.authorizationLogin(token!!, unionid!!)
+                    ToastUtil.show(this@ThreeLoginActivity,"三方登录成功")
+                    Log.i("zjc","${token}  ${unionid}  ${code}")
                 } else {
                     runOnUiThread {
                         if (code == 8) {

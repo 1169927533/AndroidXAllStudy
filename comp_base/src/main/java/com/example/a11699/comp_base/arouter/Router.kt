@@ -11,4 +11,10 @@ class RouterConstant {
         private const val rootPath = "/main"
         const val MAIN = rootPath + "/mainvvvvv"
     }
+
+    object Three {
+        private const val rootPath = "/main"
+        const val MAIN = rootPath + "/ThreeActivity"
+    }
+
 }

@@ -2,8 +2,22 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.mob.sdk'
 
+MobSDK {
+    appKey "2c7ce8aa5f4cb"
+    appSecret "3366ea7721c0d13eddbc503390cf22f5"
+    ShareSDK {
+        loopShare true
+        devInfo {
 
+            Wechat {
+                appId "wx1a103a1571da7ecf"
+                appSecret "657896306a99ae80e2af97912e748cdf"
+            }
+        }
+    }
+}
 android {
     compileSdkVersion build_versions.compile_sdk
     buildToolsVersion build_versions.build_tools
@@ -89,7 +103,6 @@ dependencies {
     implementation(project(':lib_util'))
     implementation(project(':module_flop'))
     implementation(project(':lib_crash'))
-    implementation(project(':module_threelogin'))
     implementation(project(':module_webbp'))
 
     implementation "com.google.android.material:material:1.2.1"
@@ -124,3 +137,4 @@ task run(type: Exec, dependsOn: 'installDebug') {
     description 'Installs the APK and runs the main activity: "gradlew :samples:???:run"'
     commandLine "${android.sdkDirectory}/platform-tools/adb", 'shell', 'am', 'start', '-n', 'com.example.a11699.androidxallstudy/.LoginActivity'
 }
+

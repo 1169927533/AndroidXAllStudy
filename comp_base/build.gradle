@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion build_versions.compile_sdk
     buildToolsVersion build_versions.build_tools
@@ -13,6 +15,12 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
+
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
+            }
+        }
     }
 
     buildTypes {
@@ -59,4 +67,9 @@ dependencies {
 
     implementation deps.lifecycle_extensions
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.2.0'
+
+    /**
+     * 使用阿里的路由跳转
+     */
+    api 'com.alibaba:arouter-api:1.5.0'
 }

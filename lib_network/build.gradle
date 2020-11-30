@@ -49,6 +49,7 @@ dependencies {
     implementation deps.lifecycle_version
     implementation deps.viewModel
     implementation deps.liveData
+    api (project(':happy_vm'))
 
 
 }

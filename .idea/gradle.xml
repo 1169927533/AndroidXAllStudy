@@ -20,6 +20,7 @@
             <option value="$PROJECT_DIR$/comp_live" />
             <option value="$PROJECT_DIR$/comp_netstudyt" />
             <option value="$PROJECT_DIR$/comp_viewmodel" />
+            <option value="$PROJECT_DIR$/happy_vm" />
             <option value="$PROJECT_DIR$/lib_crash" />
             <option value="$PROJECT_DIR$/lib_customview" />
             <option value="$PROJECT_DIR$/lib_greendao" />
@@ -34,7 +35,6 @@
             <option value="$PROJECT_DIR$/module_flop" />
             <option value="$PROJECT_DIR$/module_navigation" />
             <option value="$PROJECT_DIR$/module_smartrecycleview" />
-            <option value="$PROJECT_DIR$/module_threelogin" />
             <option value="$PROJECT_DIR$/module_webbp" />
           </set>
         </option>

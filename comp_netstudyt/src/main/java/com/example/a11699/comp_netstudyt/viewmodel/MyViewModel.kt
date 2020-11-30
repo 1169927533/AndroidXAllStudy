@@ -6,7 +6,8 @@ import androidx.lifecycle.MutableLiveData
 
 import com.example.a11699.comp_base.bean.StudentBean
 import com.example.a11699.comp_base.service.UserService
-import com.example.a11699.lib_network.vm.BaseViewModel
+import com.example.a11699.lib_network.getRepo
+import com.hipi.vm.BaseViewModel
 
 
 /**

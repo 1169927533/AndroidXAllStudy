@@ -309,6 +309,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Glide加载webp" />
+
+                <Button
+                    android:id="@+id/btn_usethreelogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="使用第三饭登录" />
             </LinearLayout>
         </com.example.a11699.comp_customview.topview.TopViewScaleScrollView>
 

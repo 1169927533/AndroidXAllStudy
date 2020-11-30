@@ -19,6 +19,7 @@ import com.example.a11699.androidxallstudy.inanimal.LiveRoomInAnimalActivity
 import com.example.a11699.androidxallstudy.lizixiaosan.LiZiActivity
 import com.example.a11699.androidxallstudy.loadingactivity.WuBaActivity
 import com.example.a11699.androidxallstudy.meinformation.MeInforMationActivity
+import com.example.a11699.androidxallstudy.mylibrary.ThreeLoginActivity
 import com.example.a11699.androidxallstudy.ossstudy.OssStudyActivity
 import com.example.a11699.androidxallstudy.permissionstudy.PermissionStudyActivity
 import com.example.a11699.androidxallstudy.piaodanmu.DanMuActivity
@@ -159,6 +160,10 @@ class MainActivity : FloatActivity() {
         btn_loadwebp.setOnClickListener {
             ARouter.getInstance().build(RouterConstant.Main.MAIN)
                     .navigation()
+        }
+        btn_usethreelogin.setOnClickListener {
+            startActivity<ThreeLoginActivity>(this)
+
         }
     }
 

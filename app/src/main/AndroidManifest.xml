@@ -53,6 +53,7 @@
         <activity android:name=".meinformation.MeInforMationActivity"
             />
         <activity android:name=".inanimal.LiveRoomInAnimalActivity"/>
+        <activity android:name=".mylibrary.ThreeLoginActivity"/>
         <activity
             android:name=".botomtab.CopyTangApp"
             android:theme="@style/fade" />

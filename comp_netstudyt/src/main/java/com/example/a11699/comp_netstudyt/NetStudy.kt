@@ -9,8 +9,7 @@ import androidx.lifecycle.Observer
 import com.example.a11699.comp_netstudyt.dialog.TestDialog
 import com.example.a11699.comp_netstudyt.util.DialogUtils
 import com.example.a11699.comp_netstudyt.viewmodel.MyViewModel
-import com.example.a11699.lib_network.vm.lazyVm
-import io.reactivex.Observable
+import com.hipi.vm.lazyVm
 import kotlinx.android.synthetic.main.activity_netstudy.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
