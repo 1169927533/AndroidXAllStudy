@@ -129,7 +129,8 @@ onApper 和 onDIsapper方法就可以了。这两个方法可以实现去创建�
 
 ## 写一个task用来启动一个Activity
 >运行下面的任务 我们的Activity就会被开启
-``grovvy
+
+```grovvy
 /**
  * 写个任务开启activity
  */
