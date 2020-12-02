@@ -315,6 +315,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="使用第三饭登录" />
+
+                <Button
+                    android:id="@+id/btn_loadwebview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="加载网页" />
             </LinearLayout>
         </com.example.a11699.comp_customview.topview.TopViewScaleScrollView>
 

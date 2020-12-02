@@ -49,6 +49,7 @@ import com.example.a11699.lib_save.MMKVUtils
 import com.example.a11699.module_flop.activity.FloapCardActivity
 import com.example.a11699.module_smartrecycleview.SmartRecycleViewStudyActivity
 import com.example.a11699.pack.NetStudyActivity
+import com.example.module_webview.WebTransportModel
 import com.tencent.imsdk.v2.V2TIMManager
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -61,12 +62,18 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : FloatActivity() {
     override fun getLayoutId(): Int {
-     return R.layout.activity_main
+        return R.layout.activity_main
+    }
+
+    override fun onUserInteraction() {
+        Toast.makeText(this, "我们的屏幕被点击啦", Toast.LENGTH_LONG).show()
+
     }
 
     override fun getToolBarTitle(): String {
         return "我是自定义的标题栏哦"
     }
+
     override fun isToolBarEnable(): Boolean {
         return true
     }
@@ -163,7 +170,16 @@ class MainActivity : FloatActivity() {
         }
         btn_usethreelogin.setOnClickListener {
             startActivity<ThreeLoginActivity>(this)
-
+        }
+        btn_loadwebview.setOnClickListener {
+            val model = WebTransportModel()
+            model.url = "http://liveh5.lkreborn.com/levelTip"
+            model.title = "我的等级"
+            model.uid = "123"
+            val postcard = ARouter.getInstance()
+                    .build(RouterConstant.Web.MAIN)
+                    .withSerializable(RouterConstant.Web.KEY_WEB_MODEL, model)
+            postcard.navigation()
         }
     }
 

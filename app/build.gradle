@@ -104,6 +104,7 @@ dependencies {
     implementation(project(':module_flop'))
     implementation(project(':lib_crash'))
     implementation(project(':module_webbp'))
+    implementation(project(':module_webview'))
 
     implementation "com.google.android.material:material:1.2.1"
     implementation 'com.android.support:support-dynamic-animation:28.0.0'//实现小球可以上下弹的动画

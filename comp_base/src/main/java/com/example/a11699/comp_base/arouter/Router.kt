@@ -17,4 +17,10 @@ class RouterConstant {
         const val MAIN = rootPath + "/ThreeActivity"
     }
 
+    object Web{
+        private const val rootPath = "/web"
+        const val MAIN  = rootPath+"/webview"
+        const val KEY_WEB_MODEL = rootPath + "/web_url_model"
+
+    }
 }

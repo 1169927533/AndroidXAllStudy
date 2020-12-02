@@ -36,6 +36,7 @@
             <option value="$PROJECT_DIR$/module_navigation" />
             <option value="$PROJECT_DIR$/module_smartrecycleview" />
             <option value="$PROJECT_DIR$/module_webbp" />
+            <option value="$PROJECT_DIR$/module_webview" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
