@@ -138,3 +138,6 @@ task run(type: Exec, dependsOn: 'installDebug') {
     commandLine "${android.sdkDirectory}/platform-tools/adb", 'shell', 'am', 'start', '-n', 'com.example.a11699.androidxallstudy/.LoginActivity'
 }
 ```
+
+##展示网页
+>新增module_webview用来展示网页数据
