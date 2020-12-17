@@ -127,9 +127,10 @@ onApper 和 onDIsapper方法就可以了。这两个方法可以实现去创建�
 <img src="resourcepackage/topviewscale.gif" width = "200" height = "400" alt="g2" style="zoom: 50%;" />
 
 
-##写一个task用来启动一个Activity
+## 写一个task用来启动一个Activity
 >运行下面的任务 我们的Activity就会被开启
-``grovvy
+
+```grovvy
 /**
  * 写个任务开启activity
  */
@@ -139,5 +140,7 @@ task run(type: Exec, dependsOn: 'installDebug') {
 }
 ```
 
-##展示网页
+
+## 展示网页
+
 >新增module_webview用来展示网页数据
