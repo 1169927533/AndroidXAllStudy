@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="QQStepView">
-        <attr name="outColor" format="color"/>
-        <attr name="innerColor" format="color"/>
-        <attr name="borderWidth" format="dimension"/>
-        <attr name="stepTextSize" format="dimension"/>
-        <attr name="stepTextColor" format="color"/>
+        <attr name="outColor" format="color" />
+        <attr name="innerColor" format="color" />
+        <attr name="borderWidth" format="dimension" />
+        <attr name="stepTextSize" format="dimension" />
+        <attr name="stepTextColor" format="color" />
     </declare-styleable>
 
     <!--折纸-->
     <declare-styleable name="PaperView">
-        <attr name="paper_duration" format="integer"/>
-        <attr name="paper_bg_color" format="color"/>
+        <attr name="paper_duration" format="integer" />
+        <attr name="paper_bg_color" format="color" />
+    </declare-styleable>
+
+
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_fill_color" format="color" />
+    </declare-styleable>
+
+
+    <!--六边形-->
+    <declare-styleable name="hexagon">
+        <attr name="sixStroke" format="dimension" /><!--线条宽度-->
+        <attr name="sixXColor" format="color" /><!--线条颜色-->
+        <attr name="sixAngle" format="dimension" /><!--线条圆角弧度-->
     </declare-styleable>
 </resources>

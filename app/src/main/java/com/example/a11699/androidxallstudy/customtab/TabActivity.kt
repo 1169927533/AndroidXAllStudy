@@ -143,11 +143,11 @@ class TabActivity : AppCompatActivity() {
         customTabLayout.initBottomView(imgView2)
 
 
-        customTabLayout.setAdapter(adapter, viewPager)
+        customTabLayout.setAdapter(adapter, viewPager,0)
 
 
         var adapter2 = TabAdapter2(items, viewPager)
-        customTabLayout1.setAdapter(adapter2, viewPager)
+        customTabLayout1.setAdapter(adapter2, viewPager,0)
 
 
         var adapter3 = TabAdapter3(items, viewPager)
@@ -157,11 +157,11 @@ class TabActivity : AppCompatActivity() {
         var layoutParams = RelativeLayout.LayoutParams(ViewUtil.dip2px(16f), ViewUtil.dip2px(3f))
         imgView.layoutParams = layoutParams
         customTabLayout2.initBottomView(imgView)
-        customTabLayout2.setAdapter(adapter3, viewPager)
+        customTabLayout2.setAdapter(adapter3, viewPager,0)
 
 
         var tab_splash_adapter = TabAdapter_Splash(items, view_parent)
-        customTabLayout_splash.setAdapter(tab_splash_adapter, view_parent)
+        customTabLayout_splash.setAdapter(tab_splash_adapter, view_parent,0)
 
     }
 }

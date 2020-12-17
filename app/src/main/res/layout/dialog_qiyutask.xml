@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_circle16">
+
+
+    <com.example.a11699.androidxallstudy.customtab.custonview.CustomTabLayout
+        android:id="@+id/customTabLayout21"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:average="true"
+        app:bottomlinecolor="@drawable/shape_white_16"
+        app:bottomlineheight="4dp"
+        app:bottomlinewidth="16dp"
+        app:hasBottomLine="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="306dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintTop_toBottomOf="@+id/customTabLayout21" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

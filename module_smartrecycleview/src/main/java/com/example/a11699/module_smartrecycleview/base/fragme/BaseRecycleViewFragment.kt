@@ -24,6 +24,7 @@ import kotlinx.android.synthetic.main.layout_emptyview.*
  */
 abstract class BaseRecycleViewFragment<T> : BaseVmFragment() {
     var viewGroupItemClick: (() -> Unit)? = null//外部view被点击
+
     //无数据展示效果
     open val emptyView: View by lazy {
         LayoutInflater.from(requireContext()).inflate(R.layout.layout_emptyview, null)
@@ -36,7 +37,8 @@ abstract class BaseRecycleViewFragment<T> : BaseVmFragment() {
     abstract val baseAdapter: BaseQuickAdapter<T, BaseViewHolder>
     abstract val onFetchListener: ((page: Int) -> Unit)
     abstract val layoutManager: RecyclerView.LayoutManager
-
+    open val isShouldNeedLoadMore: Boolean = true
+    open val isShouldNeedRefresh: Boolean = true
     lateinit var recycleview: RecyclerView
 
     override fun getLayoutId(): Int {
@@ -64,12 +66,22 @@ abstract class BaseRecycleViewFragment<T> : BaseVmFragment() {
 
         }
 
-        override fun onFling(e1: MotionEvent?, e2: MotionEvent?, velocityX: Float, velocityY: Float): Boolean {
+        override fun onFling(
+                e1: MotionEvent?,
+                e2: MotionEvent?,
+                velocityX: Float,
+                velocityY: Float
+        ): Boolean {
             return false
 
         }
 
-        override fun onScroll(e1: MotionEvent?, e2: MotionEvent?, distanceX: Float, distanceY: Float): Boolean {
+        override fun onScroll(
+                e1: MotionEvent?,
+                e2: MotionEvent?,
+                distanceX: Float,
+                distanceY: Float
+        ): Boolean {
             return false
         }
 
@@ -77,6 +89,9 @@ abstract class BaseRecycleViewFragment<T> : BaseVmFragment() {
         }
     })
 
+    open fun setRecycleViewItemDirection() {
+
+    }
 
     private fun initRecycleviewLayout() {
         //修改阻尼效果（0 - 1），越小阻尼越大，默认0.5
@@ -86,9 +101,11 @@ abstract class BaseRecycleViewFragment<T> : BaseVmFragment() {
         recycleview.setOnTouchListener { _, event -> gestureDetector.onTouchEvent(event) }
         recycleview_fans.layoutManager = layoutManager
         recycleview_fans.adapter = baseAdapter
-
-        smartRefreshUtil = SmartRefreshUtil(baseAdapter, recycleview_fans, smartRefreshLayout_fans,
-                true, true, 1, onFetchListener)
+        smartRefreshUtil = SmartRefreshUtil(
+                baseAdapter, recycleview_fans, smartRefreshLayout_fans,
+                isShouldNeedLoadMore, isShouldNeedRefresh, 1, onFetchListener
+        )
+        setRecycleViewItemDirection()
 
     }
 

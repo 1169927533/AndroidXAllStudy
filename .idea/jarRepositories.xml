@@ -51,5 +51,15 @@
       <option name="name" value="MobSDK" />
       <option name="url" value="http://mvn.mob.com/android" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven2" />
+      <option name="name" value="maven2" />
+      <option name="url" value="https://raw.githubusercontent.com/1169927533/Librity/master" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven2" />
+      <option name="name" value="maven2" />
+      <option name="url" value="https://github.com/1169927533/Librity/master" />
+    </remote-repository>
   </component>
 </project>

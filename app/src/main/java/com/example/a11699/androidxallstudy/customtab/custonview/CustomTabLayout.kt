@@ -34,8 +34,10 @@ class CustomTabLayout : RelativeLayout {
     var bottomlinecolor = 0//底部线的高度
     var horizontalScrollView: CusHorizontalScrollView? = null
     var itemViewWidth: Int = 0
+    var mContext: Context? = null
 
     constructor(context: Context, attributeSet: AttributeSet) : super(context, attributeSet) {
+        mContext = context
         var typeArray = context.obtainStyledAttributes(attributeSet, R.styleable.customTab)
         hasBottomLine = typeArray.getBoolean(R.styleable.customTab_hasBottomLine, true)
         average = typeArray.getBoolean(R.styleable.customTab_average, true)
@@ -50,12 +52,12 @@ class CustomTabLayout : RelativeLayout {
         typeArray.recycle()
     }
 
-    fun setAdapter(adapter: BaseTabAdapter, viewPager: ViewPager) {
+    fun setAdapter(adapter: BaseTabAdapter, viewPager: ViewPager, selectItem: Int) {
         mAdapter = adapter
         initViewPager(viewPager)
 
         removeAllViews()
-        var titleLayout = LinearLayout(context)
+        var titleLayout = LinearLayout(mContext)
         var layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
@@ -65,7 +67,7 @@ class CustomTabLayout : RelativeLayout {
         titleLayout.layoutParams = layoutParams
 
         for (index in 0 until adapter.getCount()) {
-            var view = adapter.getView(context, index)
+            var view = adapter.getView(mContext!!, index)
             itemViewWidth = adapter.itemViewWidth
             if (index <= adapter.getCount() - 2) {
                 view.layoutParams?.let {
@@ -85,12 +87,15 @@ class CustomTabLayout : RelativeLayout {
 
         val lp1 = LayoutParams(widthSpace, ViewGroup.LayoutParams.WRAP_CONTENT)
         lp1.addRule(CENTER_VERTICAL, TRUE)//是每个view垂直居中
-        mAdapter.onPageSelected(0)
-
+        viewPager.currentItem = selectItem
+        mAdapter.onPageSelected(selectItem)
 
         initBottomView()
 
-        horizontalScrollView = CusHorizontalScrollView(context)
+        horizontalScrollView =
+                CusHorizontalScrollView(
+                        mContext
+                )
         horizontalScrollView!!.isFillViewport = true
         val layoutParams2 = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
         horizontalScrollView!!.addView(titleLayout, layoutParams2)
@@ -192,7 +197,7 @@ class CustomTabLayout : RelativeLayout {
                             ((currentPosition * itemViewWidth) + itemViewWidth / 2) + itemMarginRight - it.width * (0.5f)
 
                     val nextScrollTo: Float =
-                            ((nextPosition * itemViewWidth) + itemViewWidth / 2) + itemMarginRight - it.width* (0.5f)
+                            ((nextPosition * itemViewWidth) + itemViewWidth / 2) + itemMarginRight - it.width * (0.5f)
 
 
                     it.scrollTo(

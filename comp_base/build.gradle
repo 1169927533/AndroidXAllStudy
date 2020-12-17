@@ -72,4 +72,7 @@ dependencies {
      * 使用阿里的路由跳转
      */
     api 'com.alibaba:arouter-api:1.5.0'
+
+
+    api 'com.mostafagazar:customshapeimageview:1.0.1'
 }

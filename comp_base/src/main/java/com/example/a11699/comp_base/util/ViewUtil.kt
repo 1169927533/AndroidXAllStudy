@@ -16,7 +16,7 @@ object ViewUtil {
      */
     fun dip2px(dipValue: Float): Int {
         val scale =
-            Resources.getSystem().displayMetrics.density
+                Resources.getSystem().displayMetrics.density
         return (dipValue * scale + 0.5f).toInt()
     }
 
@@ -25,7 +25,7 @@ object ViewUtil {
      */
     fun px2dip(pxValue: Float): Int {
         val scale =
-            Resources.getSystem().displayMetrics.density
+                Resources.getSystem().displayMetrics.density
         return (pxValue / scale + 0.5f).toInt()
     }
 
@@ -57,5 +57,6 @@ object ViewUtil {
         }
         return size
     }
+
 
 }

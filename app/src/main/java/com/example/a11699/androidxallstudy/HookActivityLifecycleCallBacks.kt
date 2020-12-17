@@ -25,7 +25,7 @@ class HookActivityLifecycleCallBacks : Application.ActivityLifecycleCallbacks {
             val viewGroup = activity.window.decorView as ViewGroup
             if(viewGroup!=null){
                 val size = viewGroup.childCount
-                val cusTomeFrameLayout = MyViewGroup(activity)
+                val cusTomeFrameLayout = ViewGroupAddClickListenerToAnyView(activity)
                 for (i in 0 until size) {
                     val view = viewGroup.getChildAt(i)
                     if (view != null) {

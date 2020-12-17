@@ -20,6 +20,8 @@ buildscript {
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
         // 注册MobSDK
         classpath "com.mob.sdk:MobSDK:2018.0319.1724"
+
+
     }
 }
 
@@ -32,7 +34,6 @@ allprojects {
         maven {
             url "https://jitpack.io"
         }
-
 
     }
 }

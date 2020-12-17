@@ -17,12 +17,14 @@
     <application
         android:name=".MainApplication"
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:replace="android:icon">
         <activity android:name=".cunstombarrage.BarrageActivity" />
         <activity android:name=".ossstudy.OssStudyActivity" />
         <activity android:name=".webview.WebViewStudy" />
@@ -48,12 +50,12 @@
         <activity android:name=".zhaunchang.TransLationActivity" />
         <activity android:name=".botomtab.BottomTabActivity" />
         <activity android:name=".bitmap.BitStudyActivity" />
-        <activity android:name=".xmlwriteandread.XmlStudyActivity"/>
-        <activity android:name=".timepick.TimePickActivity"/>
-        <activity android:name=".meinformation.MeInforMationActivity"
-            />
-        <activity android:name=".inanimal.LiveRoomInAnimalActivity"/>
-        <activity android:name=".mylibrary.ThreeLoginActivity"/>
+        <activity android:name=".xmlwriteandread.XmlStudyActivity" />
+        <activity android:name=".timepick.TimePickActivity" />
+        <activity android:name=".meinformation.MeInforMationActivity" />
+        <activity android:name=".inanimal.LiveRoomInAnimalActivity" />
+        <activity android:name=".mylibrary.ThreeLoginActivity" />
+        <activity android:name=".qiyutask.QiYuTaskACtivity" />
         <activity
             android:name=".botomtab.CopyTangApp"
             android:theme="@style/fade" />
@@ -67,6 +69,7 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".custompasswordview.CustomPasswordActivity" />
+        <activity android:name=".liubianxing.LiuBianXingActivity" />
     </application>
 
 </manifest>

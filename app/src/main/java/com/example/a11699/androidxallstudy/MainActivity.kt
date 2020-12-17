@@ -16,6 +16,7 @@ import com.example.a11699.androidxallstudy.custompasswordview.CustomPasswordActi
 import com.example.a11699.androidxallstudy.customtab.TabActivity
 import com.example.a11699.androidxallstudy.funnyeffect.FunnyActivity
 import com.example.a11699.androidxallstudy.inanimal.LiveRoomInAnimalActivity
+import com.example.a11699.androidxallstudy.liubianxing.LiuBianXingActivity
 import com.example.a11699.androidxallstudy.lizixiaosan.LiZiActivity
 import com.example.a11699.androidxallstudy.loadingactivity.WuBaActivity
 import com.example.a11699.androidxallstudy.meinformation.MeInforMationActivity
@@ -23,6 +24,7 @@ import com.example.a11699.androidxallstudy.mylibrary.ThreeLoginActivity
 import com.example.a11699.androidxallstudy.ossstudy.OssStudyActivity
 import com.example.a11699.androidxallstudy.permissionstudy.PermissionStudyActivity
 import com.example.a11699.androidxallstudy.piaodanmu.DanMuActivity
+import com.example.a11699.androidxallstudy.qiyutask.QiYuTaskACtivity
 import com.example.a11699.androidxallstudy.sendgift.SendGiftActivity
 import com.example.a11699.androidxallstudy.soul.activity.SoulActivity
 import com.example.a11699.androidxallstudy.suspension.FloatActivity
@@ -51,6 +53,7 @@ import com.example.a11699.module_smartrecycleview.SmartRecycleViewStudyActivity
 import com.example.a11699.pack.NetStudyActivity
 import com.example.module_webview.WebTransportModel
 import com.tencent.imsdk.v2.V2TIMManager
+import com.uppack.lksmall.baseyu.weight.util.ViewUtil
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -93,7 +96,6 @@ class MainActivity : FloatActivity() {
         chkShowFloatWindow.setOnCheckedChangeListener { _, isChecked ->
             showFloatWindow(isChecked) //根据勾选值显示或隐藏悬浮窗
         }
-
         btn_permission.setOnClickListener { startActivity<PermissionStudyActivity>(this) }
         btn_webview.setOnClickListener { startActivity<WebViewStudy>(this) }
         btn_oss.setOnClickListener { startActivity<OssStudyActivity>(this) }
@@ -180,6 +182,14 @@ class MainActivity : FloatActivity() {
                     .build(RouterConstant.Web.MAIN)
                     .withSerializable(RouterConstant.Web.KEY_WEB_MODEL, model)
             postcard.navigation()
+        }
+
+        btn_task.setOnClickListener {
+            startActivity<QiYuTaskACtivity>(this)
+
+        }
+        btn_liubianxing.setOnClickListener {
+            startActivity<LiuBianXingActivity>(this)
         }
     }
 

@@ -1,23 +1,21 @@
 package com.example.a11699.androidxallstudy
 
 import android.app.Activity
-import android.content.Context
 import android.graphics.Rect
 import android.graphics.RectF
-import android.util.AttributeSet
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import java.util.jar.Attributes
 
 /**
  *Create time 2020/10/30
  *Create Yu
- *description:
+ *description:在Decorview添加content之前将这个自定义view给添加进去
+ * 目的：实现监听每个控件的点击事件
  */
-class MyViewGroup(private val resumedActivity: Activity) : FrameLayout(resumedActivity) {
+class ViewGroupAddClickListenerToAnyView(private val resumedActivity: Activity) : FrameLayout(resumedActivity) {
 
     override fun onInterceptTouchEvent(event: MotionEvent): Boolean {
         when (event.action) {
@@ -47,7 +45,7 @@ class MyViewGroup(private val resumedActivity: Activity) : FrameLayout(resumedAc
             val size = viewGroup.childCount
             for (i in 0 until size) {
                 val view = viewGroup.getChildAt(i)
-                if (view !is MyViewGroup && isEventInView(event, view)) {
+                if (view !is ViewGroupAddClickListenerToAnyView && isEventInView(event, view)) {
                     val tmpRetView = findEventSrcView(event, view)
                     if (tmpRetView != null) {
                         return tmpRetView

@@ -3,15 +3,19 @@ package com.example.a11699.androidxallstudy.cunstombarrage
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.Animation
-import android.view.animation.DecelerateInterpolator
+import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
+import com.bumptech.glide.request.RequestOptions
 import com.example.a11699.androidxallstudy.R
 import com.example.a11699.comp_chat.ChatActivity
 import com.example.a11699.comp_chat.MessageActivity
+import com.example.a11699.comp_customview.pentagonal.PentagonaltTransform
 import kotlinx.android.synthetic.main.activity_barrage.*
+
 
 /**
  * 自定义弹幕滚动
@@ -31,7 +35,7 @@ class BarrageActivity : AppCompatActivity() {
 
         animatorSet.duration = 700
 
-        animatorSet.setInterpolator(AccelerateDecelerateInterpolator());
+        animatorSet.interpolator = AccelerateDecelerateInterpolator();
         animatorSet.play(scaleX).with(scaleY)
         animatorSet.start()
 
@@ -51,12 +55,9 @@ class BarrageActivity : AppCompatActivity() {
             var intent = Intent(this, MessageActivity::class.java)
             startActivity(intent)
         }
-    }
 
-    override fun onPause() {
-        super.onPause()
+
 
     }
-
 
 }

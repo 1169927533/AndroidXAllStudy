@@ -33,13 +33,13 @@
 
 
                 <TextView
-                    android:gravity="center"
-                    android:textColor="#ffffff"
-                    android:text="我是顶部view"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:background="@drawable/shape_beauty_seek_thumb"
-                    android:tag="topview" />
+                    android:gravity="center"
+                    android:tag="topview"
+                    android:text="我是顶部view"
+                    android:textColor="#ffffff" />
 
 
                 <Button
@@ -321,6 +321,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="加载网页" />
+
+                <Button
+                    android:id="@+id/btn_task"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="奇遇任务" />
+
+                <Button
+                    android:id="@+id/btn_liubianxing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="六边形" />
             </LinearLayout>
         </com.example.a11699.comp_customview.topview.TopViewScaleScrollView>
 
