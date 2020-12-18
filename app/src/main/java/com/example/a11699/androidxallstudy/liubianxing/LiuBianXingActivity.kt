@@ -1,10 +1,15 @@
 package com.example.a11699.androidxallstudy.liubianxing
 
+import android.graphics.drawable.Drawable
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.example.a11699.androidxallstudy.R
 import com.example.a11699.comp_base.activity.BaseActivity
 import com.example.a11699.comp_customview.pentagonal.PentagonaltTransform
-import kotlinx.android.synthetic.main.activity_barrage.*
+import kotlinx.android.synthetic.main.activity_liubianxing.*
 
 /**
  * @Author Yu
@@ -19,12 +24,13 @@ class LiuBianXingActivity : BaseActivity() {
     }
 
     override fun initView() {
-        img.post{
+        img.post {
             Glide.with(this).load("https://00imgmini.eastday.com/mobile/20201213/20201213183953_a405bf0a5068b68f0856e5e6c686bfb6_3_mwpm_05501609.jpg")
                     //  .apply(RequestOptions.bitmapTransform(PentagonaltTransform()))
                     .transform(PentagonaltTransform(img.width.toFloat()))
                     .into(img)
         }
+        glideurl.loadUrlImg("https://00imgmini.eastday.com/mobile/20201213/20201213183953_a405bf0a5068b68f0856e5e6c686bfb6_3_mwpm_05501609.jpg")
     }
 
     override fun observeLiveData() {
