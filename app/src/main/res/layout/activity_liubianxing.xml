@@ -13,7 +13,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <com.example.a11699.comp_customview.pentagonal.PentagonalView
+    <com.pince.module_customview.sixshape.PentagonalView
         android:id="@+id/pentview"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -27,7 +27,7 @@
         app:sixAngle="3dp"
         app:sixXColor="#ff32" />
 
-    <com.example.a11699.comp_customview.pentagonal.PentagonalView
+    <com.pince.module_customview.sixshape.PentagonalView
         android:id="@+id/glideurl"
         android:layout_width="100dp"
         android:layout_height="100dp"

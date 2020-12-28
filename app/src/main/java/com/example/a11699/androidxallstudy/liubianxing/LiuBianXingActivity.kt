@@ -1,14 +1,9 @@
 package com.example.a11699.androidxallstudy.liubianxing
 
-import android.graphics.drawable.Drawable
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.Target
 import com.example.a11699.androidxallstudy.R
 import com.example.a11699.comp_base.activity.BaseActivity
-import com.example.a11699.comp_customview.pentagonal.PentagonaltTransform
+import com.pince.module_customview.sixshape.PentagonaltTransform
 import kotlinx.android.synthetic.main.activity_liubianxing.*
 
 /**

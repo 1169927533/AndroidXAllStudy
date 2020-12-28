@@ -70,6 +70,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".custompasswordview.CustomPasswordActivity" />
         <activity android:name=".liubianxing.LiuBianXingActivity" />
+        <activity android:name=".recycleviewstudy.RecycleViewStudyActivity" />
     </application>
 
 </manifest>

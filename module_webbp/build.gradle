@@ -46,5 +46,5 @@ dependencies {
         exclude group:"com.android.support"
     }
     kapt "com.github.bumptech.glide:compiler:${GLIDE_VERSION}"
-    implementation "com.zlc.glide:webpdecoder:${DECODER_VERSION}.${GLIDE_VERSION}"
+    implementation "com.zlc.glide:webpdecoder:2.0.${GLIDE_VERSION}"
 }

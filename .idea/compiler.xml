@@ -24,6 +24,7 @@
       <module name="AndroidXAllStudy.lib_util" target="1.8" />
       <module name="AndroidXAllStudy.library" target="1.8" />
       <module name="AndroidXAllStudy.module_flop" target="1.8" />
+      <module name="AndroidXAllStudy.module_heart" target="1.8" />
       <module name="AndroidXAllStudy.module_navigation" target="1.8" />
       <module name="AndroidXAllStudy.module_smartrecycleview" target="1.8" />
       <module name="AndroidXAllStudy.module_threelogin" target="1.8" />

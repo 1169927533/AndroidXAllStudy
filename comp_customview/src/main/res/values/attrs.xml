@@ -23,12 +23,5 @@
     </declare-styleable>
 
 
-    <!--六边形-->
-    <declare-styleable name="hexagon">
-        <attr name="sixStroke" format="dimension" /><!--线条宽度-->
-        <attr name="sixXColor" format="color" /><!--线条颜色-->
-        <attr name="sixAngle" format="dimension" /><!--线条圆角弧度-->
-        <attr name="isFill" format="boolean" /><!--是填充吗-->
-        <attr name="loadNetImg" format="boolean" /><!--是否去加载网络图片-->
-    </declare-styleable>
+
 </resources>

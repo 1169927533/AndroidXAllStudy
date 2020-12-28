@@ -3,6 +3,11 @@ package com.example.a11699.androidxallstudy
 import android.app.ActivityOptions
 import android.content.Intent
 import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.work.OneTimeWorkRequest
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkInfo
+import androidx.work.WorkManager
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.a11699.activity.NavigationActivity
 import com.example.a11699.androidxallstudy.batteryview.BatteryActivity
@@ -25,6 +30,7 @@ import com.example.a11699.androidxallstudy.ossstudy.OssStudyActivity
 import com.example.a11699.androidxallstudy.permissionstudy.PermissionStudyActivity
 import com.example.a11699.androidxallstudy.piaodanmu.DanMuActivity
 import com.example.a11699.androidxallstudy.qiyutask.QiYuTaskACtivity
+import com.example.a11699.androidxallstudy.recycleviewstudy.RecycleViewStudyActivity
 import com.example.a11699.androidxallstudy.sendgift.SendGiftActivity
 import com.example.a11699.androidxallstudy.soul.activity.SoulActivity
 import com.example.a11699.androidxallstudy.suspension.FloatActivity
@@ -35,6 +41,8 @@ import com.example.a11699.androidxallstudy.util.startActivity
 import com.example.a11699.androidxallstudy.viewdraghelper.ViewDragerStudyActivity
 import com.example.a11699.androidxallstudy.webview.WebViewStudy
 import com.example.a11699.androidxallstudy.weibo.WeiBoActivity
+import com.example.a11699.androidxallstudy.workmanager.DialogAppraiseTipsWorker
+import com.example.a11699.androidxallstudy.workmanager.logD
 import com.example.a11699.androidxallstudy.xmlwriteandread.XmlStudyActivity
 import com.example.a11699.androidxallstudy.zhaunchang.TransLationActivity
 import com.example.a11699.androidxallstudy.zhezhi.PaperActivity
@@ -52,9 +60,12 @@ import com.example.a11699.module_flop.activity.FloapCardActivity
 import com.example.a11699.module_smartrecycleview.SmartRecycleViewStudyActivity
 import com.example.a11699.pack.NetStudyActivity
 import com.example.module_webview.WebTransportModel
+import com.pince.module_heart.MainHeatActivity
 import com.tencent.imsdk.v2.V2TIMManager
 import com.uppack.lksmall.baseyu.weight.util.ViewUtil
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.delay
+import kotlin.math.log
 
 
 /**
@@ -191,6 +202,15 @@ class MainActivity : FloatActivity() {
         btn_liubianxing.setOnClickListener {
             startActivity<LiuBianXingActivity>(this)
         }
+        btn_recycleview.setOnClickListener { startActivity<RecycleViewStudyActivity>(this) }
+
+        btn_workmanager.setOnClickListener {
+
+        }
+        btn_tiantian.setOnClickListener {
+            startActivity<MainHeatActivity>(this)
+        }
+
     }
 
     override fun onResume() {
@@ -218,4 +238,24 @@ class MainActivity : FloatActivity() {
             })
         }
     }
+
+    private fun observe() {
+        WorkManager.getInstance(this)
+                .getWorkInfoByIdLiveData(DialogAppraiseTipsWorker.showDialogWorkRequest.id).observe(this, Observer { workInfo ->
+            logD("MainActivity", "observe:workInfo.state = ${workInfo.state}")
+            when(workInfo.state){
+                WorkInfo.State.SUCCEEDED->{
+
+                }
+                WorkInfo.State.RUNNING->{
+
+                }
+                WorkInfo.State.FAILED->{
+
+                }
+            }
+        })
+    }
+
+
 }

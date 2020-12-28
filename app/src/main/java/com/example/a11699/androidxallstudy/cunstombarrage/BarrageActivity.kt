@@ -7,13 +7,9 @@ import android.os.Bundle
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.Animation
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.CircleCrop
-import com.bumptech.glide.request.RequestOptions
 import com.example.a11699.androidxallstudy.R
 import com.example.a11699.comp_chat.ChatActivity
 import com.example.a11699.comp_chat.MessageActivity
-import com.example.a11699.comp_customview.pentagonal.PentagonaltTransform
 import kotlinx.android.synthetic.main.activity_barrage.*
 
 
