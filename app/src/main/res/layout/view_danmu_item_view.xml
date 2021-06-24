@@ -6,19 +6,27 @@
     android:layout_height="wrap_content"
     >
 
-    <TextView
+    <com.example.a11699.androidxallstudy.piaodanmu.MyTextView
         android:id="@+id/tvDanmukContent"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="11dp"
         android:layout_marginBottom="2dp"
+
+        android:singleLine="true"
+        android:scrollHorizontally="true"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+
         android:background="@drawable/shape_danmuk_bg"
         android:minWidth="120dp"
         android:paddingLeft="30dp"
         android:paddingRight="10dp"
-        android:text="aaaaaaaaaaaaaaaaaaaa"
+
         android:textColor="@color/white"
-        android:textSize="12sp"
+        android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

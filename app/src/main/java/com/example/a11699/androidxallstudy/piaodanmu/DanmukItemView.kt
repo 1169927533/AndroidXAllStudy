@@ -20,13 +20,13 @@ class DanmukItemView : FrameLayout {
     constructor(context: Context, mAttributeSet: AttributeSet?) : super(context, mAttributeSet)
 
     val animatorTime = 3500L
+
     init {
         LayoutInflater.from(context).inflate(R.layout.view_danmu_item_view, this, true)
     }
 
 
-
-    var endCall: ((giftAnimalBean:GiftAnimalBean) -> Unit)? = null
+    var endCall: ((giftAnimalBean: GiftAnimalBean) -> Unit)? = null
 
     // 可以开始下一个弹幕了
 
@@ -35,18 +35,18 @@ class DanmukItemView : FrameLayout {
     private var nextAvalibeCalled = false
     private val tansAni by lazy {
         val ta = ObjectAnimator.ofFloat(
-            this,
-            "translationX",
-            parentWidth.toFloat(),
-            -this.width.toFloat()
+                this,
+                "translationX",
+                parentWidth.toFloat(),
+                -this.width.toFloat()
         )
         ta.addListener(object : Animator.AnimatorListener {
             override fun onAnimationRepeat(animation: Animator?) {
             }
 
             override fun onAnimationEnd(animation: Animator?) {
-                endCall?.invoke(giftAnimalBean!!)
-
+                giftAnimalBean!!.isBusy = false
+                endCall!!(giftAnimalBean!!)
             }
 
             override fun onAnimationCancel(animation: Animator?) {
@@ -67,16 +67,14 @@ class DanmukItemView : FrameLayout {
 
         }
 
-        ta.duration=animatorTime
+        ta.duration = animatorTime
         ta
     }
 
 
-    private var danmuke: Danmuke? = null
     private var parentWidth: Int = 0
-    private var giftAnimalBean:GiftAnimalBean?=null
-    fun setDamukeAniml(danmuke: Danmuke, parentWidth: Int,giftAnimalBean:GiftAnimalBean) {
-        this.danmuke = danmuke
+    private var giftAnimalBean: GiftAnimalBean? = null
+    fun setDamukeAniml(parentWidth: Int, giftAnimalBean: GiftAnimalBean) {
         this.giftAnimalBean = giftAnimalBean
         this.parentWidth = parentWidth
     }
@@ -90,6 +88,7 @@ class DanmukItemView : FrameLayout {
 
     fun start() {
         tansAni.start()
-        postDelayed({nextAvalibeCall?.invoke()}, (animatorTime * (width*1.1 /parentWidth)).toLong())
+        postDelayed({ nextAvalibeCall?.invoke() }, (animatorTime * (width * 1.1 / parentWidth)).toLong())
     }
+
 }

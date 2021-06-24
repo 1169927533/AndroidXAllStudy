@@ -2,6 +2,7 @@ package com.example.a11699.androidxallstudy.piaodanmu
 
 import android.app.ActivityManager
 import android.content.Context
+import android.text.TextUtils
 import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
@@ -22,72 +23,87 @@ class DanmukView : FrameLayout, IDanmukView<Danmuke> {
     constructor(context: Context) : super(context)
     constructor(context: Context, mAttributeSet: AttributeSet?) : super(context, mAttributeSet)
 
-    val dmAnimalView = LinkedList<DanmukItemView>()
-
+    private val dmAnimalView = LinkedList<String>()
 
     private var isNextAble = true
 
     override fun onNewModel(mode: Danmuke) {
         var giftAnimalBean: GiftAnimalBean? = null
         for (value in haveInitView) {
-            Log.i("zjc", "${value.isBusy}")
             if (!value.isBusy) {
                 giftAnimalBean = value
                 break
             }
         }
         Log.i("zjc", "${haveInitView.size}")
-        var itemView: DanmukItemView? = null
+
         if (giftAnimalBean == null) {
-            itemView = LayoutInflater.from(context)
-                .inflate(R.layout.layout_danmukitemview, this, false) as DanmukItemView
-            itemView.setOnClickListener {
+            var vv = LayoutInflater.from(context)
+                    .inflate(R.layout.layout_danmukitemview, this, false) as DanmukItemView
+            vv.setOnClickListener {
 
             }
-            giftAnimalBean = GiftAnimalBean(true, itemView)
+            giftAnimalBean = GiftAnimalBean(false, vv)
             haveInitView.add(giftAnimalBean)
-        } else {
-            itemView = giftAnimalBean.view as DanmukItemView
         }
-        giftAnimalBean.isBusy = true
-        itemView.setDamukeAniml(mode, ScreenUtil.getScreenWidth(),giftAnimalBean)
 
-        itemView.tvDanmukSenderName.text = mode.senderName
+        var itemView: DanmukItemView = giftAnimalBean.view as DanmukItemView
+        itemView.setDamukeAniml(ScreenUtil.getScreenWidth(), giftAnimalBean)
+        itemView.tvDanmukSenderName.text = "mode.senderName"
         itemView.tvDanmukContent.text = mode.content
-        itemView.tvDanmukSenderLevel.text = mode.content
+        itemView.tvDanmukSenderLevel.text = "mode.content"
+
+        itemView.tvDanmukContent.isFocusable = true;
+        itemView.tvDanmukContent.ellipsize = TextUtils.TruncateAt.MARQUEE;
+        itemView.tvDanmukContent.setSingleLine();
+        itemView.tvDanmukContent.setSelected(true)
+        itemView.tvDanmukContent.setFocusableInTouchMode(true);
+        itemView.tvDanmukContent.setHorizontallyScrolling(true);
 
         itemView.nextAvalibeCall = {
-            isNextAble = true
+            //isNextAble = true
             checkNext()
         }
 
         itemView.endCall = {
             it.isBusy = false
         }
+
         if (isNextAble) {
-            startNext(itemView)
+            Log.i("zjc", "这就进来了？")
+            startNext(giftAnimalBean)
         } else {
-            dmAnimalView.add(itemView)
+            dmAnimalView.add("itemView")
         }
     }
 
     private fun checkNext() {
         val next = dmAnimalView.poll()
         next?.let {
-            startNext(it)
+            for (value in haveInitView) {
+                if (!value.isBusy) {
+                    startNext(value)
+                    break
+                }
+            }
+        }
+        if (next == null) {
+            isNextAble = true
+            Log.i("zjc", "这就为true？？")
         }
     }
 
-    private fun startNext(item: DanmukItemView) {
-        if(item.parent==null){
+    private fun startNext(item: GiftAnimalBean) {
+        Log.i("zjc", "有： ${childCount}")
+        item.isBusy = true
+        isNextAble = false
+        if (item.view.parent == null) {
             addView(
-                item,
-                FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
+                    item.view,
+                    FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
             )
         }
-
-        isNextAble = false
-        item.post { item.start() }
+        (item.view as DanmukItemView).post { (item.view as DanmukItemView).start() }
     }
 
     override fun clear() {
