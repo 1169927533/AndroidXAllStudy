@@ -37,4 +37,10 @@
         android:layout_marginTop="137dp"
         />
 
+    <EditText
+        android:layout_marginTop="355dp"
+        app:layout_constraintTop_toBottomOf="@+id/btn_showdanmu"
+        android:id="@+id/ed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

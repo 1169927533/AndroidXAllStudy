@@ -12,6 +12,7 @@ import com.example.a11699.lib_im.bean.ChatInfo
 import com.example.a11699.lib_im.bean.ConversationInfo
 import com.example.a11699.lib_im.messageutil.ConversationManager
 import com.example.a11699.lib_im.messageutil.IUIKitCallBack
+import com.example.a11699.lib_util.dp
 
 import com.example.a11699.module_smartrecycleview.base.activity.BaseRecycleViewActivity
 import kotlinx.android.synthetic.main.activity_messagee.*

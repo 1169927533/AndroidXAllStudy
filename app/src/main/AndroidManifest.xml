@@ -67,10 +67,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".MainActivity" />
         <activity android:name=".custompasswordview.CustomPasswordActivity" />
         <activity android:name=".liubianxing.LiuBianXingActivity" />
         <activity android:name=".recycleviewstudy.RecycleViewStudyActivity" />
+        <activity android:name=".gestureimg.GestureActivity"/>
+
+        <provider
+
+            android:authorities="com.s.s"
+            android:name=".batteryview.SS"/>
     </application>
 
 </manifest>

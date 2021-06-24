@@ -20,6 +20,7 @@ import com.example.a11699.androidxallstudy.customdropdown.DropDownActivity
 import com.example.a11699.androidxallstudy.custompasswordview.CustomPasswordActivity
 import com.example.a11699.androidxallstudy.customtab.TabActivity
 import com.example.a11699.androidxallstudy.funnyeffect.FunnyActivity
+import com.example.a11699.androidxallstudy.gestureimg.GestureActivity
 import com.example.a11699.androidxallstudy.inanimal.LiveRoomInAnimalActivity
 import com.example.a11699.androidxallstudy.liubianxing.LiuBianXingActivity
 import com.example.a11699.androidxallstudy.lizixiaosan.LiZiActivity
@@ -60,12 +61,8 @@ import com.example.a11699.module_flop.activity.FloapCardActivity
 import com.example.a11699.module_smartrecycleview.SmartRecycleViewStudyActivity
 import com.example.a11699.pack.NetStudyActivity
 import com.example.module_webview.WebTransportModel
-import com.pince.module_heart.MainHeatActivity
 import com.tencent.imsdk.v2.V2TIMManager
-import com.uppack.lksmall.baseyu.weight.util.ViewUtil
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.delay
-import kotlin.math.log
 
 
 /**
@@ -207,10 +204,10 @@ class MainActivity : FloatActivity() {
         btn_workmanager.setOnClickListener {
 
         }
-        btn_tiantian.setOnClickListener {
-            startActivity<MainHeatActivity>(this)
-        }
 
+        btn_getsurestudy.setOnClickListener {
+            startActivity<GestureActivity>(this)
+        }
     }
 
     override fun onResume() {
@@ -242,19 +239,19 @@ class MainActivity : FloatActivity() {
     private fun observe() {
         WorkManager.getInstance(this)
                 .getWorkInfoByIdLiveData(DialogAppraiseTipsWorker.showDialogWorkRequest.id).observe(this, Observer { workInfo ->
-            logD("MainActivity", "observe:workInfo.state = ${workInfo.state}")
-            when(workInfo.state){
-                WorkInfo.State.SUCCEEDED->{
+                    logD("MainActivity", "observe:workInfo.state = ${workInfo.state}")
+                    when (workInfo.state) {
+                        WorkInfo.State.SUCCEEDED -> {
 
-                }
-                WorkInfo.State.RUNNING->{
+                        }
+                        WorkInfo.State.RUNNING -> {
 
-                }
-                WorkInfo.State.FAILED->{
+                        }
+                        WorkInfo.State.FAILED -> {
 
-                }
-            }
-        })
+                        }
+                    }
+                })
     }
 
 

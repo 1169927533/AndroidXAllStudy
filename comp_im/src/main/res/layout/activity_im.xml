@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.a11699.lib_customview.softinputLinearlayout.SoftViewGroup xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.a11699.lib_customview.softinputLinearlayout.SoftViewGroup
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/soft_viewgroup"
     android:layout_width="match_parent"
@@ -32,7 +33,6 @@
     <FrameLayout
         android:id="@+id/more_groups"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="wrap_content" />
 
 </com.example.a11699.lib_customview.softinputLinearlayout.SoftViewGroup>

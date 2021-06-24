@@ -40,6 +40,7 @@ public class IndicatorSeekBar extends LinearLayout {
     }
 
     private boolean isTrack = false;
+
     private void initView(Context context) {
         final LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.view_indicator_seekbar, this);
@@ -52,27 +53,27 @@ public class IndicatorSeekBar extends LinearLayout {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         startX = event.getX();
-                        if(startX < thumb.getRight()+thumb.getWidth()*3 && startX>thumb.getLeft()-thumb.getWidth()*3){
+                        if (startX < thumb.getRight() + thumb.getWidth() * 3 && startX > thumb.getLeft() - thumb.getWidth() * 3) {
                             isTrack = true;
-                        }else {
-                            isTrack =false;
+                        } else {
+                            isTrack = false;
                         }
 
                         break;
                     case MotionEvent.ACTION_MOVE:
                         float dx = event.getX() - startX;
 
-                        if( isTrack && dx!=0){
-                            Log.d("IndicatorSeekBar","dx  : "+dx +"   getWidth() ："+getWidth() +"       -----dx/getWidth() :"+dx/getWidth()+" (dx/getWidth()*pross ) : "+(dx/getWidth()*100 ));
-                            float prossChange =  (pross + (dx/getWidth()*100 ));
-                            if(prossChange>100){
-                                prossChange=100;
+                        if (isTrack && dx != 0) {
+                            Log.d("IndicatorSeekBar", "dx  : " + dx + "   getWidth() ：" + getWidth() + "       -----dx/getWidth() :" + dx / getWidth() + " (dx/getWidth()*pross ) : " + (dx / getWidth() * 100));
+                            float prossChange = (pross + (dx / getWidth() * 100));
+                            if (prossChange > 100) {
+                                prossChange = 100;
                             }
-                            if(prossChange<0){
-                                prossChange=0;
+                            if (prossChange < 0) {
+                                prossChange = 0;
                             }
                             updateTextview(prossChange);
-                            if(listener!=null){
+                            if (listener != null) {
                                 listener.onChange((int) prossChange);
                             }
                             startX = event.getX();
@@ -98,25 +99,26 @@ public class IndicatorSeekBar extends LinearLayout {
     }
 
     private float pross = 0;
+
     public void updateTextview(final float progress) {
-        Log.d("IndicatorSeekBar","updateTextview  : "+progress);
-        if(getWidth()<=0){
+        Log.d("IndicatorSeekBar", "updateTextview  : " + progress);
+        if (getWidth() <= 0) {
             post(new Runnable() {
                 @Override
                 public void run() {
                     setPross(progress);
                 }
             });
-        }else {
+        } else {
             setPross(progress);
         }
     }
 
-    private void setPross(float progress){
+    private void setPross(float progress) {
         pross = progress;
         int w = getWidth();
-        float firstW =  (w*  (pross/100f));
-        float thumbMagin =  (( w - thumbWidth)*(pross/100f));
+        float firstW = (w * (pross / 100f));
+        float thumbMagin = ((w - thumbWidth) * (pross / 100f));
 
         FrameLayout.LayoutParams lpThumb = (FrameLayout.LayoutParams) thumb.getLayoutParams();
         FrameLayout.LayoutParams lpFirst = (FrameLayout.LayoutParams) viewFirstColor.getLayoutParams();
@@ -128,12 +130,14 @@ public class IndicatorSeekBar extends LinearLayout {
         requestLayout();
     }
 
-    private float startX =0;
+    private float startX = 0;
 
-    private ProgressChangeListener listener;
-    public static interface ProgressChangeListener{
+    ProgressChangeListener listener;
+
+    public static interface ProgressChangeListener {
         public void onChange(int progress);
     }
+
     public void setOnSeekBarChangeListener(ProgressChangeListener listener) {
         this.listener = listener;
     }

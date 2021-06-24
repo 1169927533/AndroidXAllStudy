@@ -17,6 +17,9 @@ class MainApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         //初始化im
+        /* com.example.a11699.androidxallstudy.ImHelper.getInstance().initImSdk(this,1400382026)
+         com.example.a11699.androidxallstudy.ImHelper.getInstance().initReceiptMessage()
+        */
         ImHelper.initImSdk(this, 1400382026)
         //-----------------------------------------------------------------------------
         registerActivityLifecycleCallbacks(HookActivityLifecycleCallBacks())

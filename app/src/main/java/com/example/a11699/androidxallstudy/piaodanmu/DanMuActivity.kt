@@ -21,9 +21,9 @@ class DanMuActivity : AppCompatActivity() {
         setContentView(R.layout.activity_danmu)
         danManager.addView(DanmukViewStub(stubDanmuk1))
         danManager.addView(DanmukViewStub(stubDanmuk2))
-
+        var sss = 1
         btn_showdanmu.setOnClickListener {
-            danManager.onDanmukArrived(Danmuke("dsa","223"))
+            danManager.onDanmukArrived(Danmuke("" + sss++, ed.text.toString()))
         }
     }
 }

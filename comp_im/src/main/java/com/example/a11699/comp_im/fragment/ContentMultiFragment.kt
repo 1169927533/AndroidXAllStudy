@@ -53,7 +53,6 @@ class ContentMultiFragment(private val bottomInputView: BottomInputView) : BaseM
                     recycleview.scrollToPosition(baseAdapter.itemCount - 1)
                 }
             }
-
             override fun onError(module: String?, errCode: Int, errMsg: String?) {
             }
         }) { v2LastMessage ->

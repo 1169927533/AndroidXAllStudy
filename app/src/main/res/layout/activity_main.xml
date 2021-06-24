@@ -346,12 +346,12 @@
                     android:layout_height="wrap_content"
                     android:text="WorManager写一个后台任务" />
 
-
                 <Button
-                    android:id="@+id/btn_tiantian"
+                    android:id="@+id/btn_getsurestudy"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="天天项目" />
+                    android:text="手势缩放的imagebiew" />
+
             </LinearLayout>
         </com.example.a11699.comp_customview.topview.TopViewScaleScrollView>
 

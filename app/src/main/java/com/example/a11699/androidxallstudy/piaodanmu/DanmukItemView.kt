@@ -26,7 +26,7 @@ class DanmukItemView : FrameLayout {
 
 
 
-    var endCall: (() -> Unit)? = null
+    var endCall: ((giftAnimalBean:GiftAnimalBean) -> Unit)? = null
 
     // 可以开始下一个弹幕了
 
@@ -45,7 +45,8 @@ class DanmukItemView : FrameLayout {
             }
 
             override fun onAnimationEnd(animation: Animator?) {
-                endCall?.invoke()
+                endCall?.invoke(giftAnimalBean!!)
+
             }
 
             override fun onAnimationCancel(animation: Animator?) {
@@ -73,11 +74,11 @@ class DanmukItemView : FrameLayout {
 
     private var danmuke: Danmuke? = null
     private var parentWidth: Int = 0
-    fun setDamukeAniml(danmuke: Danmuke, parentWidth: Int) {
+    private var giftAnimalBean:GiftAnimalBean?=null
+    fun setDamukeAniml(danmuke: Danmuke, parentWidth: Int,giftAnimalBean:GiftAnimalBean) {
         this.danmuke = danmuke
+        this.giftAnimalBean = giftAnimalBean
         this.parentWidth = parentWidth
-
-
     }
 
     fun clear() {

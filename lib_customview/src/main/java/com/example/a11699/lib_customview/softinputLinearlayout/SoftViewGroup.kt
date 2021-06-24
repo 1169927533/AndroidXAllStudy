@@ -44,14 +44,13 @@ class SoftViewGroup : LinearLayout {
                         //   mShouldShowMore = 0
                         //   InputUtil.showSoftInout(mEditText!!, mContext!!)
                         requestLayout()
-
                     } else {
                         requestLayout()
                     }
                     click_soft = 0
                 }
             }
-            2 -> { //不展示更多 软键盘谈起
+            2 -> { //不展示更多 软键盘弹起
                 InputUtil.showSoftInout(mEditText!!, mContext!!)
             }
             3 -> { //全部不展示

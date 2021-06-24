@@ -91,8 +91,8 @@ This class is used by widgets to control text layout. You should not need to use
      * 重置view的状态
      */
     private fun resectViewState() {
-        if (scaleAnimal != null && scaleAnimal!!.isRunning()) {
-            return;
+        if (scaleAnimal != null && scaleAnimal!!.isRunning) {
+            return
         }
         scaleAnimal = ObjectAnimator.ofInt(this, "transLation", (-distance / 4).toInt(), 0);
         scaleAnimal!!.duration = 150;
@@ -121,7 +121,7 @@ This class is used by widgets to control text layout. You should not need to use
         //当手势上滑，则右侧滚动条下滑，下滑的高度小于TopView的高度，则让TopView的上滑速度小于DownView的上滑速度
         //DownView的上滑速度是滚动条的速度，也就是滚动的距离是右侧滚动条的距离
         //则TopView的速度要小，只需要将右侧滚动条的偏移量也就是t缩小一定倍数就行了。我这里除以2速度减小1倍
-        if (t <= topViewHeight && t >= 0 && !isBig) {
+        if (t in 0..topViewHeight && !isBig) {
             //   mTopView!!.translationY = t / 2.toFloat() //使得TopView滑动的速度小于滚轮滚动的速度
         }
         if (isBig) {

@@ -33,7 +33,6 @@
             <option value="$PROJECT_DIR$/lib_util" />
             <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/module_flop" />
-            <option value="$PROJECT_DIR$/module_heart" />
             <option value="$PROJECT_DIR$/module_navigation" />
             <option value="$PROJECT_DIR$/module_smartrecycleview" />
             <option value="$PROJECT_DIR$/module_webbp" />
@@ -41,6 +40,7 @@
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
+        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>
   </component>
